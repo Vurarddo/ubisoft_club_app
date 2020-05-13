@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+
+import 'package:ubisoft_club_app/localization.dart';
 
 void runUbisoftClubApp() {
   // Injector
@@ -6,11 +9,26 @@ void runUbisoftClubApp() {
   runApp(UbisoftClubApp());
 }
 
+const _supportedLocales = [
+  Locale('en'),
+  Locale('ru'),
+  Locale('uk'),
+];
+
+const List<LocalizationsDelegate> _localizationsDelegate = [
+  UbisoftClubLocalizationsDelegate(),
+  GlobalMaterialLocalizations.delegate,
+  GlobalWidgetsLocalizations.delegate,
+];
+
+
 class UbisoftClubApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      supportedLocales: _supportedLocales,
+      localizationsDelegates: _localizationsDelegate,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -39,9 +57,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final locale = UbisoftClubLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(locale.email),
       ),
       body: Center(
         child: Column(
