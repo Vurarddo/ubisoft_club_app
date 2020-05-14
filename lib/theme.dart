@@ -8,29 +8,31 @@ final appThemeData = {
 };
 
 final lightTheme = ThemeData(
-  primarySwatch: white,
+  primarySwatch: orange400,
+  secondaryHeaderColor: Colors.orange[400],
 );
 
 final darkTheme = ThemeData(
   primarySwatch: grey850,
+  secondaryHeaderColor: Colors.grey[850],
   primaryColorDark: Colors.grey[800],
   cursorColor: Colors.grey[900],
   accentColor: Colors.grey[100],
 );
 
-const MaterialColor white = const MaterialColor(
-  0xFFFFFFFF,
-  const <int, Color>{
-    50: const Color(0xFFFFFFFF),
-    100: const Color(0xFFFFFFFF),
-    200: const Color(0xFFFFFFFF),
-    300: const Color(0xFFFFFFFF),
-    400: const Color(0xFFFFFFFF),
-    500: const Color(0xFFFFFFFF),
-    600: const Color(0xFFFFFFFF),
-    700: const Color(0xFFFFFFFF),
-    800: const Color(0xFFFFFFFF),
-    900: const Color(0xFFFFFFFF),
+const MaterialColor orange400 = const MaterialColor(
+  0xFFFFA726,
+  <int, Color>{
+    50: Color(0xFFFFF3E0),
+    100: Color(0xFFFFE0B2),
+    200: Color(0xFFFFCC80),
+    300: Color(0xFFFFB74D),
+    400: Color(0xFFFFA726),
+    500: Color(0xFFFF9800),
+    600: Color(0xFFFB8C00),
+    700: Color(0xFFF57C00),
+    800: Color(0xFFEF6C00),
+    900: Color(0xFFE65100),
   },
 );
 
