@@ -1,7 +1,13 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+import 'dart:ui';
 
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:ubisoft_club_app/infrastructure/environment_banner.dart';
+
+import 'package:ubisoft_club_app/theme.dart';
 import 'package:ubisoft_club_app/localization.dart';
+import 'package:ubisoft_club_app/features/home/home_screen.dart';
 
 void runUbisoftClubApp() {
   // Injector
@@ -21,66 +27,34 @@ const List<LocalizationsDelegate> _localizationsDelegate = [
   GlobalWidgetsLocalizations.delegate,
 ];
 
+class UbisoftClubApp extends StatefulWidget {
+  @override
+  _UbisoftClubAppState createState() => _UbisoftClubAppState();
+}
 
-class UbisoftClubApp extends StatelessWidget {
+class _UbisoftClubAppState extends State<UbisoftClubApp> {
   @override
   Widget build(BuildContext context) {
+    return EnvironmentBanner(
+      child: _buildMaterialApp(),
+    );
+  }
+
+  MaterialApp _buildMaterialApp() {
+    final theme = window.platformBrightness == Brightness.light
+        ? appThemeData[AppTheme.light]
+        : appThemeData[AppTheme.dark];
+
     return MaterialApp(
       title: 'Flutter Demo',
       supportedLocales: _supportedLocales,
       localizationsDelegates: _localizationsDelegate,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      theme: theme,
+      onGenerateRoute: _onGenerateRoute,
     );
   }
-}
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final locale = UbisoftClubLocalizations.of(context);
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(locale.email),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
-    );
+  Route _onGenerateRoute(RouteSettings settings) {
+    return HomeScreen.getPageRoute();
   }
 }
