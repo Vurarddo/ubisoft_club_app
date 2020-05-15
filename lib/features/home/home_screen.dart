@@ -4,9 +4,8 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:ubisoft_club_app/widgets/scaffold_body_wrapper.dart';
 
-import 'package:ubisoft_club_app/widgets/waves.dart';
+import 'package:ubisoft_club_app/widgets/scaffold_body_wrapper.dart';
 import 'package:ubisoft_club_app/features/home/home_screen_presenter.dart';
 
 class HomeScreen extends StatefulWidget {

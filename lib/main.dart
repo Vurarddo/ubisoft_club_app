@@ -1,10 +1,9 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:ubisoft_club_app/infrastructure/environment_banner.dart';
 
+import 'package:ubisoft_club_app/infrastructure/environment_banner.dart';
 import 'package:ubisoft_club_app/theme.dart';
 import 'package:ubisoft_club_app/localization.dart';
 import 'package:ubisoft_club_app/features/home/home_screen.dart';
@@ -41,15 +40,12 @@ class _UbisoftClubAppState extends State<UbisoftClubApp> {
   }
 
   MaterialApp _buildMaterialApp() {
-    final theme = window.platformBrightness == Brightness.light
-        ? appThemeData[AppTheme.light]
-        : appThemeData[AppTheme.dark];
-
     return MaterialApp(
       title: 'Flutter Demo',
       supportedLocales: _supportedLocales,
       localizationsDelegates: _localizationsDelegate,
-      theme: theme,
+      theme: appThemeData[AppTheme.light],
+      darkTheme: appThemeData[AppTheme.dark],
       onGenerateRoute: _onGenerateRoute,
     );
   }
