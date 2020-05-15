@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -11,13 +9,6 @@ class SettingsScreen extends StatefulWidget {
 
   static PageRoute<SettingsScreen> getPageRoute() {
     final routeSettings = RouteSettings(name: _routeName);
-
-    if (Platform.isIOS) {
-      CupertinoPageRoute(
-        settings: routeSettings,
-        builder: _builder,
-      );
-    }
 
     return MaterialPageRoute(
       settings: routeSettings,
@@ -39,6 +30,9 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(),
+      body: Container(),
+    );
   }
 }

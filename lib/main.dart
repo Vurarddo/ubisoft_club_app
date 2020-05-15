@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:ubisoft_club_app/infrastructure/environment_banner.dart';
-import 'package:ubisoft_club_app/theme.dart';
+import 'package:ubisoft_club_app/theme/theme.dart';
 import 'package:ubisoft_club_app/localization.dart';
-import 'package:ubisoft_club_app/features/home/home_screen.dart';
+import 'package:ubisoft_club_app/widgets/home_layout.dart';
 
 void runUbisoftClubApp() {
   // Injector
@@ -51,6 +51,6 @@ class _UbisoftClubAppState extends State<UbisoftClubApp> {
   }
 
   Route _onGenerateRoute(RouteSettings settings) {
-    return HomeScreen.getPageRoute();
+    return HomeLayout.getRoute();
   }
 }

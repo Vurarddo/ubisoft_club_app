@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 
-class HomeScreenPresenter with ChangeNotifier {
-  HomeScreenPresenter() {
+class GeneralScreenPresenter with ChangeNotifier {
+  GeneralScreenPresenter() {
     _init();
   }
 

@@ -22,10 +22,17 @@ class UbisoftClubLocalizations {
         context, UbisoftClubLocalizations);
   }
 
-  String get email {
+  String get general {
     return Intl.message(
-      'Email',
-      name: 'email',
+      'General',
+      name: 'general',
+    );
+  }
+
+  String get games {
+    return Intl.message(
+      'Games',
+      name: 'games',
     );
   }
 }
