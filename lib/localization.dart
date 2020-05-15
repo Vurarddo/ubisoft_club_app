@@ -56,6 +56,13 @@ class UbisoftClubLocalizations {
       name: 'beta',
     );
   }
+
+  String get like {
+    return Intl.message(
+      'Like',
+      name: 'like',
+    );
+  }
 }
 
 class UbisoftClubLocalizationsDelegate

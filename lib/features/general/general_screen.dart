@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 
 import 'package:ubisoft_club_app/features/general/general_screen_presenter.dart';
 import 'package:ubisoft_club_app/features/general/general_widgets/general_card.dart';
+import 'package:ubisoft_club_app/features/settings/settings_screen.dart';
 
 class GeneralScreen extends StatefulWidget {
   static const _routeName = '/general';
@@ -41,7 +42,6 @@ class GeneralScreen extends StatefulWidget {
 class _GeneralScreenState extends State<GeneralScreen> {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -53,17 +53,45 @@ class _GeneralScreenState extends State<GeneralScreen> {
             fit: BoxFit.fitHeight,
           ),
         ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.account_circle,
+              size: 30.0,
+            ),
+            onPressed: () {
+              // TODO: add navigation
+              Navigator.of(context).push(SettingsScreen.getPageRoute());
+            },
+          )
+        ],
       ),
-      body:
-      ListView.builder(
+      body: ListView.separated(
+        separatorBuilder: _buildDivider,
         itemCount: 30,
         itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: GeneralCard(),
+          final card = cards[index];
+          final isFirst = cards.first == card;
+
+          return Column(
+            children: <Widget>[
+              if (isFirst) ...{
+                Divider(thickness: 60),
+              },
+              card,
+            ],
           );
         },
       ),
     );
   }
+
+  Widget _buildDivider(BuildContext context, int index) {
+    return Divider(thickness: 16.3);
+  }
 }
+
+// TODO: drop it
+List<Widget> cards = List.generate(30, (int index) {
+  return GeneralCard();
+});

@@ -21,31 +21,48 @@ final lightTheme = ThemeData(
   bottomAppBarColor: Colors.white,
   accentColor: orangeAccent,
   disabledColor: Colors.grey,
+  cardColor: Colors.white,
+  highlightColor: Colors.grey,
 );
 
 final darkTheme = ThemeData(
   primarySwatch: grey850,
   appBarTheme: AppBarTheme(
-//    textTheme: ,
     elevation: 0,
     iconTheme: darkIconTheme,
   ),
   iconTheme: darkIconTheme,
+  textTheme: darkTextTheme,
   floatingActionButtonTheme: FloatingActionButtonThemeData(
     foregroundColor: Colors.grey[300],
   ),
+  pageTransitionsTheme: _pageTransitionTheme,
   secondaryHeaderColor: Colors.grey[850],
   bottomAppBarColor: Colors.grey[850],
   accentColor: orangeAccent,
   disabledColor: Colors.grey,
-  pageTransitionsTheme: _pageTransitionTheme,
+  cardColor: Colors.grey[700],
+  dividerColor: Colors.black45,
+  highlightColor: Colors.white70,
 );
 
 final lightIconTheme = IconThemeData(color: orangeAccent);
 
 final darkIconTheme = IconThemeData(color: orangeAccent);
 
-final appBarTextTheme = TextTheme();
+//final lightTextTheme = TextTheme(body1: TextStyle(),);
+
+final darkTextTheme = TextTheme(
+  body1: TextStyle(
+    color: Colors.white70,
+  ),
+  subhead: TextStyle(
+    color: Colors.white70,
+  ),
+  caption: TextStyle(
+    color: Colors.white54,
+  ),
+);
 
 const _pageTransitionTheme = PageTransitionsTheme(builders: _builders);
 

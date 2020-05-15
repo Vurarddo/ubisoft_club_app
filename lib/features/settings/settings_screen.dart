@@ -31,9 +31,12 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreenState extends State<SettingsScreen> {
   UbisoftClubLocalizations get _localization =>
       UbisoftClubLocalizations.of(context);
+  ThemeData get _theme => Theme.of(context);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: _theme.dividerColor,
       appBar: AppBar(
         centerTitle: true,
         title: Text(
@@ -41,7 +44,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
           style: TextStyle(color: Colors.deepOrangeAccent),
         ),
       ),
-      body: Container(),
+      body: Center(
+        child: Text(_localization.settings),
+      ),
     );
   }
 }

@@ -26,5 +26,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "settings" : MessageLookupByLibrary.simpleMessage("Настройки"),
     "sam" : MessageLookupByLibrary.simpleMessage("Сем"),
     "beta" : MessageLookupByLibrary.simpleMessage("Бета"),
+    "like" : MessageLookupByLibrary.simpleMessage("Подобається"),
   };
 }

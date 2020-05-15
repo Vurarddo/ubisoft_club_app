@@ -82,7 +82,8 @@ class _HomeLayoutState extends State<HomeLayout> {
     return WillPopScope(
       onWillPop: onWillPop,
       child: Scaffold(
-//        resizeToAvoidBottomPadding: false,
+        resizeToAvoidBottomPadding: false,
+        extendBody: true,
         body: Stack(
           children: [
             Offstage(
@@ -118,7 +119,6 @@ class _HomeLayoutState extends State<HomeLayout> {
             Navigator.of(context).push(SamScreen.getPageRoute());
           },
         ),
-
         bottomNavigationBar: CustomBottomAppBar(
           shape: CircularNotchedRectangle(),
           onTabSelected: onChangeTab,
