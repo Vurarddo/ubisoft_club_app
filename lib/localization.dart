@@ -35,6 +35,27 @@ class UbisoftClubLocalizations {
       name: 'games',
     );
   }
+
+  String get settings {
+    return Intl.message(
+      'Settings',
+      name: 'settings',
+    );
+  }
+
+  String get sam {
+    return Intl.message(
+      'Sam',
+      name: 'sam',
+    );
+  }
+
+  String get beta {
+    return Intl.message(
+      'Beta',
+      name: 'beta',
+    );
+  }
 }
 
 class UbisoftClubLocalizationsDelegate

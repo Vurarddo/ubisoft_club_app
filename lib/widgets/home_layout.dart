@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:ubisoft_club_app/localization.dart';
 import 'package:ubisoft_club_app/features/general/general_screen.dart';
 import 'package:ubisoft_club_app/features/games/games_screen.dart';
+import 'package:ubisoft_club_app/features/sam_bot/sam_screen.dart';
 import 'package:ubisoft_club_app/widgets/custom_bottom_app_bar.dart';
 import 'package:ubisoft_club_app/widgets/waves.dart';
 
@@ -111,9 +112,10 @@ class _HomeLayoutState extends State<HomeLayout> {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
+          heroTag: 'sam_bot',
+          child: Icon(Icons.android, size: 30.0),
           onPressed: () {
-            Navigator.of(context).push(GamesScreen.getPageRoute());
+            Navigator.of(context).push(SamScreen.getPageRoute());
           },
         ),
 
@@ -121,7 +123,8 @@ class _HomeLayoutState extends State<HomeLayout> {
           shape: CircularNotchedRectangle(),
           onTabSelected: onChangeTab,
           currentIndex: NavigatorType.values.indexOf(currentTab),
-          selectedColor: Colors.deepOrangeAccent,
+          selectedColor: theme.accentColor,
+          color: theme.disabledColor,
           items: [
             CustomBottomAppBarItem(
               icon: Icons.home,

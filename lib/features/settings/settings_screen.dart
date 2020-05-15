@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:ubisoft_club_app/features/settings/settings_screen_presenter.dart';
+import 'package:ubisoft_club_app/localization.dart';
 
 class SettingsScreen extends StatefulWidget {
   static const _routeName = '/settings';
@@ -28,10 +29,18 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+  UbisoftClubLocalizations get _localization =>
+      UbisoftClubLocalizations.of(context);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          _localization.settings,
+          style: TextStyle(color: Colors.deepOrangeAccent),
+        ),
+      ),
       body: Container(),
     );
   }

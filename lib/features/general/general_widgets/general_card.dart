@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ubisoft_club_app/features/settings/settings_screen.dart';
 
 class GeneralCard extends StatelessWidget {
   @override
@@ -16,6 +17,7 @@ class GeneralCard extends StatelessWidget {
     final theme = Theme.of(context);
 
     return ListTile(
+      onTap: () => Navigator.of(context).push(SettingsScreen.getPageRoute()),
       leading: Container(
         color: Colors.orange,
         width: 45,

@@ -37,7 +37,10 @@ class _GamesScreenState extends State<GamesScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(_localization.games),
+        title: Text(
+          _localization.games,
+          style: TextStyle(color: Colors.deepOrangeAccent),
+        ),
       ),
       body: Container(),
     );
