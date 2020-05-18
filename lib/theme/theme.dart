@@ -50,8 +50,6 @@ final lightIconTheme = IconThemeData(color: orangeAccent);
 
 final darkIconTheme = IconThemeData(color: orangeAccent);
 
-//final lightTextTheme = TextTheme(body1: TextStyle(),);
-
 final darkTextTheme = TextTheme(
   body1: TextStyle(
     color: Colors.white70,
