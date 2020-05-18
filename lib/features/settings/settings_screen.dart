@@ -39,10 +39,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       backgroundColor: _theme.dividerColor,
       appBar: AppBar(
         centerTitle: true,
-        title: Text(
-          _localization.settings,
-          style: TextStyle(color: Colors.deepOrangeAccent),
-        ),
+        title: Text(_localization.settings),
       ),
       body: Center(
         child: Text(_localization.settings),

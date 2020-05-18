@@ -39,10 +39,7 @@ class _GamesScreenState extends State<GamesScreen> {
       backgroundColor: _theme.dividerColor,
       appBar: AppBar(
         centerTitle: true,
-        title: Text(
-          _localization.games,
-          style: TextStyle(color: Colors.deepOrangeAccent),
-        ),
+        title: Text(_localization.games),
       ),
       body: Center(
         child: Text(_localization.games),

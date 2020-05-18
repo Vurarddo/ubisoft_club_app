@@ -35,7 +35,7 @@ class UbisoftClubApp extends StatefulWidget {
 
 class _UbisoftClubAppState extends State<UbisoftClubApp>
     with WidgetsBindingObserver {
-  SystemUiOverlayStyle uiOverlayStyle = _getSystemNavigationBarColo();
+  SystemUiOverlayStyle uiOverlayStyle = _getSystemNavigationBarColor();
 
   @override
   void initState() {
@@ -46,9 +46,8 @@ class _UbisoftClubAppState extends State<UbisoftClubApp>
   @override
   void didChangePlatformBrightness() {
     setState(() {
-      uiOverlayStyle = _getSystemNavigationBarColo();
+      uiOverlayStyle = _getSystemNavigationBarColor();
     });
-
     super.didChangePlatformBrightness();
   }
 
@@ -77,7 +76,7 @@ class _UbisoftClubAppState extends State<UbisoftClubApp>
     return HomeLayout.getRoute();
   }
 
-  static SystemUiOverlayStyle _getSystemNavigationBarColo() {
+  static SystemUiOverlayStyle _getSystemNavigationBarColor() {
     return window.platformBrightness == Brightness.light
         ? SystemUiOverlayStyle.light
             .copyWith(systemNavigationBarColor: Colors.white)

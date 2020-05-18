@@ -39,7 +39,30 @@ class GeneralScreen extends StatefulWidget {
   _GeneralScreenState createState() => _GeneralScreenState();
 }
 
-class _GeneralScreenState extends State<GeneralScreen> {
+class _GeneralScreenState extends State<GeneralScreen>
+    with WidgetsBindingObserver {
+  String logo = _getLogo();
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void didChangePlatformBrightness() {
+    setState(() {
+      logo = _getLogo();
+    });
+    super.didChangePlatformBrightness();
+  }
+
+  static String _getLogo() {
+    return window.platformBrightness == Brightness.light
+        ? 'assets/images/ubisoft_club_white.png'
+        : 'assets/images/ubisoft_club_orange.png';
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +72,7 @@ class _GeneralScreenState extends State<GeneralScreen> {
         title: SizedBox(
           height: 50,
           child: Image.asset(
-            'assets/images/ubisoft_club_orange.png',
+            logo,
             fit: BoxFit.fitHeight,
           ),
         ),
@@ -88,6 +111,12 @@ class _GeneralScreenState extends State<GeneralScreen> {
 
   Widget _buildDivider(BuildContext context, int index) {
     return Divider(thickness: 16.3);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
   }
 }
 

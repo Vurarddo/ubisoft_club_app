@@ -39,13 +39,12 @@ class _SamScreenState extends State<SamScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: _theme.unselectedWidgetColor,
       appBar: AppBar(
         title: _buildTitle(),
-        backgroundColor: _theme.accentColor,
-        iconTheme: IconThemeData(color: Colors.white),
       ),
       body: ScaffoldBodyWrapper(
-        wavesColor: _theme.accentColor,
+        wavesColor: _theme.secondaryHeaderColor,
         child: Container(),
       ),
       floatingActionButton: FloatingActionButton(
@@ -53,7 +52,6 @@ class _SamScreenState extends State<SamScreen> {
         child: Icon(
           Icons.send,
           size: 30.0,
-          color: Colors.white,
         ),
         onPressed: () {
           Navigator.pop(context);
@@ -74,7 +72,7 @@ class _SamScreenState extends State<SamScreen> {
           ),
           Text(
             ' ${_localization.beta.toLowerCase()}',
-            style: _theme.textTheme.overline.copyWith(color: Colors.white),
+            style: _theme.textTheme.overline,
           ),
         ],
       ),
