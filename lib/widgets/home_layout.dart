@@ -103,7 +103,7 @@ class _HomeLayoutState extends State<HomeLayout> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 83),
+              padding: EdgeInsets.only(top: _getWavePadding()),
               child: Waves(
                 color: theme.secondaryHeaderColor,
                 height: 15.0,
@@ -138,5 +138,11 @@ class _HomeLayoutState extends State<HomeLayout> {
         ),
       ),
     );
+  }
+
+  double _getWavePadding() {
+    AppBar _appBar = AppBar();
+    double _statusBarHeight = MediaQuery.of(context).padding.top;
+    return _appBar.preferredSize.height + _statusBarHeight;
   }
 }

@@ -109,7 +109,7 @@ class GeneralCard extends StatelessWidget {
       child: SizedBox.fromSize(
         size: Size.square(120),
         child: CircleProgressBar(
-          progressValue: 1,
+          progressValue: 64,
           backgroundColor: theme.unselectedWidgetColor,
           gradient: SweepGradient(
             colors: [cyanColor, darkCyanColor],

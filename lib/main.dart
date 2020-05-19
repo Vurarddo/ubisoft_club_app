@@ -53,6 +53,10 @@ class _UbisoftClubAppState extends State<UbisoftClubApp>
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: uiOverlayStyle,
       child: EnvironmentBanner(
@@ -80,7 +84,8 @@ class _UbisoftClubAppState extends State<UbisoftClubApp>
     return window.platformBrightness == Brightness.light
         ? SystemUiOverlayStyle.light
             .copyWith(systemNavigationBarColor: Colors.grey[50])
-        : SystemUiOverlayStyle.dark.copyWith(systemNavigationBarColor: grey850.withOpacity(0.98));
+        : SystemUiOverlayStyle.dark
+            .copyWith(systemNavigationBarColor: grey850.withOpacity(0.98));
   }
 
   @override
