@@ -1,4 +1,4 @@
-import 'dart:math';
+import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:pigment/pigment.dart';
@@ -92,7 +92,7 @@ class GeneralCard extends StatelessWidget {
               child: SizedBox.fromSize(
                 size: Size.square(120),
                 child: CircleProgressBar(
-                  value: .9,
+                  progressValue: .5,
                   foregroundColor: Colors.red,
                   backgroundColor: theme.unselectedWidgetColor,
                 ),
@@ -128,35 +128,28 @@ class GeneralCard extends StatelessWidget {
 class CircleProgressBar extends StatelessWidget {
   final Color backgroundColor;
   final Color foregroundColor;
-  final double value;
+  final double progressValue;
 
   const CircleProgressBar({
     Key key,
     this.backgroundColor,
     @required this.foregroundColor,
-    @required this.value,
+    @required this.progressValue,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final gradient = SweepGradient(
-      colors: [Pigment.fromString('#22c9c1'), Pigment.fromString('#016770')],
-    );
     return AspectRatio(
       aspectRatio: 1,
-      child: Transform.rotate(
-        angle: -1.65,
-        child: CustomPaint(
-          child: Transform.rotate(
-            angle: 1.65,
-            child: Center(child: Text('50')),
-          ),
-          foregroundPainter: CircleProgressBarPainter(
-            percentage: value,
-            gradient: gradient,
-            completeColor: Colors.green,
-            backgroundColor: backgroundColor,
-          ),
+      child: CustomPaint(
+        child: Center(
+            child: Text(
+          '50',
+          style: TextStyle(color: Colors.white),
+        )),
+        foregroundPainter: CircleProgressBarPainter(
+          radius: 60,
+          percentage: progressValue,
         ),
       ),
     );
@@ -164,64 +157,45 @@ class CircleProgressBar extends StatelessWidget {
 }
 
 class CircleProgressBarPainter extends CustomPainter {
+  final double radius;
+  final double thickness;
   final double percentage;
-  final SweepGradient gradient;
-  final Color completeColor;
-  final Color backgroundColor;
-  final double strokeWidth;
+  final double _secondRadius;
 
   CircleProgressBarPainter({
+    @required this.radius,
     @required this.percentage,
-    @required this.gradient,
-    this.completeColor,
-    this.backgroundColor,
-    this.strokeWidth = 10.0,
-  })  : assert(percentage != null),
-        assert(gradient != null);
+    this.thickness = 10,
+  }) : _secondRadius = radius - thickness;
 
   @override
   void paint(Canvas canvas, Size size) {
-    final double startAngle = 0.1;
-    final double sweepAngle = (2 * pi * (percentage ?? 0));
-    final Offset center = size.center(Offset.zero);
-    final Size constrainedSize = size - Offset(strokeWidth, strokeWidth);
-    final shortestSide = min(constrainedSize.width, constrainedSize.height);
-    final radius = (shortestSide / 2);
-    final gradientColor = percentage == 1
-        ? SweepGradient(colors: [completeColor, completeColor])
-        : gradient;
-    final rect = Rect.fromCircle(center: center, radius: radius);
-
-    final foregroundPaint = Paint()
-      ..shader = gradientColor.createShader(rect)
-      ..strokeWidth = strokeWidth
+    Paint paint = Paint()
+      ..color = Colors.green
+      ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round
-      ..style = PaintingStyle.stroke;
+      ..strokeWidth = 2;
+    final coordinate = 2 * math.pi * (percentage ?? 0.0);
 
-    // Don't draw the background if we don't have a background color
-    if (backgroundColor != null) {
-      final backgroundPaint = Paint()
-        ..color = backgroundColor
-        ..strokeWidth = strokeWidth
-        ..style = PaintingStyle.stroke;
-      canvas.drawCircle(center, radius, backgroundPaint);
-    }
+    final dotX = radius * math.cos(coordinate);
+    final dotY = radius * math.sin(coordinate);
 
-    canvas.drawArc(
-      Rect.fromCircle(center: center, radius: radius),
-      startAngle,
-      sweepAngle,
-      false,
-      foregroundPaint,
-    );
+    Path path = Path();
+    path
+      ..addArc(
+          Rect.fromCircle(radius: radius, center: Offset.zero), 0.0, coordinate)
+      ..addArc(Rect.fromCircle(radius: _secondRadius, center: Offset.zero), 0.0,
+          coordinate)
+      ..lineTo(dotX, dotY)
+      ..moveTo(_secondRadius, 0.0)
+      ..lineTo(radius, 0.0);
+
+    canvas.drawPath(path, paint);
   }
 
   @override
   bool shouldRepaint(CustomPainter oldDelegate) {
-    final oldPainter = (oldDelegate as CircleProgressBarPainter);
-    return oldPainter.percentage != percentage ||
-        oldPainter.gradient != gradient ||
-        oldPainter.backgroundColor != backgroundColor ||
-        oldPainter.strokeWidth != strokeWidth;
+    // TODO: implement shouldRepaint
+    return true;
   }
 }
