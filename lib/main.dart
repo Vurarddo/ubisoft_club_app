@@ -79,8 +79,8 @@ class _UbisoftClubAppState extends State<UbisoftClubApp>
   static SystemUiOverlayStyle _getSystemNavigationBarColor() {
     return window.platformBrightness == Brightness.light
         ? SystemUiOverlayStyle.light
-            .copyWith(systemNavigationBarColor: Colors.white)
-        : SystemUiOverlayStyle.dark.copyWith(systemNavigationBarColor: grey850);
+            .copyWith(systemNavigationBarColor: Colors.grey[50])
+        : SystemUiOverlayStyle.dark.copyWith(systemNavigationBarColor: grey850.withOpacity(0.98));
   }
 
   @override

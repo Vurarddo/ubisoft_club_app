@@ -1,9 +1,7 @@
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
-import 'package:pigment/pigment.dart';
+
 import 'package:ubisoft_club_app/localization.dart';
-import 'package:ubisoft_club_app/widgets/waves.dart';
+import 'package:ubisoft_club_app/widgets/circular_progress_bar.dart';
 
 class GeneralCard extends StatelessWidget {
   @override
@@ -92,7 +90,7 @@ class GeneralCard extends StatelessWidget {
               child: SizedBox.fromSize(
                 size: Size.square(120),
                 child: CircleProgressBar(
-                  progressValue: .7,
+                  progressValue: .6,
                   foregroundColor: Colors.red,
                   backgroundColor: theme.unselectedWidgetColor,
                 ),
@@ -122,100 +120,5 @@ class GeneralCard extends StatelessWidget {
         Text(localization.like),
       ],
     );
-  }
-}
-
-class CircleProgressBar extends StatelessWidget {
-  final Color backgroundColor;
-  final Color foregroundColor;
-  final double progressValue;
-
-  const CircleProgressBar({
-    Key key,
-    this.backgroundColor,
-    @required this.foregroundColor,
-    @required this.progressValue,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 1,
-      child: CustomPaint(
-        child: Text(
-          '50',
-          style: TextStyle(color: Colors.white),
-        ),
-        foregroundPainter: CircleProgressBarPainter(
-          radius: 60,
-          percentage: progressValue,
-        ),
-      ),
-    );
-  }
-}
-
-class CircleProgressBarPainter extends CustomPainter {
-  final double radius;
-  final double thickness;
-  final double percentage;
-  final double _secondRadius;
-  // TODO: add color
-
-  CircleProgressBarPainter({
-    @required this.radius,
-    @required this.percentage,
-    this.thickness = 10,
-  })  : _secondRadius = radius - thickness,
-        assert(radius != null),
-        assert(thickness != null),
-        assert(percentage != null);
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    Paint paint = Paint()
-      ..color = Colors.green
-      ..style = PaintingStyle.stroke
-      ..strokeCap = StrokeCap.round
-      ..strokeWidth = 1;
-
-    Paint centerLinePaint = Paint()
-      ..color = Colors.green
-      ..style = PaintingStyle.stroke
-      ..strokeCap = StrokeCap.butt
-      ..strokeWidth = thickness + 1;
-
-    final coordinate = 2 * math.pi * (percentage ?? 0.0);
-    final dotX = radius * math.cos(coordinate);
-    final dotY = radius * math.sin(coordinate);
-    final secondDotX = _secondRadius * math.cos(coordinate);
-    final secondDotY = _secondRadius * math.sin(coordinate);
-
-    Path path = Path();
-    path
-      ..moveTo(_secondRadius, 0.0)
-      ..lineTo(radius, 0)
-      ..moveTo(dotX, dotY)
-      ..lineTo(secondDotX, secondDotY);
-
-    Path centerPath = Path();
-    centerPath
-      ..addArc(
-          Rect.fromCircle(
-              radius: radius - (thickness / 2), center: Offset.zero),
-          0.0,
-          coordinate);
-
-    canvas.drawPath(path, paint);
-    canvas.drawPath(centerPath, centerLinePaint);
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
-    final oldPainter = (oldDelegate as CircleProgressBarPainter);
-    return oldPainter.radius != radius ||
-        oldPainter.thickness != thickness ||
-        oldPainter.percentage != percentage ||
-        oldPainter._secondRadius != _secondRadius;
   }
 }
