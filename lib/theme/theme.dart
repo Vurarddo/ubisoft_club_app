@@ -66,21 +66,18 @@ final darkAppBarTheme = AppBarTheme(
 
 final lightTextTheme = TextTheme(
   overline: TextStyle(color: Colors.white),
+  display1: TextStyle(color: Colors.black),
+  title: TextStyle(color: Colors.black),
 );
 
 final darkTextTheme = TextTheme(
-    body1: TextStyle(
-      color: Colors.white70,
-    ),
-    subhead: TextStyle(
-      color: Colors.white70,
-    ),
-    caption: TextStyle(
-      color: Colors.white54,
-    ),
-    overline: TextStyle(
-      color: orangeAccent,
-    ));
+  body1: TextStyle(color: Colors.white70),
+  subhead: TextStyle(color: Colors.white70),
+  caption: TextStyle(color: Colors.white54),
+  overline: TextStyle(color: orangeAccent),
+  display1: TextStyle(color: Colors.white),
+  title: TextStyle(color: Colors.white),
+);
 
 const _pageTransitionTheme = PageTransitionsTheme(builders: _builders);
 

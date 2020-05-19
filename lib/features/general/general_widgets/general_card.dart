@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
+import 'package:ubisoft_club_app/theme/colors.dart';
 import 'package:ubisoft_club_app/localization.dart';
 import 'package:ubisoft_club_app/widgets/circular_progress_bar.dart';
 
@@ -71,8 +74,6 @@ class GeneralCard extends StatelessWidget {
   }
 
   Widget _buildGameCard(BuildContext context) {
-    final theme = Theme.of(context);
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -81,24 +82,47 @@ class GeneralCard extends StatelessWidget {
           child:
               Text('The Grand Larceny: 50% еженедельных испытаний завершено'),
         ),
-        Stack(
-          children: <Widget>[
-            Image.asset('assets/images/game_image.jpg'),
-            Positioned(
-              top: 35,
-              right: MediaQuery.of(context).size.width / 3,
-              child: SizedBox.fromSize(
-                size: Size.square(120),
-                child: CircleProgressBar(
-                  progressValue: .6,
-                  foregroundColor: Colors.red,
-                  backgroundColor: theme.unselectedWidgetColor,
-                ),
-              ),
-            ),
-          ],
-        ),
+        _buildImageWithProgressBar(context),
       ],
+    );
+  }
+
+  Widget _buildImageWithProgressBar(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return Container(
+      height: 200,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: theme.unselectedWidgetColor,
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          colorFilter: ColorFilter.mode(
+            Colors.black.withOpacity(0.4),
+            BlendMode.dstATop,
+          ),
+          image: AssetImage(
+            'assets/images/game_image.jpg',
+          ),
+        ),
+      ),
+      child: SizedBox.fromSize(
+        size: Size.square(120),
+        child: CircleProgressBar(
+          progressValue: 1,
+          backgroundColor: theme.unselectedWidgetColor,
+          gradient: SweepGradient(
+            colors: [cyanColor, darkCyanColor],
+            startAngle: 2.9 * pi / 2,
+            endAngle: 7.1 * pi / 2,
+            tileMode: TileMode.repeated,
+          ),
+          completeGradient: LinearGradient(
+            colors: [Colors.green[300], Colors.green],
+            tileMode: TileMode.repeated,
+          ),
+        ),
+      ),
     );
   }
 

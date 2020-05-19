@@ -2,47 +2,72 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
+import 'package:ubisoft_club_app/theme/colors.dart';
+
 class CircleProgressBar extends StatelessWidget {
+  final double progressValue;
+  final double thickness;
+  final double radius;
   final Color backgroundColor;
   final Color foregroundColor;
-  final double progressValue;
+  final Gradient gradient;
+  final Gradient completeGradient;
 
   const CircleProgressBar({
     Key key,
-    @required this.foregroundColor,
     @required this.progressValue,
+    this.thickness = 10,
+    this.radius = 60,
+    this.foregroundColor = orangeAccent,
     this.backgroundColor,
-  }) : super(key: key);
+    this.gradient = const SweepGradient(
+      colors: [Colors.orangeAccent, Colors.deepOrangeAccent],
+      startAngle: 2.9 * math.pi / 2,
+      endAngle: 7.1 * math.pi / 2,
+      tileMode: TileMode.repeated,
+    ),
+    this.completeGradient = const LinearGradient(
+      colors: [Colors.lightGreenAccent, Colors.lightGreen],
+      tileMode: TileMode.repeated,
+    ),
+  })  : assert(progressValue != null),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final progress = (progressValue <= 1 ? progressValue * 100 : 100).toStringAsFixed(0);
+    final progress =
+        (progressValue <= 1 ? progressValue * 100 : 100).toStringAsFixed(0);
     final theme = Theme.of(context);
 
     return AspectRatio(
       aspectRatio: 1,
       child: CustomPaint(
         child: Padding(
-          padding: const EdgeInsets.only(left: 10),
+          padding: EdgeInsets.only(left: progressValue >= 1 ? 0.0 : 10.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
                 progress,
-                style: theme.textTheme.display1.copyWith(color: Colors.white),
+                style: theme.textTheme.display1.copyWith(
+                  fontWeight: FontWeight.w500,
+                ),
               ),
               Text(
                 '%',
-                style: theme.textTheme.title.copyWith(color: Colors.white),
+                style: theme.textTheme.title,
               ),
             ],
           ),
         ),
         foregroundPainter: CircleProgressBarPainter(
-          radius: 60,
+          radius: radius,
           percentage: progressValue,
           foregroundColor: foregroundColor,
           backgroundColor: backgroundColor,
+          completeGradient: completeGradient,
+          gradient: gradient,
+          thickness: thickness,
         ),
       ),
     );
@@ -55,12 +80,15 @@ class CircleProgressBarPainter extends CustomPainter {
   final double percentage;
   final Color foregroundColor;
   final Color backgroundColor;
+  final Gradient gradient;
+  final Gradient completeGradient;
   final double _secondRadius;
-  // TODO: add color
 
   CircleProgressBarPainter({
     @required this.radius,
     @required this.percentage,
+    @required this.gradient,
+    @required this.completeGradient,
     this.thickness = 10,
     this.foregroundColor,
     this.backgroundColor,
@@ -68,30 +96,24 @@ class CircleProgressBarPainter extends CustomPainter {
         assert(radius != null),
         assert(thickness != null),
         assert(percentage != null),
+        assert(gradient != null),
+        assert(completeGradient != null),
         assert(foregroundColor != null);
 
   @override
   void paint(Canvas canvas, Size size) {
-    Paint paint = Paint()
-      ..color = foregroundColor
-      ..style = PaintingStyle.stroke
-      ..strokeCap = StrokeCap.round
-      ..strokeWidth = 1;
-
-    Paint centerLinePaint = Paint()
-      ..color = foregroundColor
-      ..style = PaintingStyle.stroke
-      ..strokeCap = StrokeCap.butt
-      ..strokeWidth = thickness + 1;
-
     final startAngle = math.pi * 1.5;
     final center = size.center(Offset.zero);
-    final coordinate = (2 * math.pi * (percentage ?? 0.0)) + startAngle;
     final centerLineCoordinate = 2 * math.pi * (percentage ?? 0.0);
-    final dotX = radius * math.cos(coordinate);
-    final dotY = radius * math.sin(coordinate);
-    final secondDotX = _secondRadius * math.cos(coordinate);
-    final secondDotY = _secondRadius * math.sin(coordinate);
+    final rect = Rect.fromCircle(center: center, radius: radius);
+    final gradientColor = percentage == 1 ? completeGradient : gradient;
+
+    Paint paint = Paint()
+      ..color = foregroundColor
+      ..shader = gradientColor.createShader(rect)
+      ..style = PaintingStyle.stroke
+      ..strokeCap = StrokeCap.round
+      ..strokeWidth = thickness + 1;
 
     // Don't draw the background if we don't have a background color
     if (backgroundColor != null) {
@@ -104,13 +126,6 @@ class CircleProgressBarPainter extends CustomPainter {
 
     Path path = Path();
     path
-      ..moveTo(center.dx, center.dy - radius)
-      ..lineTo(center.dx, center.dy - _secondRadius)
-      ..moveTo(center.dx + dotX, center.dy + dotY)
-      ..lineTo(center.dx + secondDotX, center.dy + secondDotY);
-
-    Path centerPath = Path();
-    centerPath
       ..addArc(
         Rect.fromCircle(radius: radius - (thickness * 0.5), center: center),
         startAngle,
@@ -118,7 +133,6 @@ class CircleProgressBarPainter extends CustomPainter {
       );
 
     canvas.drawPath(path, paint);
-    canvas.drawPath(centerPath, centerLinePaint);
   }
 
   @override

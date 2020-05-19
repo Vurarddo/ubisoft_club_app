@@ -3,6 +3,8 @@ import 'package:pigment/pigment.dart';
 
 final lightGreyColor = Pigment.fromString('#dbdbdb');
 final backgroundGreyColor = Pigment.fromString('#878787');
+final cyanColor = Pigment.fromString('#24c7bc');
+final darkCyanColor = Pigment.fromString('#00778c');
 
 const MaterialColor grey850 = const MaterialColor(
   0xFF303030,
