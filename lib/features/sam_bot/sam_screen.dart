@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 
 import 'package:ubisoft_club_app/localization.dart';
 import 'package:ubisoft_club_app/features/games/games_screen_presenter.dart';
-import 'package:ubisoft_club_app/theme/colors.dart';
 import 'package:ubisoft_club_app/widgets/scaffold_body_wrapper.dart';
 
 class SamScreen extends StatefulWidget {

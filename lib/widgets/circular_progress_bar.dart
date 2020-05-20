@@ -20,10 +20,10 @@ class CircleProgressBar extends StatelessWidget {
     this.radius = 60,
     this.foregroundColor = orangeAccent,
     this.backgroundColor,
-    this.gradient = const SweepGradient(
+    this.gradient = const LinearGradient(
       colors: [Colors.orangeAccent, Colors.deepOrangeAccent],
-      startAngle: 2.9 * math.pi / 2,
-      endAngle: 7.1 * math.pi / 2,
+      end: Alignment.topLeft,
+      begin: Alignment.topRight,
       tileMode: TileMode.repeated,
     ),
     this.completeGradient = const LinearGradient(
@@ -47,13 +47,13 @@ class CircleProgressBar extends StatelessWidget {
             children: <Widget>[
               Text(
                 '${progressValue.toStringAsFixed(0)}',
-                style: theme.textTheme.display1.copyWith(
+                style: theme.textTheme.headline4.copyWith(
                   fontWeight: FontWeight.w500,
                 ),
               ),
               Text(
                 '%',
-                style: theme.textTheme.title,
+                style: theme.textTheme.headline6,
               ),
             ],
           ),

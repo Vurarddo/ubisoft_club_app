@@ -141,8 +141,8 @@ class _HomeLayoutState extends State<HomeLayout> {
   }
 
   double _getWavePadding() {
-    AppBar _appBar = AppBar();
-    double _statusBarHeight = MediaQuery.of(context).padding.top;
-    return _appBar.preferredSize.height + _statusBarHeight;
+    AppBar appBar = AppBar();
+    double statusBarHeight = MediaQuery.of(context).padding.top;
+    return appBar.preferredSize.height + statusBarHeight;
   }
 }

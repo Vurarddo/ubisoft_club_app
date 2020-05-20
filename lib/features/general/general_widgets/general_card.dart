@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 import 'package:ubisoft_club_app/theme/colors.dart';
@@ -46,7 +44,7 @@ class GeneralCard extends StatelessWidget {
       ),
       title: Text(
         'VladOS',
-        style: theme.textTheme.subhead.copyWith(fontWeight: FontWeight.w600),
+        style: theme.textTheme.subtitle1.copyWith(fontWeight: FontWeight.w600),
       ),
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -98,7 +96,7 @@ class GeneralCard extends StatelessWidget {
         image: DecorationImage(
           fit: BoxFit.cover,
           colorFilter: ColorFilter.mode(
-            Colors.black.withOpacity(0.4),
+            Colors.black.withOpacity(0.3),
             BlendMode.dstATop,
           ),
           image: AssetImage(
@@ -109,16 +107,18 @@ class GeneralCard extends StatelessWidget {
       child: SizedBox.fromSize(
         size: Size.square(120),
         child: CircleProgressBar(
-          progressValue: 64,
+          progressValue: 57,
           backgroundColor: theme.unselectedWidgetColor,
-          gradient: SweepGradient(
+          gradient: LinearGradient(
             colors: [cyanColor, darkCyanColor],
-            startAngle: 2.9 * pi / 2,
-            endAngle: 7.1 * pi / 2,
+            end: Alignment.centerLeft,
+            begin: Alignment.topRight,
             tileMode: TileMode.repeated,
           ),
           completeGradient: LinearGradient(
             colors: [Colors.green[300], Colors.green],
+            end: Alignment.topLeft,
+            begin: Alignment.topRight,
             tileMode: TileMode.repeated,
           ),
         ),
