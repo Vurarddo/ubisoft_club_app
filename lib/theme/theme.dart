@@ -20,6 +20,7 @@ final lightTheme = ThemeData(
   accentColor: orangeAccent,
   disabledColor: Colors.grey,
   cardColor: Colors.white,
+  dividerColor: Colors.grey[300],
   highlightColor: Colors.grey,
   unselectedWidgetColor: lightGreyColor,
 );
@@ -38,7 +39,7 @@ final darkTheme = ThemeData(
   accentColor: orangeAccent,
   disabledColor: Colors.grey,
   cardColor: Colors.grey[700],
-  dividerColor: Colors.black45,
+  dividerColor: Colors.grey[800],
   highlightColor: Colors.white70,
   unselectedWidgetColor: backgroundGreyColor,
 );

@@ -9,21 +9,28 @@ class GeneralCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    return Container(
+    return Card(
       color: theme.cardColor,
-      padding: EdgeInsets.only(top: 12.0),
-      child: Column(
-        children: <Widget>[
-          _buildProfileListTile(context),
-          _buildDivider(),
-          GestureDetector(
-            onTap: () {
-              // TODO: add navigation
-            },
-            child: _buildGameCard(context),
-          ),
-          _buildAddToFavoriteTile(context),
-        ],
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      elevation: 3.0,
+      margin: EdgeInsets.symmetric(horizontal: 8.0, vertical: 5.0),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 10.0),
+        child: Column(
+          children: <Widget>[
+            _buildProfileListTile(context),
+            _buildDivider(),
+            GestureDetector(
+              onTap: () {
+                // TODO: add navigation
+              },
+              child: _buildGameCard(context),
+            ),
+            _buildAddToFavoriteTile(context),
+          ],
+        ),
       ),
     );
   }
@@ -53,12 +60,37 @@ class GeneralCard extends StatelessWidget {
             '2 hours ago',
             style: theme.textTheme.caption,
           ),
-          Text(
-            'Tom Clancy\'s Rainbow Six Siege',
-            style: theme.textTheme.caption,
-          ),
+          _buildGameTile(context),
         ],
       ),
+    );
+  }
+
+  Widget _buildGameTile(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return Row(
+      children: <Widget>[
+        Text(
+          'Tom Clancy\'s Rainbow Six® Siege',
+          style: theme.textTheme.caption.copyWith(
+            color: theme.textTheme.subtitle1.color,
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.only(left: 8.0),
+          padding: EdgeInsets.symmetric(horizontal: 3),
+          decoration: BoxDecoration(
+              border: Border.all(color: theme.textTheme.subtitle1.color),
+              borderRadius: BorderRadius.circular(4.0)),
+          child: Text(
+            'XONE',
+            style: theme.textTheme.caption.copyWith(
+              color: theme.textTheme.subtitle1.color,
+            ),
+          ),
+        ),
+      ],
     );
   }
 

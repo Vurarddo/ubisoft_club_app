@@ -41,6 +41,7 @@ class GeneralScreen extends StatefulWidget {
 
 class _GeneralScreenState extends State<GeneralScreen>
     with WidgetsBindingObserver {
+  ThemeData get _theme => Theme.of(context);
   String logo = _getLogo();
 
   @override
@@ -66,11 +67,12 @@ class _GeneralScreenState extends State<GeneralScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: _theme.dividerColor,
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
         title: SizedBox(
-          height: 50,
+          height: 40,
           child: Image.asset(
             logo,
             fit: BoxFit.fitHeight,
@@ -89,9 +91,8 @@ class _GeneralScreenState extends State<GeneralScreen>
           )
         ],
       ),
-      body: ListView.separated(
-        separatorBuilder: _buildDivider,
-        itemCount: 30,
+      body: ListView.builder(
+        itemCount: cards.length,
         itemBuilder: (context, index) {
           final card = cards[index];
           final isFirst = cards.first == card;
@@ -99,7 +100,7 @@ class _GeneralScreenState extends State<GeneralScreen>
           return Column(
             children: <Widget>[
               if (isFirst) ...{
-                Divider(thickness: 60),
+                Divider(thickness: 50, color:  _theme.dividerColor,),
               },
               card,
             ],
@@ -107,10 +108,6 @@ class _GeneralScreenState extends State<GeneralScreen>
         },
       ),
     );
-  }
-
-  Widget _buildDivider(BuildContext context, int index) {
-    return Divider(thickness: 16.3);
   }
 
   @override
