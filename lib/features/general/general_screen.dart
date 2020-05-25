@@ -6,8 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:ubisoft_club_app/features/general/general_screen_presenter.dart';
-import 'package:ubisoft_club_app/features/general/general_widgets/general_card.dart';
+import 'package:ubisoft_club_app/features/general/general_widgets/news_card.dart';
 import 'package:ubisoft_club_app/features/settings/settings_screen.dart';
+import 'package:ubisoft_club_app/models/news/news.dart';
 
 class GeneralScreen extends StatefulWidget {
   static const _routeName = '/general';
@@ -41,6 +42,8 @@ class GeneralScreen extends StatefulWidget {
 
 class _GeneralScreenState extends State<GeneralScreen>
     with WidgetsBindingObserver {
+  GeneralScreenPresenter get _presenter =>
+      Provider.of<GeneralScreenPresenter>(context);
   ThemeData get _theme => Theme.of(context);
   String logo = _getLogo();
 
@@ -91,22 +94,29 @@ class _GeneralScreenState extends State<GeneralScreen>
           )
         ],
       ),
-      body: ListView.builder(
-        itemCount: cards.length,
-        itemBuilder: (context, index) {
-          final card = cards[index];
-          final isFirst = cards.first == card;
+      body: !_presenter.isLoading
+          ? ListView.builder(
+              itemCount: _presenter.news.length,
+              itemBuilder: (context, index) {
+                final news = _presenter.news[index];
+                final isFirst = _presenter.news.first == news;
 
-          return Column(
-            children: <Widget>[
-              if (isFirst) ...{
-                Divider(thickness: 50, color:  _theme.dividerColor,),
+                return Column(
+                  children: <Widget>[
+                    if (isFirst) ...{
+                      Divider(
+                        thickness: 50,
+                        color: _theme.dividerColor,
+                      ),
+                    },
+                    _card(news.newsType, news),
+                  ],
+                );
               },
-              card,
-            ],
-          );
-        },
-      ),
+            )
+          : Center(
+              child: CircularProgressIndicator(),
+            ),
     );
   }
 
@@ -117,7 +127,15 @@ class _GeneralScreenState extends State<GeneralScreen>
   }
 }
 
-// TODO: drop it
-List<Widget> cards = List.generate(30, (int index) {
-  return GeneralCard();
-});
+Widget _card(NewsType newsType, News news) {
+  switch (newsType) {
+    case NewsType.GameProgress:
+      return NewsCard(news: news);
+    case NewsType.Reward:
+      return Text('${news.id}');
+    case NewsType.Company:
+      return Text('${news.id}');
+    default:
+      return SizedBox();
+  }
+}

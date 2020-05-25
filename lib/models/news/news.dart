@@ -11,12 +11,17 @@ enum NewsType {
   Company,
 }
 
+enum ChallengeType {
+  Weekly,
+  Classic,
+}
+
 class News extends Equatable {
   final int id;
   final int liked;
   final String gameName;
   final String platform;
-  final String challengeType;
+  final ChallengeType challengeType;
   final String gameMode;
   final String rewardType;
   final String newsTitle;
@@ -45,7 +50,7 @@ class News extends Equatable {
     @required int liked,
     @required String gameName,
     @required String platform,
-    @required String challengeType,
+    @required ChallengeType challengeType,
     @required String image,
     @required double progress,
     @required bool isLiked,
@@ -118,4 +123,9 @@ class News extends Equatable {
         isLiked,
         newsType,
       ];
+
+  @override
+  String toString() {
+    return 'News{id: $id, liked: $liked, gameName: $gameName, platform: $platform, challengeType: $challengeType, gameMode: $gameMode, rewardType: $rewardType, newsTitle: $newsTitle, image: $image, progress: $progress, isLiked: $isLiked, newsType: $newsType}';
+  }
 }

@@ -36,6 +36,7 @@ class CircleProgressBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final _progressValue = progressValue > 100 ? 100 : progressValue;
 
     return AspectRatio(
       aspectRatio: 1,
@@ -46,7 +47,7 @@ class CircleProgressBar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                '${progressValue.toStringAsFixed(0)}',
+                '${_progressValue.toStringAsFixed(0)}',
                 style: theme.textTheme.headline4.copyWith(
                   fontWeight: FontWeight.w500,
                 ),
@@ -60,7 +61,7 @@ class CircleProgressBar extends StatelessWidget {
         ),
         foregroundPainter: CircleProgressBarPainter(
           radius: radius,
-          percentage: progressValue / 100,
+          percentage: _progressValue / 100,
           foregroundColor: foregroundColor,
           backgroundColor: backgroundColor,
           completeGradient: completeGradient,

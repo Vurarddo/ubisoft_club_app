@@ -27,5 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "sam" : MessageLookupByLibrary.simpleMessage("Sam"),
     "beta" : MessageLookupByLibrary.simpleMessage("Beta"),
     "like" : MessageLookupByLibrary.simpleMessage("Like"),
+    "classicChallenges" : MessageLookupByLibrary.simpleMessage("Classic Challenges"),
+    "weeklyChallenges" : MessageLookupByLibrary.simpleMessage("Weekly Challenges"),
+    "isCompleted" : MessageLookupByLibrary.simpleMessage("is completed"),
   };
 }

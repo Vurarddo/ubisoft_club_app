@@ -63,6 +63,27 @@ class UbisoftClubLocalizations {
       name: 'like',
     );
   }
+
+  String get classicChallenges {
+    return Intl.message(
+      'Classic Challenges',
+      name: 'classicChallenges',
+    );
+  }
+
+  String get weeklyChallenges {
+    return Intl.message(
+      'Weekly Challenges',
+      name: 'weeklyChallenges',
+    );
+  }
+
+  String get isCompleted {
+    return Intl.message(
+      'is completed',
+      name: 'isCompleted',
+    );
+  }
 }
 
 class UbisoftClubLocalizationsDelegate

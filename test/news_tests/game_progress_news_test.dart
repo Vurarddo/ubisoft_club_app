@@ -9,7 +9,7 @@ void main() {
     final int tLiked = 100;
     final String tGameName = 'Tom Clancy\'s Rainbow Six® Siege';
     final String tPlatform = 'XONE';
-    final String tChallengeType = 'Weekly';
+    final ChallengeType tChallengeType = ChallengeType.Classic;
     final String tImage = 'imageURL';
     final double tProgress = 50.0;
     final String tGameMode = 'The Grand Larceny';

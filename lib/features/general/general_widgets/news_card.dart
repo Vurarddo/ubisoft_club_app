@@ -2,9 +2,18 @@ import 'package:flutter/material.dart';
 
 import 'package:ubisoft_club_app/theme/colors.dart';
 import 'package:ubisoft_club_app/localization.dart';
+import 'package:ubisoft_club_app/models/news/news.dart';
 import 'package:ubisoft_club_app/widgets/circular_progress_bar.dart';
 
-class GeneralCard extends StatelessWidget {
+class NewsCard extends StatelessWidget {
+  final News news;
+
+  const NewsCard({
+    Key key,
+    @required this.news,
+  })  : assert(news != null),
+        super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -72,7 +81,7 @@ class GeneralCard extends StatelessWidget {
     return Row(
       children: <Widget>[
         Text(
-          'Tom Clancy\'s Rainbow Six® Siege',
+          news.gameName,
           style: theme.textTheme.caption.copyWith(
             color: theme.textTheme.subtitle1.color,
           ),
@@ -84,7 +93,7 @@ class GeneralCard extends StatelessWidget {
               border: Border.all(color: theme.textTheme.subtitle1.color),
               borderRadius: BorderRadius.circular(4.0)),
           child: Text(
-            'XONE',
+            news.platform,
             style: theme.textTheme.caption.copyWith(
               color: theme.textTheme.subtitle1.color,
             ),
@@ -107,13 +116,40 @@ class GeneralCard extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 10.0),
-          child:
-              Text('The Grand Larceny: 50% еженедельных испытаний завершено'),
-        ),
+        _buildChallengeTextTile(context),
         _buildImageWithProgressBar(context),
       ],
+    );
+  }
+
+  Widget _buildChallengeTextTile(BuildContext context) {
+    final theme = Theme.of(context);
+    final localization = UbisoftClubLocalizations.of(context);
+    final progressValue = news.progress > 100 ? 100 : news.progress;
+
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 10.0),
+      child: RichText(
+        text: TextSpan(
+          children: <TextSpan>[
+            if (news.gameMode != null) ...{
+              TextSpan(
+                text: '${news.gameMode}: ',
+                style: theme.textTheme.bodyText1,
+              ),
+            },
+            TextSpan(
+              text: '${progressValue.toStringAsFixed(0)}% ',
+              style: theme.textTheme.bodyText2,
+            ),
+            _challengeType(news.challengeType, localization),
+            TextSpan(
+              text: localization.isCompleted,
+              style: theme.textTheme.bodyText2,
+            ),
+          ],
+        ),
+      ),
     );
   }
 
@@ -131,15 +167,13 @@ class GeneralCard extends StatelessWidget {
             Colors.black.withOpacity(0.3),
             BlendMode.dstATop,
           ),
-          image: AssetImage(
-            'assets/images/game_image.jpg',
-          ),
+          image: NetworkImage(news.image),
         ),
       ),
       child: SizedBox.fromSize(
         size: Size.square(120),
         child: CircleProgressBar(
-          progressValue: 57,
+          progressValue: news.progress,
           backgroundColor: theme.unselectedWidgetColor,
           gradient: LinearGradient(
             colors: [cyanColor, darkCyanColor],
@@ -176,5 +210,23 @@ class GeneralCard extends StatelessWidget {
         Text(localization.like),
       ],
     );
+  }
+}
+
+TextSpan _challengeType(
+    ChallengeType type, UbisoftClubLocalizations localization) {
+  switch (type) {
+    case ChallengeType.Weekly:
+      return TextSpan(
+        text: '${localization.weeklyChallenges} ',
+        style: TextStyle(color: Colors.orangeAccent),
+      );
+    case ChallengeType.Classic:
+      return TextSpan(
+        text: '${localization.classicChallenges} ',
+        style: TextStyle(color: Colors.orangeAccent),
+      );
+    default:
+      return TextSpan();
   }
 }

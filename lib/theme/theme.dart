@@ -72,6 +72,7 @@ final lightTextTheme = TextTheme(
 );
 
 final darkTextTheme = TextTheme(
+  bodyText1: TextStyle(color: Colors.white70),
   bodyText2: TextStyle(color: Colors.white70),
   subtitle1: TextStyle(color: Colors.white70),
   caption: TextStyle(color: Colors.white54),

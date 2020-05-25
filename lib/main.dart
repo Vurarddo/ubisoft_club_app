@@ -15,7 +15,10 @@ import 'package:ubisoft_club_app/widgets/home_layout.dart';
 
 Future<void> runUbisoftClubApp() async {
   // Injector
-  injector..register<NewsRepo>(HttpNewsRepoImpl());
+  injector
+    ..register<NewsRepo>(HttpNewsRepoImpl())
+    // TODO: drop it
+    ..register<NewsRepo>(NewsRepoMock());
 
   runApp(UbisoftClubApp());
 }
