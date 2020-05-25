@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 
-import 'package:ubisoft_club_app/models/news.dart';
+import 'package:ubisoft_club_app/models/news/news.dart';
 
 void main() {
   group('game progress news class test', () {
@@ -12,6 +12,7 @@ void main() {
     final String tChallengeType = 'Weekly';
     final String tImage = 'imageURL';
     final double tProgress = 50.0;
+    final String tGameMode = 'The Grand Larceny';
     final bool tIsLiked = false;
 
     setUp(() {
@@ -23,6 +24,7 @@ void main() {
         challengeType: tChallengeType,
         image: tImage,
         progress: tProgress,
+        gameMode: tGameMode,
         isLiked: tIsLiked,
       );
     });
@@ -69,6 +71,12 @@ void main() {
       expect(tNews.progress, _tProgress);
     });
 
+    test('game progress news progress test', () {
+      final String _tGameMode = 'The Grand Larceny';
+
+      expect(tNews.gameMode, _tGameMode);
+    });
+
     test('game progress news is liked test', () {
       final bool _tIsLiked = false;
 
@@ -84,6 +92,7 @@ void main() {
         challengeType: tChallengeType,
         image: tImage,
         progress: tProgress,
+        gameMode: tGameMode,
         isLiked: tIsLiked,
       );
 

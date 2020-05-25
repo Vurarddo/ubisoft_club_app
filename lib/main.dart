@@ -5,6 +5,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:ubisoft_club_app/infrastructure/environment_banner.dart';
+import 'package:ubisoft_club_app/infrastructure/injector.dart';
+import 'package:ubisoft_club_app/models/news/news.dart';
+import 'package:ubisoft_club_app/repos/http_news_repo_impl.dart';
 import 'package:ubisoft_club_app/theme/colors.dart';
 import 'package:ubisoft_club_app/theme/theme.dart';
 import 'package:ubisoft_club_app/localization.dart';
@@ -12,6 +15,7 @@ import 'package:ubisoft_club_app/widgets/home_layout.dart';
 
 Future<void> runUbisoftClubApp() async {
   // Injector
+  injector..register<NewsRepo>(HttpNewsRepoImpl());
 
   runApp(UbisoftClubApp());
 }

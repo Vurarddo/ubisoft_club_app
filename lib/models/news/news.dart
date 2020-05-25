@@ -1,6 +1,10 @@
 import 'package:meta/meta.dart';
 import 'package:equatable/equatable.dart';
 
+abstract class NewsRepo {
+  Future<List<News>> getNews();
+}
+
 enum NewsType {
   GameProgress,
   Reward,

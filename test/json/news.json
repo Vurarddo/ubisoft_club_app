@@ -1,0 +1,204 @@
+[
+  {
+    "id": 1,
+    "liked": 152,
+    "gameName": "Tom Clancy's Rainbow Six® Siege",
+    "platform": "XONE",
+    "challengeType": "Weekly",
+    "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.overclockers.ua%2Fnews%2Fgames%2F2020-01-28%2F126146%2F&psig=AOvVaw05RM2CDnh9huJZIbWUG68H&ust=1590244415682000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKiQ3qHYx-kCFQAAAAAdAAAAABAD",
+    "progress": 70,
+    "gameMode": "The Grand Larceny",
+    "isLiked": false,
+    "newsType": "gameProgress"
+  },
+  {
+    "id": 2,
+    "liked": 150,
+    "gameName": "Tom Clancy's Rainbow Six® Siege",
+    "platform": "XONE",
+    "challengeType": "Weekly",
+    "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.overclockers.ua%2Fnews%2Fgames%2F2020-01-28%2F126146%2F&psig=AOvVaw05RM2CDnh9huJZIbWUG68H&ust=1590244415682000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKiQ3qHYx-kCFQAAAAAdAAAAABAD",
+    "progress": 50,
+    "isLiked": false,
+    "newsType": "gameProgress"
+  },
+  {
+    "id": 3,
+    "liked": 1520,
+    "image": "https://gamerbay.ru/wp-content/uploads/2020/05/r6-siege-grand-larceny.png",
+    "newsTitle": "The Grand Larceny was stated",
+    "isLiked": true,
+    "newsType": "company"
+  },
+  {
+    "id": 4,
+    "liked": 34,
+    "gameName": "Tom Clancy's Rainbow Six® Siege",
+    "platform": "XONE",
+    "challengeType": "Weekly",
+    "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.overclockers.ua%2Fnews%2Fgames%2F2020-01-28%2F126146%2F&psig=AOvVaw05RM2CDnh9huJZIbWUG68H&ust=1590244415682000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKiQ3qHYx-kCFQAAAAAdAAAAABAD",
+    "progress": 20,
+    "gameMode": "The Grand Larceny",
+    "isLiked": false,
+    "newsType": "gameProgress"
+  },
+  {
+    "id": 5,
+    "liked": 2722,
+    "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.dexerto.com%2Frainbow-six%2Frainbow-six-operation-steel-wave-reveal-new-operators-amaru-buff-more-1367594&psig=AOvVaw0LvmhkHTJVITwGfV0wK-l5&ust=1590245424453000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMCmloDcx-kCFQAAAAAdAAAAABAD",
+    "newsTitle": "Operation steel wave",
+    "isLiked": true,
+    "newsType": "company"
+  },
+  {
+    "id": 6,
+    "liked": 34,
+    "gameName": "Tom Clancy's Rainbow Six® Siege",
+    "platform": "XONE",
+    "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.reddit.com%2Fr%2FRainbow6%2Fcomments%2F7vrddo%2Flions_main_weapon_credit_umisternicex%2F&psig=AOvVaw0Mx5OSO1Rdo01wXr0p9-Wz&ust=1590245831007000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLjg4sjdx-kCFQAAAAAdAAAAABAD",
+    "rewardType": "epic",
+    "isLiked": false,
+    "newsType": "reward"
+  },
+  {
+    "id": 7,
+    "liked": 22,
+    "gameName": "Tom Clancy's Rainbow Six® Siege",
+    "platform": "XONE",
+    "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.overclockers.ua%2Fnews%2Fgames%2F2020-01-28%2F126146%2F&psig=AOvVaw05RM2CDnh9huJZIbWUG68H&ust=1590244415682000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKiQ3qHYx-kCFQAAAAAdAAAAABAD",
+    "progress": 0,
+    "isLiked": false,
+    "newsType": "gameProgress"
+  },
+  {
+    "id": 8,
+    "liked": 34,
+    "gameName": "Tom Clancy's Rainbow Six® Siege",
+    "platform": "XONE",
+    "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Frainbowsix.fandom.com%2Fwiki%2FVector_.45_ACP&psig=AOvVaw0Mx5OSO1Rdo01wXr0p9-Wz&ust=1590245831007000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLjg4sjdx-kCFQAAAAAdAAAAABAI",
+    "rewardType": "legendary",
+    "isLiked": false,
+    "newsType": "reward"
+  },
+  {
+    "id": 9,
+    "liked": 2722,
+    "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Frainbowsix.fandom.com%2Fru%2Fwiki%2FVoid_Edge&psig=AOvVaw3IgnJ0SFm640WrDUaxFhMD&ust=1590245976017000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJif14fex-kCFQAAAAAdAAAAABAD",
+    "newsTitle": "Operation void edge",
+    "isLiked": true,
+    "newsType": "company"
+  },
+  {
+    "id": 10,
+    "liked": 34,
+    "gameName": "Tom Clancy's Rainbow Six® Siege",
+    "platform": "XONE",
+    "challengeType": "Weekly",
+    "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.overclockers.ua%2Fnews%2Fgames%2F2020-01-28%2F126146%2F&psig=AOvVaw05RM2CDnh9huJZIbWUG68H&ust=1590244415682000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKiQ3qHYx-kCFQAAAAAdAAAAABAD",
+    "progress": 10,
+    "gameMode": "The Grand Larceny",
+    "isLiked": false,
+    "newsType": "gameProgress"
+  },
+  {
+    "id": 11,
+    "liked": 152,
+    "gameName": "Tom Clancy's Rainbow Six® Siege",
+    "platform": "XONE",
+    "challengeType": "Weekly",
+    "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.overclockers.ua%2Fnews%2Fgames%2F2020-01-28%2F126146%2F&psig=AOvVaw05RM2CDnh9huJZIbWUG68H&ust=1590244415682000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKiQ3qHYx-kCFQAAAAAdAAAAABAD",
+    "progress": 70,
+    "gameMode": "The Grand Larceny",
+    "isLiked": false,
+    "newsType": "gameProgress"
+  },
+  {
+    "id": 12,
+    "liked": 150,
+    "gameName": "Tom Clancy's Rainbow Six® Siege",
+    "platform": "XONE",
+    "challengeType": "Weekly",
+    "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.overclockers.ua%2Fnews%2Fgames%2F2020-01-28%2F126146%2F&psig=AOvVaw05RM2CDnh9huJZIbWUG68H&ust=1590244415682000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKiQ3qHYx-kCFQAAAAAdAAAAABAD",
+    "progress": 50,
+    "isLiked": false,
+    "newsType": "gameProgress"
+  },
+  {
+    "id": 13,
+    "liked": 1520,
+    "image": "https://gamerbay.ru/wp-content/uploads/2020/05/r6-siege-grand-larceny.png",
+    "newsTitle": "The Grand Larceny was stated",
+    "isLiked": true,
+    "newsType": "company"
+  },
+  {
+    "id": 14,
+    "liked": 34,
+    "gameName": "Tom Clancy's Rainbow Six® Siege",
+    "platform": "XONE",
+    "challengeType": "Weekly",
+    "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.overclockers.ua%2Fnews%2Fgames%2F2020-01-28%2F126146%2F&psig=AOvVaw05RM2CDnh9huJZIbWUG68H&ust=1590244415682000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKiQ3qHYx-kCFQAAAAAdAAAAABAD",
+    "progress": 20,
+    "gameMode": "The Grand Larceny",
+    "isLiked": false,
+    "newsType": "gameProgress"
+  },
+  {
+    "id": 15,
+    "liked": 2722,
+    "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.dexerto.com%2Frainbow-six%2Frainbow-six-operation-steel-wave-reveal-new-operators-amaru-buff-more-1367594&psig=AOvVaw0LvmhkHTJVITwGfV0wK-l5&ust=1590245424453000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMCmloDcx-kCFQAAAAAdAAAAABAD",
+    "newsTitle": "Operation steel wave",
+    "isLiked": true,
+    "newsType": "company"
+  },
+  {
+    "id": 16,
+    "liked": 34,
+    "gameName": "Tom Clancy's Rainbow Six® Siege",
+    "platform": "XONE",
+    "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.reddit.com%2Fr%2FRainbow6%2Fcomments%2F7vrddo%2Flions_main_weapon_credit_umisternicex%2F&psig=AOvVaw0Mx5OSO1Rdo01wXr0p9-Wz&ust=1590245831007000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLjg4sjdx-kCFQAAAAAdAAAAABAD",
+    "rewardType": "epic",
+    "isLiked": false,
+    "newsType": "reward"
+  },
+  {
+    "id": 17,
+    "liked": 22,
+    "gameName": "Tom Clancy's Rainbow Six® Siege",
+    "platform": "XONE",
+    "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.overclockers.ua%2Fnews%2Fgames%2F2020-01-28%2F126146%2F&psig=AOvVaw05RM2CDnh9huJZIbWUG68H&ust=1590244415682000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKiQ3qHYx-kCFQAAAAAdAAAAABAD",
+    "progress": 0,
+    "isLiked": false,
+    "newsType": "gameProgress"
+  },
+  {
+    "id": 18,
+    "liked": 34,
+    "gameName": "Tom Clancy's Rainbow Six® Siege",
+    "platform": "XONE",
+    "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Frainbowsix.fandom.com%2Fwiki%2FVector_.45_ACP&psig=AOvVaw0Mx5OSO1Rdo01wXr0p9-Wz&ust=1590245831007000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLjg4sjdx-kCFQAAAAAdAAAAABAI",
+    "rewardType": "legendary",
+    "isLiked": false,
+    "newsType": "reward"
+  },
+  {
+    "id": 19,
+    "liked": 2722,
+    "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Frainbowsix.fandom.com%2Fru%2Fwiki%2FVoid_Edge&psig=AOvVaw3IgnJ0SFm640WrDUaxFhMD&ust=1590245976017000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJif14fex-kCFQAAAAAdAAAAABAD",
+    "newsTitle": "Operation void edge",
+    "isLiked": true,
+    "newsType": "company"
+  },
+  {
+    "id": 20,
+    "liked": 34,
+    "gameName": "Tom Clancy's Rainbow Six® Siege",
+    "platform": "XONE",
+    "challengeType": "Weekly",
+    "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.overclockers.ua%2Fnews%2Fgames%2F2020-01-28%2F126146%2F&psig=AOvVaw05RM2CDnh9huJZIbWUG68H&ust=1590244415682000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKiQ3qHYx-kCFQAAAAAdAAAAABAD",
+    "progress": 10,
+    "gameMode": "The Grand Larceny",
+    "isLiked": false,
+    "newsType": "gameProgress"
+  }
+]

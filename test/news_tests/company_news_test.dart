@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 
-import 'package:ubisoft_club_app/models/news.dart';
+import 'package:ubisoft_club_app/models/news/news.dart';
 
 void main() {
   group('company news class test', () {
