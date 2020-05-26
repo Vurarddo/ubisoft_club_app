@@ -30,5 +30,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "classicChallenges" : MessageLookupByLibrary.simpleMessage("испытаний Классика"),
     "weeklyChallenges" : MessageLookupByLibrary.simpleMessage("Еженедельных испытаний"),
     "isCompleted" : MessageLookupByLibrary.simpleMessage("завершено"),
+    "redeemed" : MessageLookupByLibrary.simpleMessage("Получена"),
+    "legendaryReward" : MessageLookupByLibrary.simpleMessage("легендарная награда"),
+    "epicReward" : MessageLookupByLibrary.simpleMessage("эпическая награда"),
+    "rareReward" : MessageLookupByLibrary.simpleMessage("редкая награда"),
+    "commonReward" : MessageLookupByLibrary.simpleMessage("обычная награда"),
+    "exoticReward" : MessageLookupByLibrary.simpleMessage("экзотическая награда"),
+    "legendary" : MessageLookupByLibrary.simpleMessage("Легендарная"),
+    "epic" : MessageLookupByLibrary.simpleMessage("Эпическая"),
+    "rare" : MessageLookupByLibrary.simpleMessage("Редкая"),
+    "common" : MessageLookupByLibrary.simpleMessage("Обычная"),
+    "exotic" : MessageLookupByLibrary.simpleMessage("Экзотическая"),
   };
 }

@@ -30,5 +30,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "classicChallenges" : MessageLookupByLibrary.simpleMessage("Classic Challenges"),
     "weeklyChallenges" : MessageLookupByLibrary.simpleMessage("Weekly Challenges"),
     "isCompleted" : MessageLookupByLibrary.simpleMessage("is completed"),
+    "redeemed" : MessageLookupByLibrary.simpleMessage("Redeemed a"),
+    "legendaryReward" : MessageLookupByLibrary.simpleMessage("Legendary Reward"),
+    "epicReward" : MessageLookupByLibrary.simpleMessage("Epic Reward"),
+    "rareReward" : MessageLookupByLibrary.simpleMessage("Rare Reward"),
+    "commonReward" : MessageLookupByLibrary.simpleMessage("Common Reward"),
+    "exoticReward" : MessageLookupByLibrary.simpleMessage("Exotic Reward"),
+    "legendary" : MessageLookupByLibrary.simpleMessage("Legendary"),
+    "epic" : MessageLookupByLibrary.simpleMessage("Epic"),
+    "rare" : MessageLookupByLibrary.simpleMessage("Rare"),
+    "common" : MessageLookupByLibrary.simpleMessage("Common"),
+    "exotic" : MessageLookupByLibrary.simpleMessage("Exotic"),
   };
 }

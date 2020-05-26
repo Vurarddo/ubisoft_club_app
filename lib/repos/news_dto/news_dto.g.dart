@@ -14,7 +14,7 @@ NewsDTO _$NewsDTOFromJson(Map<String, dynamic> json) {
     platform: json['platform'] as String,
     challengeType: json['challengeType'] as String,
     gameMode: json['gameMode'] as String,
-    rewardType: json['rewardType'] as String,
+    rewardQuality: json['rewardQuality'] as String,
     newsTitle: json['newsTitle'] as String,
     image: json['image'] as String,
     progress: (json['progress'] as num)?.toDouble(),
@@ -22,18 +22,3 @@ NewsDTO _$NewsDTOFromJson(Map<String, dynamic> json) {
     newsType: json['newsType'] as String,
   );
 }
-
-Map<String, dynamic> _$NewsDTOToJson(NewsDTO instance) => <String, dynamic>{
-      'id': instance.id,
-      'liked': instance.liked,
-      'gameName': instance.gameName,
-      'platform': instance.platform,
-      'challengeType': instance.challengeType,
-      'gameMode': instance.gameMode,
-      'rewardType': instance.rewardType,
-      'newsTitle': instance.newsTitle,
-      'image': instance.image,
-      'progress': instance.progress,
-      'isLiked': instance.isLiked,
-      'newsType': instance.newsType,
-    };

@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'news_dto.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(createToJson: false)
 class NewsDTO {
   final int id;
   final int liked;
@@ -10,7 +10,7 @@ class NewsDTO {
   final String platform;
   final String challengeType;
   final String gameMode;
-  final String rewardType;
+  final String rewardQuality;
   final String newsTitle;
   final String image;
   final double progress;
@@ -24,7 +24,7 @@ class NewsDTO {
     this.platform,
     this.challengeType,
     this.gameMode,
-    this.rewardType,
+    this.rewardQuality,
     this.newsTitle,
     this.image,
     this.progress,

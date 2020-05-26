@@ -16,6 +16,14 @@ enum ChallengeType {
   Classic,
 }
 
+enum RewardQuality {
+  Legendary,
+  Epic,
+  Rare,
+  Common,
+  Exotic,
+}
+
 class News extends Equatable {
   final int id;
   final int liked;
@@ -23,7 +31,7 @@ class News extends Equatable {
   final String platform;
   final ChallengeType challengeType;
   final String gameMode;
-  final String rewardType;
+  final RewardQuality rewardQuality;
   final String newsTitle;
   final String image;
   final double progress;
@@ -37,7 +45,7 @@ class News extends Equatable {
     this.platform,
     this.challengeType,
     this.gameMode,
-    this.rewardType,
+    this.rewardQuality,
     this.newsTitle,
     this.image,
     this.progress,
@@ -75,7 +83,7 @@ class News extends Equatable {
     @required int liked,
     @required String gameName,
     @required String platform,
-    @required String rewardType,
+    @required RewardQuality rewardQuality,
     @required String image,
     @required bool isLiked,
   }) {
@@ -84,7 +92,7 @@ class News extends Equatable {
       liked: liked,
       gameName: gameName,
       platform: platform,
-      rewardType: rewardType,
+      rewardQuality: rewardQuality,
       image: image,
       isLiked: isLiked,
       newsType: NewsType.Reward,
@@ -116,16 +124,11 @@ class News extends Equatable {
         platform,
         challengeType,
         gameMode,
-        rewardType,
+        rewardQuality,
         newsTitle,
         image,
         progress,
         isLiked,
         newsType,
       ];
-
-  @override
-  String toString() {
-    return 'News{id: $id, liked: $liked, gameName: $gameName, platform: $platform, challengeType: $challengeType, gameMode: $gameMode, rewardType: $rewardType, newsTitle: $newsTitle, image: $image, progress: $progress, isLiked: $isLiked, newsType: $newsType}';
-  }
 }

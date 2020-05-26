@@ -25,7 +25,7 @@ class NewsRepoMock implements NewsRepo {
         gameName: tGameName,
         platform: tPlatform,
         image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.reddit.com%2Fr%2FRainbow6%2Fcomments%2F7vrddo%2Flions_main_weapon_credit_umisternicex%2F&psig=AOvVaw0Mx5OSO1Rdo01wXr0p9-Wz&ust=1590245831007000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLjg4sjdx-kCFQAAAAAdAAAAABAD',
-        rewardType: 'epic',
+        rewardQuality: RewardQuality.Legendary,
         isLiked: false,
       ),
       News.company(

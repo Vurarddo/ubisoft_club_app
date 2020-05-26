@@ -61,14 +61,39 @@ class _NewsHelper {
       liked: newsDTO.liked,
       gameName: newsDTO.gameName,
       platform: newsDTO.platform,
-      rewardType: newsDTO.rewardType,
+      rewardQuality: _getRewardQuality(newsDTO),
       image: newsDTO.image,
       isLiked: newsDTO.isLiked,
     );
+  }
+
+  static RewardQuality _getRewardQuality(NewsDTO newsDTO) {
+    switch (newsDTO.challengeType) {
+      case _RewardQuality.legendary:
+        return RewardQuality.Legendary;
+      case _RewardQuality.epic:
+        return RewardQuality.Epic;
+      case _RewardQuality.rare:
+        return RewardQuality.Rare;
+      case _RewardQuality.common:
+        return RewardQuality.Common;
+      case _RewardQuality.exotic:
+        return RewardQuality.Exotic;
+      default:
+        return null;
+    }
   }
 }
 
 class _TypeOfChallenge {
   static const String weekly = 'weekly';
   static const String classic = 'classic';
+}
+
+class _RewardQuality {
+  static const String legendary = 'legendary';
+  static const String epic = 'epic';
+  static const String rare = 'rare';
+  static const String common = 'common';
+  static const String exotic = 'exotic';
 }

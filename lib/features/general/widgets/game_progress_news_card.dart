@@ -5,10 +5,10 @@ import 'package:ubisoft_club_app/localization.dart';
 import 'package:ubisoft_club_app/models/news/news.dart';
 import 'package:ubisoft_club_app/widgets/circular_progress_bar.dart';
 
-class NewsCard extends StatelessWidget {
+class GameProgressNewsCard extends StatelessWidget {
   final News news;
 
-  const NewsCard({
+  const GameProgressNewsCard({
     Key key,
     @required this.news,
   })  : assert(news != null),

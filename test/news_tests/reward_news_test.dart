@@ -9,7 +9,7 @@ void main() {
     final int tLiked = 100;
     final String tGameName = 'Tom Clancy\'s Rainbow Six® Siege';
     final String tPlatform = 'XONE';
-    final String tRewardType = 'epic';
+    final RewardQuality tRewardQuality = RewardQuality.Legendary;
     final String tImage = 'imageURL';
     final bool tIsLiked = false;
 
@@ -20,7 +20,7 @@ void main() {
         gameName: tGameName,
         platform: tPlatform,
         image: tImage,
-        rewardType: tRewardType,
+        rewardQuality: tRewardQuality,
         isLiked: tIsLiked,
       );
     });
@@ -56,9 +56,9 @@ void main() {
     });
 
     test('reward news reward test', () {
-      final String _tRewardType = 'epic';
+      final RewardQuality _tRewardType = RewardQuality.Legendary;
 
-      expect(tNews.rewardType, _tRewardType);
+      expect(tNews.rewardQuality, _tRewardType);
     });
 
     test('reward news is liked test', () {
@@ -74,7 +74,7 @@ void main() {
         gameName: tGameName,
         platform: tPlatform,
         image: tImage,
-        rewardType: tRewardType,
+        rewardQuality: tRewardQuality,
         isLiked: tIsLiked,
       );
 

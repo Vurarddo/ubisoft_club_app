@@ -37,7 +37,7 @@ class NewsRepoMock implements NewsRepo {
         platform: tPlatform,
         image:
             'https://images.gamersyde.com/image_tom_clancy_s_rainbow_six_siege-31710-2991_0002.jpg',
-        rewardType: 'epic',
+        rewardQuality: RewardQuality.Epic,
         isLiked: false,
       ),
       News.company(

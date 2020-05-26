@@ -84,6 +84,83 @@ class UbisoftClubLocalizations {
       name: 'isCompleted',
     );
   }
+
+  String get redeemed {
+    return Intl.message(
+      'Redeemed a',
+      name: 'redeemed',
+    );
+  }
+
+  String get legendaryReward {
+    return Intl.message(
+      'Legendary Reward',
+      name: 'legendaryReward',
+    );
+  }
+
+  String get epicReward {
+    return Intl.message(
+      'Epic Reward',
+      name: 'epicReward',
+    );
+  }
+
+  String get rareReward {
+    return Intl.message(
+      'Rare Reward',
+      name: 'rareReward',
+    );
+  }
+
+  String get commonReward {
+    return Intl.message(
+      'Common Reward',
+      name: 'commonReward',
+    );
+  }
+
+  String get exoticReward {
+    return Intl.message(
+      'Exotic Reward',
+      name: 'exoticReward',
+    );
+  }
+
+  String get legendary {
+    return Intl.message(
+      'Legendary',
+      name: 'legendary',
+    );
+  }
+
+  String get epic {
+    return Intl.message(
+      'Epic',
+      name: 'epic',
+    );
+  }
+
+  String get rare {
+    return Intl.message(
+      'Rare',
+      name: 'rare',
+    );
+  }
+
+  String get common {
+    return Intl.message(
+      'Common',
+      name: 'common',
+    );
+  }
+
+  String get exotic {
+    return Intl.message(
+      'Exotic',
+      name: 'exotic',
+    );
+  }
 }
 
 class UbisoftClubLocalizationsDelegate

@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:ubisoft_club_app/features/general/general_screen_presenter.dart';
-import 'package:ubisoft_club_app/features/general/general_widgets/news_card.dart';
+import 'package:ubisoft_club_app/features/general/widgets/widgets.dart';
 import 'package:ubisoft_club_app/features/settings/settings_screen.dart';
 import 'package:ubisoft_club_app/models/news/news.dart';
 
@@ -130,9 +130,9 @@ class _GeneralScreenState extends State<GeneralScreen>
 Widget _card(NewsType newsType, News news) {
   switch (newsType) {
     case NewsType.GameProgress:
-      return NewsCard(news: news);
+      return GameProgressNewsCard(news: news);
     case NewsType.Reward:
-      return Text('${news.id}');
+      return RewardNewsCard(news: news);
     case NewsType.Company:
       return Text('${news.id}');
     default:
