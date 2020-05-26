@@ -4,7 +4,7 @@ import 'package:ubisoft_club_app/models/news/news.dart';
 
 void main() {
   group('reward news class test', () {
-    News tNews;
+    RewardNews tNews;
     final int tId = 1;
     final int tLiked = 100;
     final String tGameName = 'Tom Clancy\'s Rainbow Six® Siege';
@@ -12,9 +12,10 @@ void main() {
     final RewardQuality tRewardQuality = RewardQuality.Legendary;
     final String tImage = 'imageURL';
     final bool tIsLiked = false;
+    final DateTime tPublished = DateTime(2020, 26, 5, 13, 38);
 
     setUp(() {
-      tNews = News.reward(
+      tNews = RewardNews(
         id: tId,
         liked: tLiked,
         gameName: tGameName,
@@ -22,6 +23,7 @@ void main() {
         image: tImage,
         rewardQuality: tRewardQuality,
         isLiked: tIsLiked,
+        published: tPublished,
       );
     });
 
@@ -67,8 +69,14 @@ void main() {
       expect(tNews.isLiked, _tIsLiked);
     });
 
+    test('reward news published test', () {
+      final DateTime _tPublished = DateTime(2020, 26, 5, 13, 38);
+
+      expect(tNews.published, _tPublished);
+    });
+
     test('full reward news test', () {
-      final _tNews = News.reward(
+      final _tNews = RewardNews(
         id: tId,
         liked: tLiked,
         gameName: tGameName,
@@ -76,6 +84,7 @@ void main() {
         image: tImage,
         rewardQuality: tRewardQuality,
         isLiked: tIsLiked,
+        published: tPublished,
       );
 
       expect(tNews, _tNews);

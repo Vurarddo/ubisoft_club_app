@@ -1,3 +1,5 @@
+import 'package:equatable/equatable.dart';
+
 import 'package:ubisoft_club_app/models/news/news.dart';
 import 'package:ubisoft_club_app/repos/news_dto/news_dto.dart';
 
@@ -18,7 +20,7 @@ class NewsRepoMock implements NewsRepo {
 
   NewsRepoMock() {
     _news = [
-      News.gameProgress(
+      GameProgressNews(
         id: 1,
         liked: 100,
         gameName: tGameName,
@@ -29,8 +31,9 @@ class NewsRepoMock implements NewsRepo {
         progress: 50.0,
         gameMode: 'The Grand Larceny',
         isLiked: false,
+        published: DateTime(2020, 5, 26, 14, 05),
       ),
-      News.reward(
+      RewardNews(
         id: 2,
         liked: 200,
         gameName: tGameName,
@@ -39,16 +42,18 @@ class NewsRepoMock implements NewsRepo {
             'https://images.gamersyde.com/image_tom_clancy_s_rainbow_six_siege-31710-2991_0002.jpg',
         rewardQuality: RewardQuality.Epic,
         isLiked: false,
+        published: DateTime(2020, 5, 25, 13, 38)
       ),
-      News.company(
+      UbisoftGroupNews(
         id: 3,
         liked: 2000,
         image:
             'https://img5.goodfon.ru/wallpaper/nbig/9/a2/tom-clancy-s-rainbow-six-siege-rainbow-six-siege-ubisoft-ope.jpg',
         newsTitle: 'Operation void edge',
         isLiked: true,
+        published: DateTime(2020, 5, 24, 16, 38)
       ),
-      News.gameProgress(
+      GameProgressNews(
         id: 4,
         liked: 100,
         gameName: tGameName,
@@ -58,6 +63,7 @@ class NewsRepoMock implements NewsRepo {
             'https://www.overclockers.ua/news/games/126146-Rainbow-Six-Siege-1.jpg',
         progress: 100.0,
         isLiked: false,
+        published: DateTime(2020, 4, 5, 13, 38)
       ),
     ];
   }

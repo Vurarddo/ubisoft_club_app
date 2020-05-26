@@ -16,6 +16,7 @@ dependencies:
   pigment: ^1.0.3
   equatable: ^1.1.1
   build_runner: ^1.7.2
+  timeago: ^2.0.26
 
   flutter:
     sdk: flutter

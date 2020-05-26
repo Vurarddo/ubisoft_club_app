@@ -4,7 +4,7 @@ import 'package:ubisoft_club_app/models/news/news.dart';
 
 void main() {
   group('game progress news class test', () {
-    News tNews;
+    GameProgressNews tNews;
     final int tId = 1;
     final int tLiked = 100;
     final String tGameName = 'Tom Clancy\'s Rainbow Six® Siege';
@@ -14,9 +14,10 @@ void main() {
     final double tProgress = 50.0;
     final String tGameMode = 'The Grand Larceny';
     final bool tIsLiked = false;
+    final DateTime tPublished = DateTime(2020, 26, 5, 13, 38);
 
     setUp(() {
-      tNews = News.gameProgress(
+      tNews = GameProgressNews(
         id: tId,
         liked: tLiked,
         gameName: tGameName,
@@ -26,6 +27,7 @@ void main() {
         progress: tProgress,
         gameMode: tGameMode,
         isLiked: tIsLiked,
+        published: tPublished,
       );
     });
 
@@ -54,7 +56,7 @@ void main() {
     });
 
     test('game progress news challenge type test', () {
-      final String _tChallengeType = 'Weekly';
+      final ChallengeType _tChallengeType = ChallengeType.Classic;
 
       expect(tNews.challengeType, _tChallengeType);
     });
@@ -83,8 +85,14 @@ void main() {
       expect(tNews.isLiked, _tIsLiked);
     });
 
+    test('game progress news published test', () {
+      final DateTime _tPublished = DateTime(2020, 26, 5, 13, 38);
+
+      expect(tNews.published, _tPublished);
+    });
+
     test('full game progress news test', () {
-      final _tNews = News.gameProgress(
+      final _tNews = GameProgressNews(
         id: tId,
         liked: tLiked,
         gameName: tGameName,
@@ -94,6 +102,7 @@ void main() {
         progress: tProgress,
         gameMode: tGameMode,
         isLiked: tIsLiked,
+        published: tPublished,
       );
 
       expect(tNews, _tNews);

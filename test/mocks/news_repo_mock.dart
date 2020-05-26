@@ -7,34 +7,48 @@ class NewsRepoMock implements NewsRepo {
 
   NewsRepoMock() {
     _news = [
-      News.gameProgress(
+      GameProgressNews(
         id: 1,
         liked: 100,
         gameName: tGameName,
         platform: tPlatform,
-        challengeType: ChallengeType.Classic,
+        challengeType: ChallengeType.Weekly,
         image:
-            'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.overclockers.ua%2Fnews%2Fgames%2F2020-01-28%2F126146%2F&psig=AOvVaw05RM2CDnh9huJZIbWUG68H&ust=1590244415682000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKiQ3qHYx-kCFQAAAAAdAAAAABAD',
+            'https://le-cdn.website-editor.net/54eff58079aa4f35b86aa3de96389b31/dms3rep/multi/opt/article+logo+3-640w.png',
         progress: 50.0,
         gameMode: 'The Grand Larceny',
         isLiked: false,
+        published: DateTime(2020, 26, 5, 13, 38),
       ),
-      News.reward(
-        id: 2,
-        liked: 200,
-        gameName: tGameName,
-        platform: tPlatform,
-        image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.reddit.com%2Fr%2FRainbow6%2Fcomments%2F7vrddo%2Flions_main_weapon_credit_umisternicex%2F&psig=AOvVaw0Mx5OSO1Rdo01wXr0p9-Wz&ust=1590245831007000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLjg4sjdx-kCFQAAAAAdAAAAABAD',
-        rewardQuality: RewardQuality.Legendary,
-        isLiked: false,
-      ),
-      News.company(
-        id: 3,
-        liked: 2000,
-        image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Frainbowsix.fandom.com%2Fru%2Fwiki%2FVoid_Edge&psig=AOvVaw3IgnJ0SFm640WrDUaxFhMD&ust=1590245976017000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJif14fex-kCFQAAAAAdAAAAABAD',
-        newsTitle: 'Operation void edge',
-        isLiked: true,
-      ),
+      RewardNews(
+          id: 2,
+          liked: 200,
+          gameName: tGameName,
+          platform: tPlatform,
+          image:
+              'https://images.gamersyde.com/image_tom_clancy_s_rainbow_six_siege-31710-2991_0002.jpg',
+          rewardQuality: RewardQuality.Epic,
+          isLiked: false,
+          published: DateTime(2020, 25, 5, 13, 38)),
+      UbisoftGroupNews(
+          id: 3,
+          liked: 2000,
+          image:
+              'https://img5.goodfon.ru/wallpaper/nbig/9/a2/tom-clancy-s-rainbow-six-siege-rainbow-six-siege-ubisoft-ope.jpg',
+          newsTitle: 'Operation void edge',
+          isLiked: true,
+          published: DateTime(2020, 25, 5, 16, 38)),
+      GameProgressNews(
+          id: 4,
+          liked: 100,
+          gameName: tGameName,
+          platform: tPlatform,
+          challengeType: ChallengeType.Classic,
+          image:
+              'https://www.overclockers.ua/news/games/126146-Rainbow-Six-Siege-1.jpg',
+          progress: 100.0,
+          isLiked: false,
+          published: DateTime(2020, 24, 5, 13, 38)),
     ];
   }
 

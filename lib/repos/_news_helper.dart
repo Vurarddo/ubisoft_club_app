@@ -1,27 +1,37 @@
 part of 'http_news_repo_impl.dart';
 
-class _NewsHelper {
-  static const _newsType = {
-    NewsType.GameProgress: 'gameProgress',
-    NewsType.Reward: 'reward',
-    NewsType.Company: 'company',
-  };
+class NewsType extends Equatable {
+  final String value;
+  static final _gameProgress = NewsType._('gameProgress');
+  static final _reward = NewsType._('reward');
+  static final _ubisoftGroup = NewsType._('ubisoftGroup');
 
+  NewsType._(this.value);
+
+  static NewsType gameProgress = _gameProgress;
+  static NewsType reward = _reward;
+  static NewsType ubisoftGroup = _ubisoftGroup;
+
+  @override
+  List<Object> get props => [value];
+}
+
+class _NewsHelper {
   static List<News> getNewsListFromResponse(List<Map<String, dynamic>> json) {
     return json.map((news) {
       final newsDTO = NewsDTO.fromJson(news);
 
-      if (newsDTO.newsType == _newsType.values.first) {
+      if (newsDTO.newsType == NewsType.gameProgress.value) {
         _getGameProgressNews(newsDTO);
-      } else if (newsDTO.newsType == _newsType.values.last) {
-        _getCompanyNews(newsDTO);
+      } else if (newsDTO.newsType == NewsType.reward.value) {
+        _getRewardNews(newsDTO);
       }
-      return _getRewardNews(newsDTO);
+      return _getUbisoftGroupNews(newsDTO);
     }).toList();
   }
 
-  static News _getGameProgressNews(NewsDTO newsDTO) {
-    return News.gameProgress(
+  static GameProgressNews _getGameProgressNews(NewsDTO newsDTO) {
+    return GameProgressNews(
       id: newsDTO.id,
       liked: newsDTO.liked,
       gameName: newsDTO.gameName,
@@ -45,18 +55,8 @@ class _NewsHelper {
     }
   }
 
-  static News _getCompanyNews(NewsDTO newsDTO) {
-    return News.company(
-      id: newsDTO.id,
-      liked: newsDTO.liked,
-      image: newsDTO.image,
-      newsTitle: newsDTO.newsTitle,
-      isLiked: newsDTO.isLiked,
-    );
-  }
-
-  static News _getRewardNews(NewsDTO newsDTO) {
-    return News.reward(
+  static RewardNews _getRewardNews(NewsDTO newsDTO) {
+    return RewardNews(
       id: newsDTO.id,
       liked: newsDTO.liked,
       gameName: newsDTO.gameName,
@@ -82,6 +82,16 @@ class _NewsHelper {
       default:
         return null;
     }
+  }
+
+  static UbisoftGroupNews _getUbisoftGroupNews(NewsDTO newsDTO) {
+    return UbisoftGroupNews(
+      id: newsDTO.id,
+      liked: newsDTO.liked,
+      image: newsDTO.image,
+      newsTitle: newsDTO.newsTitle,
+      isLiked: newsDTO.isLiked,
+    );
   }
 }
 

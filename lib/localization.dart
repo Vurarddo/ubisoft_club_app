@@ -169,7 +169,7 @@ class UbisoftClubLocalizationsDelegate
 
   @override
   bool isSupported(Locale locale) {
-    return ['en', 'ru', 'uk'].contains(locale.languageCode);
+    return ['en', 'ru',].contains(locale.languageCode);
   }
 
   @override

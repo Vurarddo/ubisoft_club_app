@@ -5,10 +5,10 @@ abstract class NewsRepo {
   Future<List<News>> getNews();
 }
 
-enum NewsType {
+enum NewsTypeEnum {
   GameProgress,
   Reward,
-  Company,
+  UbisoftGroup,
 }
 
 enum ChallengeType {
@@ -24,111 +24,141 @@ enum RewardQuality {
   Exotic,
 }
 
-class News extends Equatable {
+abstract class News extends Equatable {
   final int id;
   final int liked;
+  final String image;
+  final bool isLiked;
+  final DateTime published;
+  final NewsTypeEnum newsType;
+
+  News({
+    @required this.id,
+    @required this.liked,
+    @required this.image,
+    @required this.isLiked,
+    @required this.published,
+    @required this.newsType,
+  })  : assert(id != null),
+        assert(liked != null),
+        assert(image != null),
+        assert(isLiked != null),
+        assert(published != null),
+        assert(newsType != null);
+}
+
+class GameProgressNews extends News {
   final String gameName;
   final String platform;
   final ChallengeType challengeType;
   final String gameMode;
-  final RewardQuality rewardQuality;
-  final String newsTitle;
-  final String image;
   final double progress;
-  final bool isLiked;
-  final NewsType newsType;
 
-  News._({
-    this.id,
-    this.liked,
-    this.gameName,
-    this.platform,
-    this.challengeType,
+  GameProgressNews({
+    int id,
+    int liked,
+    String image,
+    bool isLiked,
+    DateTime published,
+    @required this.gameName,
+    @required this.platform,
+    @required this.challengeType,
+    @required this.progress,
     this.gameMode,
-    this.rewardQuality,
-    this.newsTitle,
-    this.image,
-    this.progress,
-    this.isLiked,
-    this.newsType,
-  });
-
-  factory News.gameProgress({
-    @required int id,
-    @required int liked,
-    @required String gameName,
-    @required String platform,
-    @required ChallengeType challengeType,
-    @required String image,
-    @required double progress,
-    @required bool isLiked,
-    String gameMode,
-  }) {
-    return News._(
-      id: id,
-      liked: liked,
-      gameName: gameName,
-      platform: platform,
-      challengeType: challengeType,
-      image: image,
-      progress: progress,
-      isLiked: isLiked,
-      gameMode: gameMode,
-      newsType: NewsType.GameProgress,
-    );
-  }
-
-  factory News.reward({
-    @required int id,
-    @required int liked,
-    @required String gameName,
-    @required String platform,
-    @required RewardQuality rewardQuality,
-    @required String image,
-    @required bool isLiked,
-  }) {
-    return News._(
-      id: id,
-      liked: liked,
-      gameName: gameName,
-      platform: platform,
-      rewardQuality: rewardQuality,
-      image: image,
-      isLiked: isLiked,
-      newsType: NewsType.Reward,
-    );
-  }
-
-  factory News.company({
-    @required int id,
-    @required int liked,
-    @required String image,
-    @required String newsTitle,
-    @required bool isLiked,
-  }) {
-    return News._(
-      id: id,
-      liked: liked,
-      image: image,
-      newsTitle: newsTitle,
-      isLiked: isLiked,
-      newsType: NewsType.Company,
-    );
-  }
+  })  : assert(gameName != null),
+        assert(platform != null),
+        assert(challengeType != null),
+        assert(progress != null),
+        super(
+          id: id,
+          liked: liked,
+          image: image,
+          isLiked: isLiked,
+          published: published,
+          newsType: NewsTypeEnum.GameProgress,
+        );
 
   @override
   List<Object> get props => [
         id,
         liked,
+        image,
+        isLiked,
+        published,
         gameName,
         platform,
         challengeType,
-        gameMode,
-        rewardQuality,
-        newsTitle,
-        image,
         progress,
+        gameMode,
+      ];
+}
+
+class RewardNews extends News {
+  final String gameName;
+  final String platform;
+  final RewardQuality rewardQuality;
+
+  RewardNews({
+    int id,
+    int liked,
+    String image,
+    bool isLiked,
+    DateTime published,
+    @required this.gameName,
+    @required this.platform,
+    @required this.rewardQuality,
+  })  : assert(gameName != null),
+        assert(platform != null),
+        assert(rewardQuality != null),
+        super(
+          id: id,
+          liked: liked,
+          image: image,
+          isLiked: isLiked,
+          published: published,
+          newsType: NewsTypeEnum.Reward,
+        );
+
+  @override
+  List<Object> get props => [
+        id,
+        liked,
+        image,
         isLiked,
-        newsType,
+        published,
+        gameName,
+        platform,
+        rewardQuality,
+      ];
+}
+
+class UbisoftGroupNews extends News {
+  final String newsTitle;
+
+  UbisoftGroupNews({
+    int id,
+    int liked,
+    String image,
+    bool isLiked,
+    DateTime published,
+    @required this.newsTitle,
+  })  : assert(newsTitle != null),
+        super(
+          id: id,
+          liked: liked,
+          image: image,
+          isLiked: isLiked,
+          published: published,
+          newsType: NewsTypeEnum.UbisoftGroup,
+        );
+
+  @override
+  List<Object> get props => [
+        id,
+        liked,
+        image,
+        isLiked,
+        published,
+        newsTitle,
       ];
 }

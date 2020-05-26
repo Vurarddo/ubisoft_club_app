@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'package:ubisoft_club_app/theme/colors.dart';
 import 'package:ubisoft_club_app/localization.dart';
 import 'package:ubisoft_club_app/models/news/news.dart';
-import 'package:ubisoft_club_app/widgets/circular_progress_bar.dart';
+import 'package:ubisoft_club_app/helpers/get_time_ago.dart';
 
 class RewardNewsCard extends StatelessWidget {
-  final News news;
+  final RewardNews news;
 
   const RewardNewsCard({
     Key key,
@@ -66,7 +65,7 @@ class RewardNewsCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            '2 hours ago',
+            '${getTimeAgo(news.published)}',
             style: theme.textTheme.caption,
           ),
           _buildGameTile(context),

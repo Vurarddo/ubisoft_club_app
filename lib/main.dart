@@ -12,6 +12,7 @@ import 'package:ubisoft_club_app/theme/colors.dart';
 import 'package:ubisoft_club_app/theme/theme.dart';
 import 'package:ubisoft_club_app/localization.dart';
 import 'package:ubisoft_club_app/widgets/home_layout.dart';
+import 'package:timeago/timeago.dart' as timeAgo;
 
 Future<void> runUbisoftClubApp() async {
   // Injector
@@ -20,13 +21,15 @@ Future<void> runUbisoftClubApp() async {
     // TODO: drop it
     ..register<NewsRepo>(NewsRepoMock());
 
+  // for time ago messages
+  timeAgo.setLocaleMessages('ru', timeAgo.RuMessages());
+
   runApp(UbisoftClubApp());
 }
 
 const _supportedLocales = [
   Locale('en'),
   Locale('ru'),
-  Locale('uk'),
 ];
 
 const List<LocalizationsDelegate> _localizationsDelegate = [
@@ -74,7 +77,7 @@ class _UbisoftClubAppState extends State<UbisoftClubApp>
 
   MaterialApp _buildMaterialApp() {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Ubisoft Club App',
       supportedLocales: _supportedLocales,
       localizationsDelegates: _localizationsDelegate,
       theme: appThemeData[AppTheme.light],

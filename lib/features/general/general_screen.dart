@@ -109,7 +109,7 @@ class _GeneralScreenState extends State<GeneralScreen>
                         color: _theme.dividerColor,
                       ),
                     },
-                    _card(news.newsType, news),
+                    _buildNewsCard(news),
                   ],
                 );
               },
@@ -120,22 +120,18 @@ class _GeneralScreenState extends State<GeneralScreen>
     );
   }
 
+  Widget _buildNewsCard(News news) {
+    if (news is GameProgressNews) {
+      return GameProgressNewsCard(news: news);
+    } else if (news is RewardNews) {
+      return RewardNewsCard(news: news);
+    }
+    return Text('${news.id}');
+  }
+
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
-  }
-}
-
-Widget _card(NewsType newsType, News news) {
-  switch (newsType) {
-    case NewsType.GameProgress:
-      return GameProgressNewsCard(news: news);
-    case NewsType.Reward:
-      return RewardNewsCard(news: news);
-    case NewsType.Company:
-      return Text('${news.id}');
-    default:
-      return SizedBox();
   }
 }
