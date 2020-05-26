@@ -5,12 +5,14 @@ class NewsType extends Equatable {
   static final _gameProgress = NewsType._('gameProgress');
   static final _reward = NewsType._('reward');
   static final _ubisoftGroup = NewsType._('ubisoftGroup');
+  static final _congratulatory = NewsType._('congratulatory');
 
   NewsType._(this.value);
 
   static NewsType gameProgress = _gameProgress;
   static NewsType reward = _reward;
   static NewsType ubisoftGroup = _ubisoftGroup;
+  static NewsType congratulatory = _congratulatory;
 
   @override
   List<Object> get props => [value];
@@ -56,6 +58,7 @@ class _NewsHelper {
   }
 
   static RewardNews _getRewardNews(NewsDTO newsDTO) {
+    // TODO !!!!!!
     return RewardNews(
       id: newsDTO.id,
       liked: newsDTO.liked,
@@ -64,6 +67,8 @@ class _NewsHelper {
       rewardQuality: _getRewardQuality(newsDTO),
       image: newsDTO.image,
       isLiked: newsDTO.isLiked,
+      title: '',
+      published: DateTime.now(),
     );
   }
 
@@ -89,7 +94,7 @@ class _NewsHelper {
       id: newsDTO.id,
       liked: newsDTO.liked,
       image: newsDTO.image,
-      newsTitle: newsDTO.newsTitle,
+      title: newsDTO.newsTitle,
       isLiked: newsDTO.isLiked,
     );
   }

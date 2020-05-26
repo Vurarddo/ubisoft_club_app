@@ -17,7 +17,7 @@ void main() {
         id: tId,
         liked: tLiked,
         image: tImage,
-        newsTitle: tNewsTitle,
+        title: tNewsTitle,
         isLiked: tIsLiked,
         published: tPublished,
       );
@@ -38,7 +38,7 @@ void main() {
     test('ubisoft group news title test', () {
       final String _tNewsTitle = 'The Grand Larceny was stated';
 
-      expect(tNews.newsTitle, _tNewsTitle);
+      expect(tNews.title, _tNewsTitle);
     });
 
     test('ubisoft group news image test', () {
@@ -64,7 +64,7 @@ void main() {
         id: tId,
         liked: tLiked,
         image: tImage,
-        newsTitle: tNewsTitle,
+        title: tNewsTitle,
         isLiked: tIsLiked,
         published: tPublished,
       );

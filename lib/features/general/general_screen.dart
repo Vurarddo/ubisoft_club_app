@@ -125,8 +125,10 @@ class _GeneralScreenState extends State<GeneralScreen>
       return GameProgressNewsCard(news: news);
     } else if (news is RewardNews) {
       return RewardNewsCard(news: news);
+    } else if (news is UbisoftGroupNews) {
+      return UbisoftGroupNewsCard(news: news);
     }
-    return Text('${news.id}');
+    return CongratulatoryNewsCard(news: news);
   }
 
   @override

@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "classicChallenges" : MessageLookupByLibrary.simpleMessage("Classic Challenges"),
     "weeklyChallenges" : MessageLookupByLibrary.simpleMessage("Weekly Challenges"),
     "isCompleted" : MessageLookupByLibrary.simpleMessage("is completed"),
+    "isCompletedInUbisoftGames" : MessageLookupByLibrary.simpleMessage("is completed in Ubisoft games"),
     "redeemed" : MessageLookupByLibrary.simpleMessage("Redeemed a"),
     "legendaryReward" : MessageLookupByLibrary.simpleMessage("Legendary Reward"),
     "epicReward" : MessageLookupByLibrary.simpleMessage("Epic Reward"),
@@ -41,5 +42,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "rare" : MessageLookupByLibrary.simpleMessage("Rare"),
     "common" : MessageLookupByLibrary.simpleMessage("Common"),
     "exotic" : MessageLookupByLibrary.simpleMessage("Exotic"),
+    "congratulations" : MessageLookupByLibrary.simpleMessage("Congratulations"),
   };
 }

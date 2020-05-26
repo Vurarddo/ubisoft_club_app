@@ -54,7 +54,9 @@ class RewardNewsCard extends StatelessWidget {
         size: Size.square(50),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(8),
-          child: Image.asset('assets/images/avatar.jpg'),
+          child: Image.asset(
+            'assets/images/avatar.jpg',
+          ),
         ),
       ),
       title: Text(
@@ -116,7 +118,7 @@ class RewardNewsCard extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         _buildChallengeTextTile(context),
-        _buildImageWithProgressBar(context),
+        _buildImageWithTitle(context),
       ],
     );
   }
@@ -160,15 +162,48 @@ class RewardNewsCard extends StatelessWidget {
     );
   }
 
-  Widget _buildImageWithProgressBar(BuildContext context) {
-    return Container(
-      height: 200,
-      padding: EdgeInsets.symmetric(horizontal: 16),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(8.0),
-        child: Image.network(
-          news.image,
-          fit: BoxFit.cover,
+  Widget _buildImageWithTitle(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+        minHeight: 130,
+        minWidth: double.infinity,
+      ),
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 16),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(9.0),
+          border: Border.all(color: theme.dividerColor),
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Stack(
+                alignment: Alignment.bottomRight,
+                children: <Widget>[
+                  Image.network(
+                    news.image,
+                    fit: BoxFit.cover,
+                  ),
+                  ClipPath(
+                    clipper: _TriangleClipper(),
+                    child: Container(
+                      height: 20,
+                      width: 20,
+                      color: _rewardQualityColor(news.rewardQuality),
+                    ),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Text(news.title),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -192,6 +227,23 @@ class RewardNewsCard extends StatelessWidget {
         Text(localization.like),
       ],
     );
+  }
+}
+
+Color _rewardQualityColor(RewardQuality quality) {
+  switch (quality) {
+    case RewardQuality.Legendary:
+      return Colors.orange;
+    case RewardQuality.Epic:
+      return Colors.purpleAccent;
+    case RewardQuality.Rare:
+      return Colors.lightBlue;
+    case RewardQuality.Common:
+      return Colors.grey[600];
+    case RewardQuality.Exotic:
+      return Colors.yellow[600];
+    default:
+      return Colors.orangeAccent;
   }
 }
 
@@ -226,4 +278,20 @@ TextSpan _rewardQuality(
     default:
       return TextSpan();
   }
+}
+
+class _TriangleClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    final path = Path();
+    path
+      ..moveTo(0, size.height)
+      ..lineTo(size.width, 0)
+      ..lineTo(size.width, size.height)
+      ..lineTo(0, size.height);
+    return path;
+  }
+
+  @override
+  bool shouldReclip(_TriangleClipper oldClipper) => false;
 }

@@ -13,6 +13,7 @@ void main() {
     final String tImage = 'imageURL';
     final bool tIsLiked = false;
     final DateTime tPublished = DateTime(2020, 26, 5, 13, 38);
+    final String tTitle = 'AK-45';
 
     setUp(() {
       tNews = RewardNews(
@@ -20,6 +21,7 @@ void main() {
         liked: tLiked,
         gameName: tGameName,
         platform: tPlatform,
+        title: tTitle,
         image: tImage,
         rewardQuality: tRewardQuality,
         isLiked: tIsLiked,
@@ -49,6 +51,12 @@ void main() {
       final String _tPlatform = 'XONE';
 
       expect(tNews.platform, _tPlatform);
+    });
+
+    test('reward news title test', () {
+      final String _tTitle = 'AK-45';
+
+      expect(tNews.title, _tTitle);
     });
 
     test('reward news image test', () {
@@ -81,6 +89,7 @@ void main() {
         liked: tLiked,
         gameName: tGameName,
         platform: tPlatform,
+        title: tTitle,
         image: tImage,
         rewardQuality: tRewardQuality,
         isLiked: tIsLiked,

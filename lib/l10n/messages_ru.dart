@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "classicChallenges" : MessageLookupByLibrary.simpleMessage("испытаний Классика"),
     "weeklyChallenges" : MessageLookupByLibrary.simpleMessage("Еженедельных испытаний"),
     "isCompleted" : MessageLookupByLibrary.simpleMessage("завершено"),
+    "isCompletedInUbisoftGames" : MessageLookupByLibrary.simpleMessage("завершено в играх Ubisoft"),
     "redeemed" : MessageLookupByLibrary.simpleMessage("Получена"),
     "legendaryReward" : MessageLookupByLibrary.simpleMessage("легендарная награда"),
     "epicReward" : MessageLookupByLibrary.simpleMessage("эпическая награда"),
@@ -41,5 +42,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "rare" : MessageLookupByLibrary.simpleMessage("Редкая"),
     "common" : MessageLookupByLibrary.simpleMessage("Обычная"),
     "exotic" : MessageLookupByLibrary.simpleMessage("Экзотическая"),
+    "congratulations" : MessageLookupByLibrary.simpleMessage("Поздравляем"),
   };
 }

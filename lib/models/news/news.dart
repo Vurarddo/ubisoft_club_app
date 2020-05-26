@@ -5,11 +5,7 @@ abstract class NewsRepo {
   Future<List<News>> getNews();
 }
 
-enum NewsTypeEnum {
-  GameProgress,
-  Reward,
-  UbisoftGroup,
-}
+enum NewsTypeEnum { GameProgress, Reward, UbisoftGroup, Congratulatory }
 
 enum ChallengeType {
   Weekly,
@@ -96,6 +92,7 @@ class GameProgressNews extends News {
 class RewardNews extends News {
   final String gameName;
   final String platform;
+  final String title;
   final RewardQuality rewardQuality;
 
   RewardNews({
@@ -106,9 +103,11 @@ class RewardNews extends News {
     DateTime published,
     @required this.gameName,
     @required this.platform,
+    @required this.title,
     @required this.rewardQuality,
   })  : assert(gameName != null),
         assert(platform != null),
+        assert(title != null),
         assert(rewardQuality != null),
         super(
           id: id,
@@ -128,12 +127,13 @@ class RewardNews extends News {
         published,
         gameName,
         platform,
+        title,
         rewardQuality,
       ];
 }
 
 class UbisoftGroupNews extends News {
-  final String newsTitle;
+  final String title;
 
   UbisoftGroupNews({
     int id,
@@ -141,8 +141,8 @@ class UbisoftGroupNews extends News {
     String image,
     bool isLiked,
     DateTime published,
-    @required this.newsTitle,
-  })  : assert(newsTitle != null),
+    @required this.title,
+  })  : assert(title != null),
         super(
           id: id,
           liked: liked,
@@ -159,6 +159,41 @@ class UbisoftGroupNews extends News {
         image,
         isLiked,
         published,
-        newsTitle,
+        title,
+      ];
+}
+
+class CongratulatoryNews extends News {
+  final int progressValue;
+  final ChallengeType challengeType;
+
+  CongratulatoryNews({
+    int id,
+    int liked,
+    String image,
+    bool isLiked,
+    DateTime published,
+    @required this.progressValue,
+    @required this.challengeType,
+  })  : assert(progressValue != null),
+        assert(challengeType != null),
+        super(
+          id: id,
+          liked: liked,
+          image: image,
+          isLiked: isLiked,
+          published: published,
+          newsType: NewsTypeEnum.Congratulatory,
+        );
+
+  @override
+  List<Object> get props => [
+        id,
+        liked,
+        image,
+        isLiked,
+        published,
+        progressValue,
+        challengeType,
       ];
 }

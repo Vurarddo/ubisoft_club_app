@@ -85,6 +85,13 @@ class UbisoftClubLocalizations {
     );
   }
 
+  String get isCompletedInUbisoftGames {
+    return Intl.message(
+      'is completed in Ubisoft games',
+      name: 'isCompletedInUbisoftGames',
+    );
+  }
+
   String get redeemed {
     return Intl.message(
       'Redeemed a',
@@ -159,6 +166,13 @@ class UbisoftClubLocalizations {
     return Intl.message(
       'Exotic',
       name: 'exotic',
+    );
+  }
+
+  String get congratulations {
+    return Intl.message(
+      'Congratulations',
+      name: 'congratulations',
     );
   }
 }
