@@ -54,13 +54,14 @@ class RewardNewsCard extends StatelessWidget {
         size: Size.square(50),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(8),
-          child: Image.asset(
-            'assets/images/avatar.jpg',
+          child: Image.network(
+            news.profile.image,
+            fit: BoxFit.cover,
           ),
         ),
       ),
       title: Text(
-        'VladOS',
+        news.profile.clubName,
         style: theme.textTheme.subtitle1.copyWith(fontWeight: FontWeight.w600),
       ),
       subtitle: Column(
@@ -232,15 +233,15 @@ class RewardNewsCard extends StatelessWidget {
 
 Color _rewardQualityColor(RewardQuality quality) {
   switch (quality) {
-    case RewardQuality.Legendary:
+    case RewardQuality.legendary:
       return Colors.orange;
-    case RewardQuality.Epic:
+    case RewardQuality.epic:
       return Colors.purpleAccent;
-    case RewardQuality.Rare:
+    case RewardQuality.rare:
       return Colors.lightBlue;
-    case RewardQuality.Common:
+    case RewardQuality.common:
       return Colors.grey[600];
-    case RewardQuality.Exotic:
+    case RewardQuality.exotic:
       return Colors.yellow[600];
     default:
       return Colors.orangeAccent;
@@ -250,27 +251,27 @@ Color _rewardQualityColor(RewardQuality quality) {
 TextSpan _rewardQuality(
     RewardQuality quality, UbisoftClubLocalizations localization) {
   switch (quality) {
-    case RewardQuality.Legendary:
+    case RewardQuality.legendary:
       return TextSpan(
         text: '${localization.legendaryReward} ',
         style: TextStyle(color: Colors.orange),
       );
-    case RewardQuality.Epic:
+    case RewardQuality.epic:
       return TextSpan(
         text: '${localization.epicReward} ',
         style: TextStyle(color: Colors.purpleAccent),
       );
-    case RewardQuality.Rare:
+    case RewardQuality.rare:
       return TextSpan(
         text: '${localization.rareReward} ',
         style: TextStyle(color: Colors.lightBlue),
       );
-    case RewardQuality.Common:
+    case RewardQuality.common:
       return TextSpan(
         text: '${localization.commonReward} ',
         style: TextStyle(color: Colors.grey[600]),
       );
-    case RewardQuality.Exotic:
+    case RewardQuality.exotic:
       return TextSpan(
         text: '${localization.exoticReward} ',
         style: TextStyle(color: Colors.yellow[600]),

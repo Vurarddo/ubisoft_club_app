@@ -4,10 +4,10 @@ import 'package:ubisoft_club_app/localization.dart';
 import 'package:ubisoft_club_app/models/news/news.dart';
 import 'package:ubisoft_club_app/helpers/get_time_ago.dart';
 
-class UbisoftGroupNewsCard extends StatelessWidget {
-  final UbisoftGroupNews news;
+class ClubNewsCard extends StatelessWidget {
+  final ClubNews news;
 
-  const UbisoftGroupNewsCard({
+  const ClubNewsCard({
     Key key,
     @required this.news,
   })  : assert(news != null),
@@ -54,13 +54,14 @@ class UbisoftGroupNewsCard extends StatelessWidget {
         size: Size.square(50),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(8),
-          child: Image.asset(
-            'assets/images/avatar.jpg',
+          child: Image.network(
+            news.profile.image,
+            fit: BoxFit.cover,
           ),
         ),
       ),
       title: Text(
-        'VladOS',
+        news.profile.clubName,
         style: theme.textTheme.subtitle1.copyWith(fontWeight: FontWeight.w600),
       ),
       subtitle: Column(

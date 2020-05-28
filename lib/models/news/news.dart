@@ -1,27 +1,20 @@
 import 'package:meta/meta.dart';
 import 'package:equatable/equatable.dart';
+import 'package:ubisoft_club_app/models/profile/profile.dart';
 
 abstract class NewsRepo {
   Future<List<News>> getNews();
 }
 
-enum NewsTypeEnum { GameProgress, Reward, UbisoftGroup, Congratulatory }
+enum NewsTypeEnum { gameProgress, reward, club, congratulatory }
 
-enum ChallengeType {
-  Weekly,
-  Classic,
-}
+enum ChallengeType { weekly, classic }
 
-enum RewardQuality {
-  Legendary,
-  Epic,
-  Rare,
-  Common,
-  Exotic,
-}
+enum RewardQuality { legendary, epic, rare, common, exotic }
 
 abstract class News extends Equatable {
   final int id;
+  final Profile profile;
   final int liked;
   final String image;
   final bool isLiked;
@@ -30,12 +23,14 @@ abstract class News extends Equatable {
 
   News({
     @required this.id,
+    @required this.profile,
     @required this.liked,
     @required this.image,
     @required this.isLiked,
     @required this.published,
     @required this.newsType,
   })  : assert(id != null),
+        assert(profile != null),
         assert(liked != null),
         assert(image != null),
         assert(isLiked != null),
@@ -51,11 +46,12 @@ class GameProgressNews extends News {
   final double progress;
 
   GameProgressNews({
-    int id,
-    int liked,
-    String image,
-    bool isLiked,
-    DateTime published,
+    @required int id,
+    @required Profile profile,
+    @required int liked,
+    @required String image,
+    @required bool isLiked,
+    @required DateTime published,
     @required this.gameName,
     @required this.platform,
     @required this.challengeType,
@@ -67,16 +63,18 @@ class GameProgressNews extends News {
         assert(progress != null),
         super(
           id: id,
+          profile: profile,
           liked: liked,
           image: image,
           isLiked: isLiked,
           published: published,
-          newsType: NewsTypeEnum.GameProgress,
+          newsType: NewsTypeEnum.gameProgress,
         );
 
   @override
   List<Object> get props => [
         id,
+        profile,
         liked,
         image,
         isLiked,
@@ -96,11 +94,12 @@ class RewardNews extends News {
   final RewardQuality rewardQuality;
 
   RewardNews({
-    int id,
-    int liked,
-    String image,
-    bool isLiked,
-    DateTime published,
+    @required int id,
+    @required Profile profile,
+    @required int liked,
+    @required String image,
+    @required bool isLiked,
+    @required DateTime published,
     @required this.gameName,
     @required this.platform,
     @required this.title,
@@ -111,16 +110,18 @@ class RewardNews extends News {
         assert(rewardQuality != null),
         super(
           id: id,
+          profile: profile,
           liked: liked,
           image: image,
           isLiked: isLiked,
           published: published,
-          newsType: NewsTypeEnum.Reward,
+          newsType: NewsTypeEnum.reward,
         );
 
   @override
   List<Object> get props => [
         id,
+        profile,
         liked,
         image,
         isLiked,
@@ -132,29 +133,32 @@ class RewardNews extends News {
       ];
 }
 
-class UbisoftGroupNews extends News {
+class ClubNews extends News {
   final String title;
 
-  UbisoftGroupNews({
-    int id,
-    int liked,
-    String image,
-    bool isLiked,
-    DateTime published,
+  ClubNews({
+    @required int id,
+    @required Profile profile,
+    @required int liked,
+    @required String image,
+    @required bool isLiked,
+    @required DateTime published,
     @required this.title,
   })  : assert(title != null),
         super(
           id: id,
+          profile: profile,
           liked: liked,
           image: image,
           isLiked: isLiked,
           published: published,
-          newsType: NewsTypeEnum.UbisoftGroup,
+          newsType: NewsTypeEnum.club,
         );
 
   @override
   List<Object> get props => [
         id,
+        profile,
         liked,
         image,
         isLiked,
@@ -168,27 +172,30 @@ class CongratulatoryNews extends News {
   final ChallengeType challengeType;
 
   CongratulatoryNews({
-    int id,
-    int liked,
-    String image,
-    bool isLiked,
-    DateTime published,
+    @required int id,
+    @required Profile profile,
+    @required int liked,
+    @required String image,
+    @required bool isLiked,
+    @required DateTime published,
     @required this.progressValue,
     @required this.challengeType,
   })  : assert(progressValue != null),
         assert(challengeType != null),
         super(
           id: id,
+          profile: profile,
           liked: liked,
           image: image,
           isLiked: isLiked,
           published: published,
-          newsType: NewsTypeEnum.Congratulatory,
+          newsType: NewsTypeEnum.congratulatory,
         );
 
   @override
   List<Object> get props => [
         id,
+        profile,
         liked,
         image,
         isLiked,

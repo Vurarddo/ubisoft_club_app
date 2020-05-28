@@ -9,6 +9,7 @@ import 'package:ubisoft_club_app/features/general/general_screen_presenter.dart'
 import 'package:ubisoft_club_app/features/general/widgets/widgets.dart';
 import 'package:ubisoft_club_app/features/settings/settings_screen.dart';
 import 'package:ubisoft_club_app/models/news/news.dart';
+import 'package:ubisoft_club_app/widgets/background_with_image.dart';
 
 class GeneralScreen extends StatefulWidget {
   static const _routeName = '/general';
@@ -98,15 +99,17 @@ class _GeneralScreenState extends State<GeneralScreen>
           ? ListView.builder(
               itemCount: _presenter.news.length,
               itemBuilder: (context, index) {
+                final profile = _presenter.profile;
                 final news = _presenter.news[index];
                 final isFirst = _presenter.news.first == news;
 
                 return Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     if (isFirst) ...{
-                      Divider(
-                        thickness: 50,
-                        color: _theme.dividerColor,
+                      BackgroundWithImage(
+                        image: profile.favoriteGame.image,
+                        child: GeneralProfileCard(profile: profile),
                       ),
                     },
                     _buildNewsCard(news),
@@ -125,8 +128,8 @@ class _GeneralScreenState extends State<GeneralScreen>
       return GameProgressNewsCard(news: news);
     } else if (news is RewardNews) {
       return RewardNewsCard(news: news);
-    } else if (news is UbisoftGroupNews) {
-      return UbisoftGroupNewsCard(news: news);
+    } else if (news is ClubNews) {
+      return ClubNewsCard(news: news);
     }
     return CongratulatoryNewsCard(news: news);
   }

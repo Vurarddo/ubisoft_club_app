@@ -1,4 +1,5 @@
 import 'package:test/test.dart';
+import 'package:ubisoft_club_app/models/profile/profile.dart';
 
 import 'package:ubisoft_club_app/models/news/news.dart';
 
@@ -9,15 +10,22 @@ void main() {
     final int tLiked = 100;
     final String tGameName = 'Tom Clancy\'s Rainbow Six® Siege';
     final String tPlatform = 'XONE';
-    final RewardQuality tRewardQuality = RewardQuality.Legendary;
+    final RewardQuality tRewardQuality = RewardQuality.legendary;
     final String tImage = 'imageURL';
     final bool tIsLiked = false;
     final DateTime tPublished = DateTime(2020, 26, 5, 13, 38);
     final String tTitle = 'AK-45';
+    final Profile tAccount = Profile.clubAndNews(
+      id: 2,
+      name: 'Tom Clancy\'s Rainbow Six® Siege',
+      image:
+          'https://3dnews.ru/assets/external/illustrations/2020/03/05/1005203/sm.1.750.jpeg',
+    );
 
     setUp(() {
       tNews = RewardNews(
         id: tId,
+        profile: tAccount,
         liked: tLiked,
         gameName: tGameName,
         platform: tPlatform,
@@ -33,6 +41,17 @@ void main() {
       final int _tId = 1;
 
       expect(tNews.id, _tId);
+    });
+
+    test('reward news account test', () {
+      final Profile _tAccount = Profile.clubAndNews(
+        id: 2,
+        name: 'Tom Clancy\'s Rainbow Six® Siege',
+        image:
+            'https://3dnews.ru/assets/external/illustrations/2020/03/05/1005203/sm.1.750.jpeg',
+      );
+
+      expect(tNews.profile, _tAccount);
     });
 
     test('reward news liked test', () {
@@ -66,7 +85,7 @@ void main() {
     });
 
     test('reward news reward test', () {
-      final RewardQuality _tRewardType = RewardQuality.Legendary;
+      final RewardQuality _tRewardType = RewardQuality.legendary;
 
       expect(tNews.rewardQuality, _tRewardType);
     });
@@ -86,6 +105,7 @@ void main() {
     test('full reward news test', () {
       final _tNews = RewardNews(
         id: tId,
+        profile: tAccount,
         liked: tLiked,
         gameName: tGameName,
         platform: tPlatform,

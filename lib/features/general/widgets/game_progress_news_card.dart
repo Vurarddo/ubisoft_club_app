@@ -56,11 +56,14 @@ class GameProgressNewsCard extends StatelessWidget {
         size: Size.square(50),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(8),
-          child: Image.asset('assets/images/avatar.jpg'),
+          child: Image.network(
+            news.profile.image,
+            fit: BoxFit.cover,
+          ),
         ),
       ),
       title: Text(
-        'VladOS',
+        news.profile.clubName,
         style: theme.textTheme.subtitle1.copyWith(fontWeight: FontWeight.w600),
       ),
       subtitle: Column(
@@ -217,12 +220,12 @@ class GameProgressNewsCard extends StatelessWidget {
 TextSpan _challengeType(
     ChallengeType type, UbisoftClubLocalizations localization) {
   switch (type) {
-    case ChallengeType.Weekly:
+    case ChallengeType.weekly:
       return TextSpan(
         text: '${localization.weeklyChallenges} ',
         style: TextStyle(color: Colors.orangeAccent),
       );
-    case ChallengeType.Classic:
+    case ChallengeType.classic:
       return TextSpan(
         text: '${localization.classicChallenges} ',
         style: TextStyle(color: Colors.orangeAccent),

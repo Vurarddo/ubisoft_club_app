@@ -49,9 +49,9 @@ class _NewsHelper {
   static ChallengeType _getChallengeType(NewsDTO newsDTO) {
     switch (newsDTO.challengeType) {
       case _TypeOfChallenge.weekly:
-        return ChallengeType.Weekly;
+        return ChallengeType.weekly;
       case _TypeOfChallenge.classic:
-        return ChallengeType.Classic;
+        return ChallengeType.classic;
       default:
         return null;
     }
@@ -75,22 +75,22 @@ class _NewsHelper {
   static RewardQuality _getRewardQuality(NewsDTO newsDTO) {
     switch (newsDTO.challengeType) {
       case _RewardQuality.legendary:
-        return RewardQuality.Legendary;
+        return RewardQuality.legendary;
       case _RewardQuality.epic:
-        return RewardQuality.Epic;
+        return RewardQuality.epic;
       case _RewardQuality.rare:
-        return RewardQuality.Rare;
+        return RewardQuality.rare;
       case _RewardQuality.common:
-        return RewardQuality.Common;
+        return RewardQuality.common;
       case _RewardQuality.exotic:
-        return RewardQuality.Exotic;
+        return RewardQuality.exotic;
       default:
         return null;
     }
   }
 
-  static UbisoftGroupNews _getUbisoftGroupNews(NewsDTO newsDTO) {
-    return UbisoftGroupNews(
+  static ClubNews _getUbisoftGroupNews(NewsDTO newsDTO) {
+    return ClubNews(
       id: newsDTO.id,
       liked: newsDTO.liked,
       image: newsDTO.image,

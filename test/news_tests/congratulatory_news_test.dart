@@ -4,123 +4,96 @@ import 'package:ubisoft_club_app/models/profile/profile.dart';
 import 'package:ubisoft_club_app/models/news/news.dart';
 
 void main() {
-  group('game progress news class test', () {
-    GameProgressNews tNews;
+  group('congratulatory news class test', () {
+    CongratulatoryNews tNews;
     final int tId = 1;
     final int tLiked = 100;
-    final String tGameName = 'Tom Clancy\'s Rainbow Six® Siege';
-    final String tPlatform = 'XONE';
+    final int tProgressValue = 200;
     final ChallengeType tChallengeType = ChallengeType.classic;
     final String tImage = 'imageURL';
-    final double tProgress = 50.0;
-    final String tGameMode = 'The Grand Larceny';
     final bool tIsLiked = false;
     final DateTime tPublished = DateTime(2020, 26, 5, 13, 38);
     final Profile tAccount = Profile.clubAndNews(
       id: 2,
       name: 'Tom Clancy\'s Rainbow Six® Siege',
       image:
-      'https://3dnews.ru/assets/external/illustrations/2020/03/05/1005203/sm.1.750.jpeg',
+          'https://3dnews.ru/assets/external/illustrations/2020/03/05/1005203/sm.1.750.jpeg',
     );
 
     setUp(() {
-      tNews = GameProgressNews(
+      tNews = CongratulatoryNews(
         id: tId,
         profile: tAccount,
         liked: tLiked,
-        gameName: tGameName,
-        platform: tPlatform,
+        progressValue: tProgressValue,
         challengeType: tChallengeType,
         image: tImage,
-        progress: tProgress,
-        gameMode: tGameMode,
         isLiked: tIsLiked,
         published: tPublished,
       );
     });
 
-    test('game progress news id test', () {
+    test('congratulatory news id test', () {
       final int _tId = 1;
 
       expect(tNews.id, _tId);
     });
 
-    test('game progress account test', () {
+    test('congratulatory news account test', () {
       final Profile _tAccount = Profile.clubAndNews(
         id: 2,
         name: 'Tom Clancy\'s Rainbow Six® Siege',
         image:
-        'https://3dnews.ru/assets/external/illustrations/2020/03/05/1005203/sm.1.750.jpeg',
+            'https://3dnews.ru/assets/external/illustrations/2020/03/05/1005203/sm.1.750.jpeg',
       );
 
       expect(tNews.profile, _tAccount);
     });
 
-    test('game progress news liked test', () {
+    test('congratulatory news liked test', () {
       final int _tLiked = 100;
 
       expect(tNews.liked, _tLiked);
     });
 
-    test('game progress news game name test', () {
-      final String _tGameName = 'Tom Clancy\'s Rainbow Six® Siege';
+    test('congratulatory news game name test', () {
+      final int _tProgressValue = 200;
 
-      expect(tNews.gameName, _tGameName);
+      expect(tNews.progressValue, _tProgressValue);
     });
 
-    test('game progress news platform test', () {
-      final String _tPlatform = 'XONE';
-
-      expect(tNews.platform, _tPlatform);
-    });
-
-    test('game progress news challenge type test', () {
+    test('congratulatory news challenge type test', () {
       final ChallengeType _tChallengeType = ChallengeType.classic;
 
       expect(tNews.challengeType, _tChallengeType);
     });
 
-    test('game progress news image test', () {
+    test('congratulatory news image test', () {
       final String _tImage = 'imageURL';
 
       expect(tNews.image, _tImage);
     });
 
-    test('game progress news progress test', () {
-      final double _tProgress = 50.0;
-
-      expect(tNews.progress, _tProgress);
-    });
-
-    test('game progress news progress test', () {
-      final String _tGameMode = 'The Grand Larceny';
-
-      expect(tNews.gameMode, _tGameMode);
-    });
-
-    test('game progress news is liked test', () {
+    test('congratulatory news is liked test', () {
       final bool _tIsLiked = false;
 
       expect(tNews.isLiked, _tIsLiked);
     });
 
-    test('game progress news published test', () {
+    test('congratulatory news published test', () {
       final DateTime _tPublished = DateTime(2020, 26, 5, 13, 38);
 
       expect(tNews.published, _tPublished);
     });
 
-    test('full game progress news test', () {
-      final _tNews = GameProgressNews(
+    test('full congratulatory news test', () {
+      final _tNews = CongratulatoryNews(
         id: tId,
         profile: tAccount,
         liked: tLiked,
-        gameName: tGameName,
-        platform: tPlatform,
+        progressValue: tProgressValue,
         challengeType: tChallengeType,
         image: tImage,
-        progress: tProgress,
-        gameMode: tGameMode,
         isLiked: tIsLiked,
         published: tPublished,
       );
@@ -128,7 +101,7 @@ void main() {
       expect(tNews, _tNews);
     });
 
-    test('full game progress news is not null test', () {
+    test('full congratulatory news is not null test', () {
       expect(tNews, isNotNull);
     });
   });
