@@ -47,33 +47,42 @@ class CongratulatoryNewsCard extends StatelessWidget {
   Widget _buildProfileListTile(BuildContext context) {
     final theme = Theme.of(context);
 
-    return ListTile(
-      onTap: () {
-        // TODO: add navigation
-      },
-      leading: SizedBox.fromSize(
-        size: Size.square(50),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(8),
-          child: Image.network(
-            news.profile.image,
-            fit: BoxFit.cover,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 7.5),
+      child: Material(
+        borderRadius: BorderRadius.circular(10.0),
+        color: Colors.transparent,
+        clipBehavior: Clip.antiAlias,
+        child: ListTile(
+          contentPadding: const EdgeInsets.symmetric(horizontal: 7.5),
+          onTap: () {
+            // TODO: add navigation
+          },
+          leading: SizedBox.fromSize(
+            size: Size.square(50),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.network(
+                news.profile.image,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          title: Text(
+            news.profile.clubName,
+            style: theme.textTheme.subtitle1.copyWith(fontWeight: FontWeight.w600),
+          ),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                '${getTimeAgo(news.published)}',
+                style: theme.textTheme.caption,
+              ),
+              Text(''),
+            ],
           ),
         ),
-      ),
-      title: Text(
-        news.profile.clubName,
-        style: theme.textTheme.subtitle1.copyWith(fontWeight: FontWeight.w600),
-      ),
-      subtitle: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            '${getTimeAgo(news.published)}',
-            style: theme.textTheme.caption,
-          ),
-          Text(''),
-        ],
       ),
     );
   }

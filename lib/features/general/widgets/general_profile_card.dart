@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ubisoft_club_app/localization.dart';
@@ -20,7 +19,17 @@ class GeneralProfileCard extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),
       ),
-      child: _buildProfileTile(context),
+      child: Material(
+        borderRadius: BorderRadius.circular(8.0),
+        color: Colors.transparent,
+        clipBehavior: Clip.antiAlias,
+        child: InkWell(
+          onTap: () {
+            // TODO: add route
+          },
+          child: _buildProfileTile(context),
+        ),
+      ),
     );
   }
 
