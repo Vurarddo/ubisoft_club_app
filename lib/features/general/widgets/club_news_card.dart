@@ -129,7 +129,7 @@ class ClubNewsCard extends StatelessWidget {
         IconButton(
           icon: Icon(
             Icons.favorite_border,
-            color: theme.highlightColor,
+            color: theme.primaryColorLight,
           ),
           onPressed: () {
             // TODO: add action

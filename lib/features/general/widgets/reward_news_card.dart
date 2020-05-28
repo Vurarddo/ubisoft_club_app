@@ -138,13 +138,13 @@ class RewardNewsCard extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               border: Border.all(
-                color: theme.highlightColor,
+                color: theme.primaryColorLight,
                 width: 2,
               ),
             ),
             child: Icon(
               Icons.cake,
-              color: theme.highlightColor,
+              color: theme.primaryColorLight,
             ),
           ),
           RichText(
@@ -219,7 +219,7 @@ class RewardNewsCard extends StatelessWidget {
         IconButton(
           icon: Icon(
             Icons.favorite_border,
-            color: theme.highlightColor,
+            color: theme.primaryColorLight,
           ),
           onPressed: () {
             // TODO: add action
