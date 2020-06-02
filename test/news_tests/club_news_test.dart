@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import 'package:ubisoft_club_app/models/profile/profile.dart';
+import 'package:ubisoft_club_app/models/user/user.dart';
 
 import 'package:ubisoft_club_app/models/news/news.dart';
 
@@ -12,7 +12,7 @@ void main() {
     final String tImage = 'imageURL';
     final bool tIsLiked = false;
     final DateTime tPublished = DateTime(2020, 26, 5, 13, 38);
-    final Profile tAccount = Profile.clubAndNews(
+    final User tAccount = User.clubAndNews(
       id: 2,
       name: 'Tom Clancy\'s Rainbow Six® Siege',
       image:
@@ -22,7 +22,7 @@ void main() {
     setUp(() {
       tNews = ClubNews(
         id: tId,
-        profile: tAccount,
+        user: tAccount,
         liked: tLiked,
         image: tImage,
         title: tNewsTitle,
@@ -38,14 +38,14 @@ void main() {
     });
 
     test('club news account test', () {
-      final Profile _tAccount = Profile.clubAndNews(
+      final User _tAccount = User.clubAndNews(
         id: 2,
         name: 'Tom Clancy\'s Rainbow Six® Siege',
         image:
         'https://3dnews.ru/assets/external/illustrations/2020/03/05/1005203/sm.1.750.jpeg',
       );
 
-      expect(tNews.profile, _tAccount);
+      expect(tNews.user, _tAccount);
     });
 
     test('club news liked test', () {
@@ -81,7 +81,7 @@ void main() {
     test('full club news test', () {
       final _tNews = ClubNews(
         id: tId,
-        profile: tAccount,
+        user: tAccount,
         liked: tLiked,
         image: tImage,
         title: tNewsTitle,

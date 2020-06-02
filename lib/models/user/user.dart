@@ -1,13 +1,13 @@
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
-abstract class ProfileRepo {
-  Future<Profile> getProfileById(int id);
+abstract class UserRepo {
+  Future<User> getUserById(int id);
 }
 
-enum ProfileType { user, clubAndNews }
+enum UserType { profile, clubAndNews }
 
-class Profile extends Equatable {
+class User extends Equatable {
   final int id;
   final String clubName;
   final String platformName;
@@ -18,9 +18,9 @@ class Profile extends Equatable {
   final List<UserStatistic> statistic;
   final List<Game> games;
   final Game favoriteGame;
-  final ProfileType accountType;
+  final UserType accountType;
 
-  Profile._({
+  User._({
     this.id,
     this.clubName,
     this.platformName,
@@ -34,7 +34,7 @@ class Profile extends Equatable {
     this.accountType,
   });
 
-  factory Profile.user({
+  factory User.user({
     @required int id,
     @required String clubName,
     @required String platformName,
@@ -46,7 +46,7 @@ class Profile extends Equatable {
     @required List<Game> games,
     @required Game favoriteGame,
   }) {
-    return Profile._(
+    return User._(
       id: id,
       clubName: clubName,
       platformName: platformName,
@@ -57,20 +57,20 @@ class Profile extends Equatable {
       statistic: statistic,
       games: games,
       favoriteGame: favoriteGame,
-      accountType: ProfileType.user,
+      accountType: UserType.profile,
     );
   }
 
-  factory Profile.clubAndNews({
+  factory User.clubAndNews({
     @required int id,
     @required String name,
     @required String image,
   }) {
-    return Profile._(
+    return User._(
       id: id,
       clubName: name,
       image: image,
-      accountType: ProfileType.clubAndNews,
+      accountType: UserType.clubAndNews,
     );
   }
 

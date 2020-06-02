@@ -38,7 +38,6 @@ class _SamScreenState extends State<SamScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: _theme.unselectedWidgetColor,
       appBar: AppBar(
         title: _buildTitle(),
       ),

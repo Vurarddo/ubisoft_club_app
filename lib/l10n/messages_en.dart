@@ -44,5 +44,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "exotic" : MessageLookupByLibrary.simpleMessage("Exotic"),
     "congratulations" : MessageLookupByLibrary.simpleMessage("Congratulations"),
     "clubLevel" : MessageLookupByLibrary.simpleMessage("Club level"),
+    "profile" : MessageLookupByLibrary.simpleMessage("Profile"),
   };
 }

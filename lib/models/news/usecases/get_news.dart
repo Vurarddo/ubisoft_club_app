@@ -2,7 +2,7 @@ import 'package:ubisoft_club_app/infrastructure/injector.dart';
 import 'package:ubisoft_club_app/models/news/news.dart';
 
 class GetNews {
-  final NewsRepo _newsRepo = injector.get<NewsRepo>();
+  final _newsRepo = injector.get<NewsRepo>();
 
   GetNews();
 

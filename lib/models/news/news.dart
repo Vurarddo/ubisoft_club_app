@@ -1,6 +1,7 @@
 import 'package:meta/meta.dart';
 import 'package:equatable/equatable.dart';
-import 'package:ubisoft_club_app/models/profile/profile.dart';
+
+import 'package:ubisoft_club_app/models/user/user.dart';
 
 abstract class NewsRepo {
   Future<List<News>> getNews();
@@ -14,7 +15,7 @@ enum RewardQuality { legendary, epic, rare, common, exotic }
 
 abstract class News extends Equatable {
   final int id;
-  final Profile profile;
+  final User user;
   final int liked;
   final String image;
   final bool isLiked;
@@ -23,19 +24,23 @@ abstract class News extends Equatable {
 
   News({
     @required this.id,
-    @required this.profile,
+    @required this.user,
     @required this.liked,
     @required this.image,
     @required this.isLiked,
     @required this.published,
     @required this.newsType,
   })  : assert(id != null),
-        assert(profile != null),
+        assert(user != null),
         assert(liked != null),
         assert(image != null),
         assert(isLiked != null),
         assert(published != null),
         assert(newsType != null);
+
+  Future<News> getNews() async {
+
+  }
 }
 
 class GameProgressNews extends News {
@@ -47,7 +52,7 @@ class GameProgressNews extends News {
 
   GameProgressNews({
     @required int id,
-    @required Profile profile,
+    @required User user,
     @required int liked,
     @required String image,
     @required bool isLiked,
@@ -63,7 +68,7 @@ class GameProgressNews extends News {
         assert(progress != null),
         super(
           id: id,
-          profile: profile,
+          user: user,
           liked: liked,
           image: image,
           isLiked: isLiked,
@@ -74,7 +79,7 @@ class GameProgressNews extends News {
   @override
   List<Object> get props => [
         id,
-        profile,
+        user,
         liked,
         image,
         isLiked,
@@ -95,7 +100,7 @@ class RewardNews extends News {
 
   RewardNews({
     @required int id,
-    @required Profile profile,
+    @required User user,
     @required int liked,
     @required String image,
     @required bool isLiked,
@@ -110,7 +115,7 @@ class RewardNews extends News {
         assert(rewardQuality != null),
         super(
           id: id,
-          profile: profile,
+          user: user,
           liked: liked,
           image: image,
           isLiked: isLiked,
@@ -121,7 +126,7 @@ class RewardNews extends News {
   @override
   List<Object> get props => [
         id,
-        profile,
+        user,
         liked,
         image,
         isLiked,
@@ -138,7 +143,7 @@ class ClubNews extends News {
 
   ClubNews({
     @required int id,
-    @required Profile profile,
+    @required User user,
     @required int liked,
     @required String image,
     @required bool isLiked,
@@ -147,7 +152,7 @@ class ClubNews extends News {
   })  : assert(title != null),
         super(
           id: id,
-          profile: profile,
+          user: user,
           liked: liked,
           image: image,
           isLiked: isLiked,
@@ -158,7 +163,7 @@ class ClubNews extends News {
   @override
   List<Object> get props => [
         id,
-        profile,
+        user,
         liked,
         image,
         isLiked,
@@ -173,7 +178,7 @@ class CongratulatoryNews extends News {
 
   CongratulatoryNews({
     @required int id,
-    @required Profile profile,
+    @required User user,
     @required int liked,
     @required String image,
     @required bool isLiked,
@@ -184,7 +189,7 @@ class CongratulatoryNews extends News {
         assert(challengeType != null),
         super(
           id: id,
-          profile: profile,
+          user: user,
           liked: liked,
           image: image,
           isLiked: isLiked,
@@ -195,7 +200,7 @@ class CongratulatoryNews extends News {
   @override
   List<Object> get props => [
         id,
-        profile,
+        user,
         liked,
         image,
         isLiked,

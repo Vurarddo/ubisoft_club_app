@@ -1,4 +1,4 @@
-import 'package:ubisoft_club_app/models/profile/profile.dart';
+import 'package:ubisoft_club_app/models/user/user.dart';
 import 'package:ubisoft_club_app/models/news/news.dart';
 
 class NewsRepoMock implements NewsRepo {
@@ -11,7 +11,7 @@ class NewsRepoMock implements NewsRepo {
     _news = [
       GameProgressNews(
         id: 1,
-        profile: Profile.clubAndNews(
+        user: User.clubAndNews(
           id: 1,
           name: 'VurKun',
           image: 'https://www.sendwyre.com/assets/images/HeaderBGWavy2.svg',
@@ -29,7 +29,7 @@ class NewsRepoMock implements NewsRepo {
       ),
       RewardNews(
         id: 2,
-        profile: Profile.clubAndNews(
+        user: User.clubAndNews(
           id: 2,
           name: 'Tom Clancy\'s Rainbow Six® Siege',
           image:
@@ -47,7 +47,7 @@ class NewsRepoMock implements NewsRepo {
       ),
       ClubNews(
         id: 3,
-        profile: Profile.clubAndNews(
+        user: User.clubAndNews(
           id: 3,
           name: 'Vitaliysc7',
           image:
@@ -62,7 +62,7 @@ class NewsRepoMock implements NewsRepo {
       ),
       GameProgressNews(
         id: 4,
-        profile: Profile.clubAndNews(
+        user: User.clubAndNews(
           id: 1,
           name: 'VurKun',
           image: 'https://www.sendwyre.com/assets/images/HeaderBGWavy2.svg',
@@ -79,7 +79,7 @@ class NewsRepoMock implements NewsRepo {
       ),
       CongratulatoryNews(
         id: 3,
-        profile: Profile.clubAndNews(
+        user: User.clubAndNews(
           id: 1,
           name: 'VurKun',
           image: 'https://www.sendwyre.com/assets/images/HeaderBGWavy2.svg',

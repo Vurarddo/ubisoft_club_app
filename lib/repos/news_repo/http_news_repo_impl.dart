@@ -1,8 +1,9 @@
 import 'package:equatable/equatable.dart';
-import 'package:ubisoft_club_app/models/profile/profile.dart';
+
 
 import 'package:ubisoft_club_app/models/news/news.dart';
-import 'package:ubisoft_club_app/repos/news_repo/news_dto/news_dto.dart';
+import 'package:ubisoft_club_app/models/user/user.dart';
+//import 'package:ubisoft_club_app/repos/news_repo/news_dto/news_dto.dart';
 
 part '_news_helper.dart';
 
@@ -23,7 +24,7 @@ class NewsRepoMock implements NewsRepo {
     _news = [
       GameProgressNews(
         id: 1,
-        profile: Profile.clubAndNews(
+        user: User.clubAndNews(
           id: 1,
           name: 'VurKun',
           image: 'https://assets.jpegmini.com/user/images/slider_puffin_jpegmini_mobile.jpg',
@@ -41,7 +42,7 @@ class NewsRepoMock implements NewsRepo {
       ),
       ClubNews(
         id: 2,
-        profile: Profile.clubAndNews(
+        user: User.clubAndNews(
           id: 2,
           name: 'Tom Clancy\'s Rainbow Six® Siege',
           image:
@@ -56,7 +57,7 @@ class NewsRepoMock implements NewsRepo {
       ),
       GameProgressNews(
         id: 3,
-        profile: Profile.clubAndNews(
+        user: User.clubAndNews(
           id: 3,
           name: 'Vitaliysc7',
           image:
@@ -74,7 +75,7 @@ class NewsRepoMock implements NewsRepo {
       ),
       RewardNews(
         id: 4,
-        profile: Profile.clubAndNews(
+        user: User.clubAndNews(
           id: 1,
           name: 'VurKun',
           image: 'https://assets.jpegmini.com/user/images/slider_puffin_jpegmini_mobile.jpg',
@@ -90,7 +91,7 @@ class NewsRepoMock implements NewsRepo {
       ),
       CongratulatoryNews(
         id: 5,
-        profile: Profile.clubAndNews(
+        user: User.clubAndNews(
           id: 1,
           name: 'VurKun',
           image: 'https://assets.jpegmini.com/user/images/slider_puffin_jpegmini_mobile.jpg',

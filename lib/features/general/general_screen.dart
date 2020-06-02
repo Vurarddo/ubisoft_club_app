@@ -1,28 +1,20 @@
-import 'dart:io';
 import 'dart:ui';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:ubisoft_club_app/features/general/general_screen_presenter.dart';
-import 'package:ubisoft_club_app/features/general/widgets/widgets.dart';
-import 'package:ubisoft_club_app/features/settings/settings_screen.dart';
 import 'package:ubisoft_club_app/models/news/news.dart';
 import 'package:ubisoft_club_app/widgets/background_with_image.dart';
+import 'package:ubisoft_club_app/features/general/general_screen_presenter.dart';
+import 'package:ubisoft_club_app/features/general/widgets/widgets.dart';
+import 'package:ubisoft_club_app/features/profile/profile_screen.dart';
+import 'package:ubisoft_club_app/widgets/club_scrollbard.dart';
 
 class GeneralScreen extends StatefulWidget {
   static const _routeName = '/general';
 
   static PageRoute<GeneralScreen> getPageRoute() {
     final routeSettings = RouteSettings(name: _routeName);
-
-    if (Platform.isIOS) {
-      CupertinoPageRoute(
-        settings: routeSettings,
-        builder: _builder,
-      );
-    }
 
     return MaterialPageRoute(
       settings: routeSettings,
@@ -45,7 +37,6 @@ class _GeneralScreenState extends State<GeneralScreen>
     with WidgetsBindingObserver {
   GeneralScreenPresenter get _presenter =>
       Provider.of<GeneralScreenPresenter>(context);
-  ThemeData get _theme => Theme.of(context);
   String logo = _getLogo();
 
   @override
@@ -71,7 +62,6 @@ class _GeneralScreenState extends State<GeneralScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: _theme.dividerColor,
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
@@ -88,39 +78,42 @@ class _GeneralScreenState extends State<GeneralScreen>
               Icons.account_circle,
               size: 30.0,
             ),
-            onPressed: () {
-              // TODO: add navigation
-              Navigator.of(context).push(SettingsScreen.getPageRoute());
-            },
+            onPressed: () => _navigateToProfileScreen(),
           )
         ],
       ),
       body: !_presenter.isLoading
-          ? ListView.builder(
-              itemCount: _presenter.news.length,
-              itemBuilder: (context, index) {
-                final profile = _presenter.profile;
-                final news = _presenter.news[index];
-                final isFirst = _presenter.news.first == news;
+          ? ClubScrollbar(
+              child: ListView.builder(
+                itemCount: _presenter.news.length,
+                itemBuilder: (context, index) {
+                  final profile = _presenter.profile;
+                  final news = _presenter.news[index];
+                  final isFirst = _presenter.news.first == news;
 
-                return Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    if (isFirst) ...{
-                      BackgroundWithImage(
-                        image: profile.favoriteGame.image,
-                        child: GeneralProfileCard(profile: profile),
-                      ),
-                    },
-                    _buildNewsCard(news),
-                  ],
-                );
-              },
+                  return Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      if (isFirst) ...{
+                        BackgroundWithImage(
+                          image: profile.favoriteGame.image,
+                          child: GeneralProfileCard(profile: profile),
+                        ),
+                      },
+                      _buildNewsCard(news),
+                    ],
+                  );
+                },
+              ),
             )
           : Center(
               child: CircularProgressIndicator(),
             ),
     );
+  }
+
+  void _navigateToProfileScreen() {
+    Navigator.push(context, ProfileScreen.getPageRoute(_presenter.profile));
   }
 
   Widget _buildNewsCard(News news) {

@@ -62,13 +62,13 @@ class ClubNewsCard extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: Image.network(
-                news.profile.image,
+                news.user.image,
                 fit: BoxFit.cover,
               ),
             ),
           ),
           title: Text(
-            news.profile.clubName,
+            news.user.clubName,
             style:
                 theme.textTheme.subtitle1.copyWith(fontWeight: FontWeight.w600),
           ),

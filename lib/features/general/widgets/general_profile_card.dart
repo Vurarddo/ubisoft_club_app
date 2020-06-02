@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'package:ubisoft_club_app/localization.dart';
-import 'package:ubisoft_club_app/models/profile/profile.dart';
+import 'package:ubisoft_club_app/models/user/user.dart';
+import 'package:ubisoft_club_app/features/profile/profile_screen.dart';
 
 class GeneralProfileCard extends StatelessWidget {
-  final Profile profile;
+  final User profile;
 
   const GeneralProfileCard({
     Key key,
@@ -24,13 +25,15 @@ class GeneralProfileCard extends StatelessWidget {
         color: Colors.transparent,
         clipBehavior: Clip.antiAlias,
         child: InkWell(
-          onTap: () {
-            // TODO: add route
-          },
+          onTap: () => _navigateToProfileScreen(context),
           child: _buildProfileTile(context),
         ),
       ),
     );
+  }
+
+  void _navigateToProfileScreen(BuildContext context) {
+    Navigator.push(context, ProfileScreen.getPageRoute(profile));
   }
 
   Widget _buildProfileTile(BuildContext context) {

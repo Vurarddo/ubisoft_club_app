@@ -1,9 +1,9 @@
-import 'package:ubisoft_club_app/models/profile/profile.dart';
+import 'package:ubisoft_club_app/models/user/user.dart';
 
 class StoreInteractor {
   // TODO: refactor this after adding login
-  Future<Profile> getProfile() async {
-    final _profile = Profile.user(
+  Future<User> getUser() async {
+    final _user = User.user(
       id: 1,
       clubName: 'VurKun',
       platformName: 'VladOS8297',
@@ -36,6 +36,6 @@ class StoreInteractor {
       ),
     );
 
-    return _profile;
+    return _user;
   }
 }

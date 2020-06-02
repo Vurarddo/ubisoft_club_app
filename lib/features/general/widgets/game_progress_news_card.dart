@@ -5,6 +5,7 @@ import 'package:ubisoft_club_app/localization.dart';
 import 'package:ubisoft_club_app/models/news/news.dart';
 import 'package:ubisoft_club_app/helpers/get_time_ago.dart';
 import 'package:ubisoft_club_app/widgets/circular_progress_bar.dart';
+import 'package:ubisoft_club_app/features/profile/profile_screen.dart';
 
 class GameProgressNewsCard extends StatelessWidget {
   final GameProgressNews news;
@@ -56,21 +57,19 @@ class GameProgressNewsCard extends StatelessWidget {
         clipBehavior: Clip.antiAlias,
         child: ListTile(
           contentPadding: const EdgeInsets.symmetric(horizontal: 7.5),
-          onTap: () {
-            // TODO: add navigation
-          },
+          onTap: () => _navigateToProfileScreen(context),
           leading: SizedBox.fromSize(
             size: Size.square(50),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
               child: Image.network(
-                news.profile.image,
+                news.user.image,
                 fit: BoxFit.cover,
               ),
             ),
           ),
           title: Text(
-            news.profile.clubName,
+            news.user.clubName,
             style:
                 theme.textTheme.subtitle1.copyWith(fontWeight: FontWeight.w600),
           ),
@@ -87,6 +86,10 @@ class GameProgressNewsCard extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _navigateToProfileScreen(BuildContext context) {
+    Navigator.push(context, ProfileScreen.getPageRoute(news.user));
   }
 
   Widget _buildGameTile(BuildContext context) {
