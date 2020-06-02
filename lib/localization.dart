@@ -189,6 +189,13 @@ class UbisoftClubLocalizations {
       name: 'profile',
     );
   }
+
+  String get level {
+    return Intl.message(
+      'Level',
+      name: 'level',
+    );
+  }
 }
 
 class UbisoftClubLocalizationsDelegate

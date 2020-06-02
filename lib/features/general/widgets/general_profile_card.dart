@@ -5,12 +5,12 @@ import 'package:ubisoft_club_app/models/user/user.dart';
 import 'package:ubisoft_club_app/features/profile/profile_screen.dart';
 
 class GeneralProfileCard extends StatelessWidget {
-  final User profile;
+  final User user;
 
   const GeneralProfileCard({
     Key key,
-    @required this.profile,
-  })  : assert(profile != null),
+    @required this.user,
+  })  : assert(user != null),
         super(key: key);
 
   @override
@@ -33,12 +33,12 @@ class GeneralProfileCard extends StatelessWidget {
   }
 
   void _navigateToProfileScreen(BuildContext context) {
-    Navigator.push(context, ProfileScreen.getPageRoute(profile));
+    Navigator.push(context, ProfileScreen.getPageRoute(user));
   }
 
   Widget _buildProfileTile(BuildContext context) {
     return Container(
-      height: 60,
+      height: 65,
       width: double.infinity,
       margin: EdgeInsets.all(16),
       child: Row(
@@ -58,11 +58,11 @@ class GeneralProfileCard extends StatelessWidget {
 
   Widget _buildLeading() {
     return SizedBox.fromSize(
-      size: Size.square(60),
+      size: Size.square(65),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8),
         child: Image.network(
-          profile.image,
+          user.image,
           fit: BoxFit.cover,
         ),
       ),
@@ -79,13 +79,13 @@ class GeneralProfileCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Text(
-            profile.clubName,
+            user.clubName,
             style: theme.textTheme.headline6.copyWith(
               fontWeight: FontWeight.w600,
             ),
           ),
           Text(
-            '${localization.clubLevel}: ${profile.lvl}',
+            '${localization.clubLevel}: ${user.lvl}',
             style: theme.textTheme.subtitle1,
           ),
         ],
@@ -100,7 +100,7 @@ class GeneralProfileCard extends StatelessWidget {
           Icons.monetization_on,
           color: Colors.orangeAccent,
         ),
-        Text('${profile.clubUnits}'),
+        Text(' ${user.clubUnits}'),
       ],
     );
   }

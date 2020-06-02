@@ -17,6 +17,7 @@ dependencies:
   equatable: ^1.1.1
   build_runner: ^1.7.2
   timeago: ^2.0.26
+  dotted_border: ^1.0.4
 
   flutter:
     sdk: flutter

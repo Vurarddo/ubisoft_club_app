@@ -17,14 +17,13 @@ class BackgroundWithImage extends StatelessWidget {
     final theme = Theme.of(context);
 
     return Stack(
-      alignment: AlignmentDirectional.bottomCenter,
       children: <Widget>[
         Container(
           height: 200,
           margin: EdgeInsets.only(bottom: 30),
           decoration: BoxDecoration(
             image: DecorationImage(
-              fit: BoxFit.cover,
+              fit: BoxFit.fitWidth,
               image: NetworkImage(image),
             ),
           ),
@@ -40,7 +39,10 @@ class BackgroundWithImage extends StatelessWidget {
             ),
           ),
         ),
-        child,
+        Padding(
+          padding: const EdgeInsets.only(top: 135.0),
+          child: child,
+        ),
       ],
     );
   }

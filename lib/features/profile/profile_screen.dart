@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:ubisoft_club_app/features/profile/profile_screen_presenter.dart';
 import 'package:ubisoft_club_app/localization.dart';
 import 'package:ubisoft_club_app/models/user/user.dart';
+import 'package:ubisoft_club_app/features/profile/profile_screen_presenter.dart';
+import 'package:ubisoft_club_app/features/profile/widgets/widgets.dart';
+import 'package:ubisoft_club_app/widgets/background_with_image.dart';
+import 'package:ubisoft_club_app/widgets/club_scrollbard.dart';
 
 class ProfileScreen extends StatefulWidget {
   static const _routeName = '/games';
@@ -41,11 +44,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
         centerTitle: true,
         title: Text(localization.profile),
       ),
-      body: Center(
-        child: _presenter.isLoading
-            ? CircularProgressIndicator()
-            : Text(_presenter.fullUser.clubName),
-      ),
+      body: !_presenter.isLoading
+          ? ClubScrollbar(
+              child: ListView(
+                children: <Widget>[
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      BackgroundWithImage(
+                        image: _presenter.fullUser.favoriteGame.image,
+                        child: ProfileCard(user: _presenter.fullUser),
+                      ),
+                      Text(_presenter.fullUser.platformName),
+                    ],
+                  ),
+                ],
+              ),
+            )
+          : Center(
+              child: CircularProgressIndicator(),
+            ),
     );
   }
 }

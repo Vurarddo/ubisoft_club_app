@@ -11,7 +11,7 @@ class GeneralScreenPresenter with ChangeNotifier {
   User _user;
   List<News> _news;
 
-  User get profile => _user;
+  User get user => _user;
   List<News> get news => _news;
 
   bool get isLoading => _isLoading;

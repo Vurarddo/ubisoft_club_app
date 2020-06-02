@@ -87,7 +87,7 @@ class _GeneralScreenState extends State<GeneralScreen>
               child: ListView.builder(
                 itemCount: _presenter.news.length,
                 itemBuilder: (context, index) {
-                  final profile = _presenter.profile;
+                  final user = _presenter.user;
                   final news = _presenter.news[index];
                   final isFirst = _presenter.news.first == news;
 
@@ -96,8 +96,8 @@ class _GeneralScreenState extends State<GeneralScreen>
                     children: <Widget>[
                       if (isFirst) ...{
                         BackgroundWithImage(
-                          image: profile.favoriteGame.image,
-                          child: GeneralProfileCard(profile: profile),
+                          image: user.favoriteGame.image,
+                          child: GeneralProfileCard(user: user),
                         ),
                       },
                       _buildNewsCard(news),
@@ -113,7 +113,7 @@ class _GeneralScreenState extends State<GeneralScreen>
   }
 
   void _navigateToProfileScreen() {
-    Navigator.push(context, ProfileScreen.getPageRoute(_presenter.profile));
+    Navigator.push(context, ProfileScreen.getPageRoute(_presenter.user));
   }
 
   Widget _buildNewsCard(News news) {

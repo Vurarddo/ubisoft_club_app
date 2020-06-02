@@ -47,10 +47,7 @@ class _SamScreenState extends State<SamScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         heroTag: 'sam_bot',
-        child: Icon(
-          Icons.send,
-          size: 30.0,
-        ),
+        child: Icon(Icons.send),
         onPressed: () {
           Navigator.pop(context);
         },

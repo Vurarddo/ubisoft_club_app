@@ -23,6 +23,7 @@ final lightTheme = ThemeData(
   cardColor: Colors.white,
   dividerColor: Colors.grey[300],
   primaryColorLight: Colors.grey,
+  primaryColor: Colors.teal[800],
   unselectedWidgetColor: lightGreyColor,
 );
 
@@ -43,6 +44,7 @@ final darkTheme = ThemeData(
   cardColor: Colors.grey[700],
   dividerColor: Colors.grey[800],
   primaryColorLight: Colors.white70,
+  primaryColor: Colors.teal[400],
   unselectedWidgetColor: backgroundGreyColor,
 );
 
@@ -52,11 +54,13 @@ final darkIconTheme = IconThemeData(color: orangeAccent);
 
 final lightAppBarTheme = AppBarTheme(
   elevation: 0,
+  color: orangeAccent,
   iconTheme: lightIconTheme,
 );
 
 final darkAppBarTheme = AppBarTheme(
   elevation: 0,
+  color: grey850,
   iconTheme: darkIconTheme,
   textTheme: TextTheme(
     headline6: TextStyle(
@@ -69,6 +73,7 @@ final darkAppBarTheme = AppBarTheme(
 
 final lightTextTheme = TextTheme(
   overline: TextStyle(color: Colors.white),
+  headline1: TextStyle(color: Colors.white),
   headline4: TextStyle(color: Colors.black),
   headline6: TextStyle(color: Colors.black),
 );
@@ -79,6 +84,7 @@ final darkTextTheme = TextTheme(
   subtitle1: TextStyle(color: Colors.white70),
   caption: TextStyle(color: Colors.white54),
   overline: TextStyle(color: orangeAccent),
+  headline1: TextStyle(color: Colors.white70),
   headline4: TextStyle(color: Colors.white70),
   headline6: TextStyle(color: Colors.white70),
 );
