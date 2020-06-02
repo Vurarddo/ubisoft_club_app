@@ -4,17 +4,17 @@ import 'package:ubisoft_club_app/infrastructure/injector.dart';
 import 'package:ubisoft_club_app/models/user/user.dart';
 
 class ProfileScreenPresenter with ChangeNotifier {
-  final User profile;
+  final User user;
 
   final _userFactory = injector.get<UserFactory>();
   bool _isLoading = false;
-  User _profile;
+  User _fullUser;
 
   bool get isLoading => _isLoading;
 
-  User get currentProfile => _profile;
+  User get fullUser => _fullUser;
 
-  ProfileScreenPresenter({@required this.profile}) : assert(profile != null) {
+  ProfileScreenPresenter({@required this.user}) : assert(user != null) {
     _init();
   }
 
@@ -22,7 +22,7 @@ class ProfileScreenPresenter with ChangeNotifier {
     _isLoading = true;
     notifyListeners();
     try {
-      _profile = await _userFactory.getUserById(profile.id);
+      _fullUser = await _userFactory.getFullUser(user);
     } catch (e) {
       print('CelebrityScreenPresenter: _init error $e');
     } finally {

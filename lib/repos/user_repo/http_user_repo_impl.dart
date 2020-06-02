@@ -75,4 +75,11 @@ class HttpUserRepoImpl implements UserRepo {
 
     return user;
   }
+
+  @override
+  Future<User> getFullUser(User user) async {
+    final userWithDetails = await getUserById(user.id);
+
+    return User.mergeInfFull(userWithDetails, user);
+  }
 }

@@ -8,18 +8,18 @@ import 'package:ubisoft_club_app/models/user/user.dart';
 class ProfileScreen extends StatefulWidget {
   static const _routeName = '/games';
 
-  static PageRoute<ProfileScreen> getPageRoute(User profile) {
+  static PageRoute<ProfileScreen> getPageRoute(User user) {
     final routeSettings = RouteSettings(name: _routeName);
 
     return MaterialPageRoute(
       settings: routeSettings,
-      builder: _builder(profile),
+      builder: _builder(user),
     );
   }
 
-  static WidgetBuilder _builder(User profile) {
+  static WidgetBuilder _builder(User user) {
     return (context) => ChangeNotifierProvider(
-          create: (context) => ProfileScreenPresenter(profile: profile),
+          create: (context) => ProfileScreenPresenter(user: user),
           child: ProfileScreen(),
         );
   }
@@ -44,7 +44,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       body: Center(
         child: _presenter.isLoading
             ? CircularProgressIndicator()
-            : Text(_presenter.currentProfile.clubName),
+            : Text(_presenter.fullUser.clubName),
       ),
     );
   }

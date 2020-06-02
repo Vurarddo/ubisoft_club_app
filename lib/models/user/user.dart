@@ -1,9 +1,12 @@
-import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
+import 'package:equatable/equatable.dart';
+
 import 'package:ubisoft_club_app/infrastructure/injector.dart';
 
 abstract class UserRepo {
   Future<User> getUserById(int id);
+
+  Future<User> getFullUser(User user);
 }
 
 enum UserType { profile, clubAndNews }
@@ -13,6 +16,10 @@ class UserFactory {
 
   Future<User> getUserById(int id) {
     return _userRepo.getUserById(id);
+  }
+
+  Future<User> getFullUser(User user) async {
+    return _userRepo.getFullUser(user);
   }
 
   UserFactory() : _userRepo = injector.get<UserRepo>();
@@ -44,6 +51,22 @@ class User extends Equatable {
     this.favoriteGame,
     this.accountType,
   });
+
+  factory User.mergeInfFull(User source, User user) {
+    return User._(
+      id: source.id ?? user.id,
+      clubName: source.clubName ?? user.clubName,
+      platformName: source.platformName ?? user.platformName,
+      image: source.image ?? user.image,
+      lvl: source.lvl ?? user.lvl,
+      clubUnits: source.clubUnits ?? user.clubUnits,
+      registerDate: source.registerDate ?? user.registerDate,
+      statistic: source.statistic ?? user.statistic,
+      games: source.games ?? user.games,
+      favoriteGame: source.favoriteGame ?? user.favoriteGame,
+      accountType: user.accountType,
+    );
+  }
 
   factory User.user({
     @required int id,
