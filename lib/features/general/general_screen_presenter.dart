@@ -1,19 +1,16 @@
 import 'package:flutter/foundation.dart';
 
 import 'package:ubisoft_club_app/infrastructure/injector.dart';
-import 'package:ubisoft_club_app/models/news/news.dart';
+import 'package:ubisoft_club_app/models/news.dart';
 import 'package:ubisoft_club_app/models/user/user.dart';
-import 'package:ubisoft_club_app/models/news/usecases/get_news.dart';
 import 'package:ubisoft_club_app/models/user/user_service.dart';
 
 class GeneralScreenPresenter with ChangeNotifier {
-  final _getNews = GetNews();
   bool _isLoading = false;
-
-  User _profile;
+  User _user;
   List<News> _news;
 
-  User get profile => _profile;
+  User get profile => _user;
   List<News> get news => _news;
 
   bool get isLoading => _isLoading;
@@ -23,15 +20,15 @@ class GeneralScreenPresenter with ChangeNotifier {
   }
 
   Future<void> _init() async {
-    _getProfileInfo();
+    _getUserInfo();
     _getNewsList();
   }
 
-  Future<void> _getProfileInfo() async {
+  Future<void> _getUserInfo() async {
     _isLoading = true;
     notifyListeners();
     try {
-      _profile = await injector.get<UserService>().getCurrentUser();
+      _user = await injector.get<UserService>().getCurrentUser();
     } catch (e) {
       print('CelebrityScreenPresenter: _init error $e');
     } finally {
@@ -44,7 +41,7 @@ class GeneralScreenPresenter with ChangeNotifier {
     _isLoading = true;
     notifyListeners();
     try {
-      _news = await _getNews();
+      _news = await injector.get<NewsService>().getNews();
     } catch (e) {
       print('CelebrityScreenPresenter: _init error $e');
     } finally {

@@ -12,7 +12,7 @@ import 'package:ubisoft_club_app/theme/theme.dart';
 import 'package:ubisoft_club_app/localization.dart';
 import 'package:ubisoft_club_app/widgets/home_layout.dart';
 import 'package:ubisoft_club_app/models/user/user_service.dart';
-import 'package:ubisoft_club_app/models/news/news.dart';
+import 'package:ubisoft_club_app/models/news.dart';
 import 'package:ubisoft_club_app/models/user/user.dart';
 import 'package:ubisoft_club_app/repos/news_repo/http_news_repo_impl.dart';
 import 'package:ubisoft_club_app/repos/user_repo/http_user_repo_impl.dart';
@@ -21,12 +21,13 @@ import 'package:timeago/timeago.dart' as timeAgo;
 Future<void> runUbisoftClubApp() async {
   // Injector
   injector
+    // TODO: uncomment!!!!!!!!
     ..register<NewsRepo>(HttpNewsRepoImpl())
-    ..register<UserRepo>(HttpUserRepoImpl())
+//    ..register<UserRepo>(HttpUserRepoImpl())
     ..register<StoreInteractor>(StoreInteractor())
     ..register<UserService>(UserService())
+    ..register<NewsService>(NewsService())
     // TODO: drop it
-    ..register<NewsRepo>(NewsRepoMock())
     ..register<UserRepo>(UserRepoMock());
 
   // for time ago messages

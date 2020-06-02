@@ -1,6 +1,7 @@
 import 'package:meta/meta.dart';
 import 'package:equatable/equatable.dart';
 
+import 'package:ubisoft_club_app/infrastructure/injector.dart';
 import 'package:ubisoft_club_app/models/user/user.dart';
 
 abstract class NewsRepo {
@@ -13,7 +14,18 @@ enum ChallengeType { weekly, classic }
 
 enum RewardQuality { legendary, epic, rare, common, exotic }
 
+class NewsService {
+  final NewsRepo _newsRepo;
+
+  Future<List<News>> getNews() async {
+    return _newsRepo.getNews();
+  }
+
+  NewsService() : _newsRepo = injector.get<NewsRepo>();
+}
+
 abstract class News extends Equatable {
+  final _newsRepo = injector.get<NewsRepo>();
   final int id;
   final User user;
   final int liked;
@@ -38,8 +50,8 @@ abstract class News extends Equatable {
         assert(published != null),
         assert(newsType != null);
 
-  Future<News> getNews() async {
-
+  Future<List<News>> getNews() async {
+    return _newsRepo.getNews();
   }
 }
 

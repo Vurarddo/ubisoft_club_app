@@ -1,12 +1,13 @@
 import 'package:ubisoft_club_app/models/user/user.dart';
 
-class HttpUserRepoImpl implements UserRepo {
-  @override
-  Future<User> getUserById(int id) {
-    // TODO: implement getProfileById
-    throw UnimplementedError();
-  }
-}
+// TODO: uncomment!!!!!!!!!
+//class HttpUserRepoImpl implements UserRepo {
+//  @override
+//  Future<User> getUserById(int id) {
+//    // TODO: implement getProfileById
+//    throw UnimplementedError();
+//  }
+//}
 
 // TODO: drop it!!!
 class UserRepoMock implements UserRepo {

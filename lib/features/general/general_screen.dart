@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:ubisoft_club_app/models/news/news.dart';
+import 'package:ubisoft_club_app/models/news.dart';
 import 'package:ubisoft_club_app/widgets/background_with_image.dart';
 import 'package:ubisoft_club_app/features/general/general_screen_presenter.dart';
 import 'package:ubisoft_club_app/features/general/widgets/widgets.dart';

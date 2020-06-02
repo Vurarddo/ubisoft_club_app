@@ -1,7 +1,7 @@
 import 'package:test/test.dart';
 import 'package:ubisoft_club_app/models/user/user.dart';
 
-import 'package:ubisoft_club_app/models/news/news.dart';
+import 'package:ubisoft_club_app/models/news.dart';
 
 void main() {
   group('game progress news class test', () {

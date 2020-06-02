@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:ubisoft_club_app/localization.dart';
-import 'package:ubisoft_club_app/models/news/news.dart';
+import 'package:ubisoft_club_app/models/news.dart';
 import 'package:ubisoft_club_app/helpers/get_time_ago.dart';
 
 class ClubNewsCard extends StatelessWidget {

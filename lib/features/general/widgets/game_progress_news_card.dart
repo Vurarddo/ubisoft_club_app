@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:ubisoft_club_app/theme/colors.dart';
 import 'package:ubisoft_club_app/localization.dart';
-import 'package:ubisoft_club_app/models/news/news.dart';
+import 'package:ubisoft_club_app/models/news.dart';
 import 'package:ubisoft_club_app/helpers/get_time_ago.dart';
 import 'package:ubisoft_club_app/widgets/circular_progress_bar.dart';
 import 'package:ubisoft_club_app/features/profile/profile_screen.dart';
