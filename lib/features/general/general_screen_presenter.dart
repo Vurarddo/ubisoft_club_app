@@ -6,6 +6,7 @@ import 'package:ubisoft_club_app/models/user/user.dart';
 import 'package:ubisoft_club_app/models/user/user_service.dart';
 
 class GeneralScreenPresenter with ChangeNotifier {
+  final _newsFactory = injector.get<NewsFactory>();
   bool _isLoading = false;
   User _user;
   List<News> _news;
@@ -41,7 +42,7 @@ class GeneralScreenPresenter with ChangeNotifier {
     _isLoading = true;
     notifyListeners();
     try {
-      _news = await injector.get<NewsService>().getNews();
+      _news = await _newsFactory.getNews();
     } catch (e) {
       print('CelebrityScreenPresenter: _init error $e');
     } finally {

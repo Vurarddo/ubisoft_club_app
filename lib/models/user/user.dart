@@ -1,11 +1,22 @@
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
+import 'package:ubisoft_club_app/infrastructure/injector.dart';
 
 abstract class UserRepo {
   Future<User> getUserById(int id);
 }
 
 enum UserType { profile, clubAndNews }
+
+class UserFactory {
+  final UserRepo _userRepo;
+
+  Future<User> getUserById(int id) {
+    return _userRepo.getUserById(id);
+  }
+
+  UserFactory() : _userRepo = injector.get<UserRepo>();
+}
 
 class User extends Equatable {
   final int id;

@@ -14,14 +14,14 @@ enum ChallengeType { weekly, classic }
 
 enum RewardQuality { legendary, epic, rare, common, exotic }
 
-class NewsService {
+class NewsFactory {
   final NewsRepo _newsRepo;
 
   Future<List<News>> getNews() async {
     return _newsRepo.getNews();
   }
 
-  NewsService() : _newsRepo = injector.get<NewsRepo>();
+  NewsFactory() : _newsRepo = injector.get<NewsRepo>();
 }
 
 abstract class News extends Equatable {

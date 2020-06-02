@@ -23,12 +23,11 @@ Future<void> runUbisoftClubApp() async {
   injector
     // TODO: uncomment!!!!!!!!
     ..register<NewsRepo>(HttpNewsRepoImpl())
-//    ..register<UserRepo>(HttpUserRepoImpl())
+    ..register<UserRepo>(HttpUserRepoImpl())
     ..register<StoreInteractor>(StoreInteractor())
-    ..register<UserService>(UserService())
-    ..register<NewsService>(NewsService())
-    // TODO: drop it
-    ..register<UserRepo>(UserRepoMock());
+    ..register<NewsFactory>(NewsFactory())
+    ..register<UserFactory>(UserFactory())
+    ..register<UserService>(UserService());
 
   // for time ago messages
   timeAgo.setLocaleMessages('ru', timeAgo.RuMessages());
