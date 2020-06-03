@@ -53,7 +53,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     children: <Widget>[
                       BackgroundWithImage(
                         image: _presenter.fullUser.favoriteGame.image,
-                        child: ProfileCard(user: _presenter.fullUser),
+                        child: ProfileCard(
+                          user: _presenter.fullUser,
+                          isLoggedInUser: _presenter.isLoggedIn,
+                        ),
                       ),
                       StatisticCard(user: _presenter.fullUser),
                     ],

@@ -108,9 +108,14 @@ class User extends Equatable {
     );
   }
 
-  double getParsedLevelProgress(levelProgress, maxLevelProgress) {
-    final levelProgressPercent = (levelProgress * 100) / maxLevelProgress;
+  double getParsedLevelProgress() {
+    final levelProgressPercent =
+        (clubLevel.levelProgress * 100) / clubLevel.maxLevelProgress;
     return levelProgressPercent / 100;
+  }
+
+  int getYearsInClub() {
+    return DateTime.now().year - registerDate.year;
   }
 
   @override

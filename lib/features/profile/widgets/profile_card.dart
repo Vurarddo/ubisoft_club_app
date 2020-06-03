@@ -1,20 +1,26 @@
 import 'package:flutter/material.dart';
 
+import 'package:ubisoft_club_app/theme/colors.dart';
 import 'package:ubisoft_club_app/localization.dart';
 import 'package:ubisoft_club_app/models/user/user.dart';
 import 'package:ubisoft_club_app/features/profile/widgets/add_achievement.dart';
 
 class ProfileCard extends StatelessWidget {
   final User user;
+  final bool isLoggedInUser;
 
   const ProfileCard({
     Key key,
     @required this.user,
+    @required this.isLoggedInUser,
   })  : assert(user != null),
+        assert(isLoggedInUser != null),
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    Path customPath = Path()..lineTo(50, 0);
+
     return Card(
       margin: EdgeInsets.symmetric(vertical: 7.0, horizontal: 8.0),
       shape: RoundedRectangleBorder(
@@ -42,7 +48,7 @@ class ProfileCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
-          _buildLeading(),
+          isLoggedInUser ? _buildEditedImage() : _buildImage(),
           VerticalDivider(
             color: Colors.transparent,
             width: 15,
@@ -60,7 +66,46 @@ class ProfileCard extends StatelessWidget {
     );
   }
 
-  Widget _buildLeading() {
+  Widget _buildEditedImage() {
+    return GestureDetector(
+      onTap: () {
+        // TODO: add action
+        print('add photo action');
+      },
+      child: Stack(
+        children: <Widget>[
+          SizedBox.fromSize(
+            size: Size.square(65),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.network(
+                user.image,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 5,
+            left: 25,
+            child: Container(
+              padding: EdgeInsets.all(3),
+              decoration: BoxDecoration(
+                color: orangeAccent,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Icon(
+                Icons.photo_camera,
+                size: 12,
+                color: Colors.grey[300],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildImage() {
     return SizedBox.fromSize(
       size: Size.square(65),
       child: ClipRRect(
@@ -88,7 +133,7 @@ class ProfileCard extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
-            if (user.clubUnits != null) ...{
+            if (isLoggedInUser) ...{
               _buildTrailing(),
             },
           ],
@@ -98,6 +143,7 @@ class ProfileCard extends StatelessWidget {
             Icon(
               Icons.cancel,
               size: 18.0,
+              color: orangeAccent,
             ),
             Text(
               ' ${user.platformName}',
@@ -134,9 +180,10 @@ class ProfileCard extends StatelessWidget {
         Icon(
           Icons.wifi_tethering,
           size: 18.0,
+          color: orangeAccent,
         ),
         Text(' ${localization.level} ${user.clubLevel.level}'),
-        if (level.levelProgress != null && level.maxLevelProgress != null) ...{
+        if (isLoggedInUser) ...{
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(left: 8.0),
@@ -145,10 +192,7 @@ class ProfileCard extends StatelessWidget {
                 color: Colors.transparent,
                 clipBehavior: Clip.antiAlias,
                 child: LinearProgressIndicator(
-                  value: user.getParsedLevelProgress(
-                    level.levelProgress,
-                    level.maxLevelProgress,
-                  ),
+                  value: user.getParsedLevelProgress(),
                 ),
               ),
             ),
@@ -190,6 +234,7 @@ class ProfileCard extends StatelessWidget {
   Widget _buildTimeInClubTile(BuildContext context) {
     final theme = Theme.of(context);
     final localization = UbisoftClubLocalizations.of(context);
+    final yearsInClub = user.getYearsInClub();
 
     return Container(
       margin: EdgeInsets.all(16.0),
@@ -204,7 +249,7 @@ class ProfileCard extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Text(
-              '3!',
+              '$yearsInClub',
               style: theme.textTheme.headline1.copyWith(
                 fontSize: 20.0,
                 fontWeight: FontWeight.normal,
@@ -212,7 +257,7 @@ class ProfileCard extends StatelessWidget {
             ),
           ),
           Text(
-            '${localization.yearsInClub(1)}',
+            '${localization.yearsInClub(yearsInClub)}',
             style: theme.textTheme.headline1.copyWith(
               fontSize: 14.0,
               fontWeight: FontWeight.normal,
