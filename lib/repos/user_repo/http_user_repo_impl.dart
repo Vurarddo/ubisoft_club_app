@@ -9,13 +9,33 @@ class HttpUserRepoImpl implements UserRepo {
       platformName: 'VladOS8297',
       image:
           'https://assets.jpegmini.com/user/images/slider_puffin_jpegmini_mobile.jpg',
-      lvl: 30,
+      clubLevel: ClubLevel(
+        level: 30,
+        levelProgress: 330.5,
+        maxLevelProgress: 1000.0,
+      ),
       clubUnits: 15,
       registerDate: DateTime(2017, 4, 12),
-      statistic: [
+      statistics: [
         UserStatistic(
           achievementAmount: 41,
-          achievementTitle: 'Some Achievement',
+          achievementTitle: 'Завершено испытаний «Классика»',
+        ),
+        UserStatistic(
+          achievementAmount: 35,
+          achievementTitle: 'Получено наград',
+        ),
+        UserStatistic(
+          achievementAmount: 305,
+          achievementTitle: 'Заработано Units',
+        ),
+        UserStatistic(
+          achievementAmount: 8,
+          achievementTitle: 'Разблокировано значков',
+        ),
+        UserStatistic(
+          achievementAmount: 18,
+          achievementTitle: 'Some Achievement 5',
         ),
       ],
       games: [
@@ -41,13 +61,18 @@ class HttpUserRepoImpl implements UserRepo {
       platformName: 'VitoFromEarth',
       image:
           'https://cdn.pixabay.com/photo/2015/05/01/10/32/seagull-748201_960_720.jpg',
-      lvl: 40,
-      clubUnits: 15,
+      clubLevel: ClubLevel(
+        level: 30,
+      ),
       registerDate: DateTime(2016, 6, 18),
-      statistic: [
+      statistics: [
         UserStatistic(
-          achievementAmount: 41,
-          achievementTitle: 'Some Achievement',
+          achievementAmount: 56,
+          achievementTitle: 'Завершено испытаний «Классика»',
+        ),
+        UserStatistic(
+          achievementAmount: 44,
+          achievementTitle: 'Получено наград',
         ),
       ],
       games: [

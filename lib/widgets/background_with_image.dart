@@ -40,7 +40,7 @@ class BackgroundWithImage extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 135.0),
+          padding: const EdgeInsets.only(top: 125.0),
           child: child,
         ),
       ],

@@ -196,6 +196,28 @@ class UbisoftClubLocalizations {
       name: 'level',
     );
   }
+
+  String yearsInClub(int years) {
+    return Intl.message(
+      'Years in Club',
+      name: 'yearsInClub',
+      args: [years]
+    );
+  }
+
+  String get more {
+    return Intl.message(
+      'More',
+      name: 'more',
+    );
+  }
+
+  String get clubStatistic {
+    return Intl.message(
+      'Club statistic',
+      name: 'clubStatistic',
+    );
+  }
 }
 
 class UbisoftClubLocalizationsDelegate

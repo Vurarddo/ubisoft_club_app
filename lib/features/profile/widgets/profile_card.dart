@@ -16,7 +16,7 @@ class ProfileCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.symmetric(horizontal: 8.0),
+      margin: EdgeInsets.symmetric(vertical: 7.0, horizontal: 8.0),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),
       ),
@@ -88,7 +88,9 @@ class ProfileCard extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
-            _buildTrailing(),
+            if (user.clubUnits != null) ...{
+              _buildTrailing(),
+            },
           ],
         ),
         Row(
@@ -105,7 +107,7 @@ class ProfileCard extends StatelessWidget {
         ),
         Divider(
           color: Colors.transparent,
-          height: 10,
+          height: 6,
         ),
       ],
     );
@@ -125,26 +127,33 @@ class ProfileCard extends StatelessWidget {
 
   Widget _buildLevelTile(BuildContext context) {
     final localization = UbisoftClubLocalizations.of(context);
+    final level = user.clubLevel;
+
     return Row(
       children: <Widget>[
         Icon(
           Icons.wifi_tethering,
           size: 18.0,
         ),
-        Text(' ${localization.level} ${user.lvl}'),
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.only(left: 8.0),
-            child: Material(
-              borderRadius: BorderRadius.circular(8.0),
-              color: Colors.transparent,
-              clipBehavior: Clip.antiAlias,
-              child: LinearProgressIndicator(
-                value: .3,
+        Text(' ${localization.level} ${user.clubLevel.level}'),
+        if (level.levelProgress != null && level.maxLevelProgress != null) ...{
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: Material(
+                borderRadius: BorderRadius.circular(8.0),
+                color: Colors.transparent,
+                clipBehavior: Clip.antiAlias,
+                child: LinearProgressIndicator(
+                  value: user.getParsedLevelProgress(
+                    level.levelProgress,
+                    level.maxLevelProgress,
+                  ),
+                ),
               ),
             ),
           ),
-        ),
+        },
       ],
     );
   }
@@ -180,6 +189,7 @@ class ProfileCard extends StatelessWidget {
 
   Widget _buildTimeInClubTile(BuildContext context) {
     final theme = Theme.of(context);
+    final localization = UbisoftClubLocalizations.of(context);
 
     return Container(
       margin: EdgeInsets.all(16.0),
@@ -202,7 +212,7 @@ class ProfileCard extends StatelessWidget {
             ),
           ),
           Text(
-            'Лет в Club!',
+            '${localization.yearsInClub(1)}',
             style: theme.textTheme.headline1.copyWith(
               fontSize: 14.0,
               fontWeight: FontWeight.normal,

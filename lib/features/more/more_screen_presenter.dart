@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class SettingsScreenPresenter with ChangeNotifier {
+class MoreScreenPresenter with ChangeNotifier {
   ThemeData _theme;
 
   ThemeData get theme => _theme;
 
-  SettingsScreenPresenter() {
+  MoreScreenPresenter() {
     _init();
   }
 

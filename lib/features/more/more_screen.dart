@@ -2,13 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:ubisoft_club_app/features/settings/settings_screen_presenter.dart';
+import 'package:ubisoft_club_app/features/more/more_screen_presenter.dart';
 import 'package:ubisoft_club_app/localization.dart';
 
-class SettingsScreen extends StatefulWidget {
+class MoreScreen extends StatefulWidget {
   static const _routeName = '/settings';
 
-  static PageRoute<SettingsScreen> getPageRoute() {
+  static PageRoute<MoreScreen> getPageRoute() {
     final routeSettings = RouteSettings(name: _routeName);
 
     return MaterialPageRoute(
@@ -19,16 +19,16 @@ class SettingsScreen extends StatefulWidget {
 
   static Widget _builder(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => SettingsScreenPresenter(),
-      child: SettingsScreen(),
+      create: (context) => MoreScreenPresenter(),
+      child: MoreScreen(),
     );
   }
 
   @override
-  _SettingsScreenState createState() => _SettingsScreenState();
+  _MoreScreenState createState() => _MoreScreenState();
 }
 
-class _SettingsScreenState extends State<SettingsScreen> {
+class _MoreScreenState extends State<MoreScreen> {
   UbisoftClubLocalizations get _localization =>
       UbisoftClubLocalizations.of(context);
 
@@ -37,10 +37,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(_localization.settings),
+        title: Text(_localization.more),
       ),
       body: Center(
-        child: Text(_localization.settings),
+        child: Text(_localization.more),
       ),
     );
   }

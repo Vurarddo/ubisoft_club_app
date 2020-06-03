@@ -55,7 +55,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         image: _presenter.fullUser.favoriteGame.image,
                         child: ProfileCard(user: _presenter.fullUser),
                       ),
-                      Text(_presenter.fullUser.platformName),
+                      StatisticCard(user: _presenter.fullUser),
                     ],
                   ),
                 ],

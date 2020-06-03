@@ -8,6 +8,7 @@ import 'package:ubisoft_club_app/widgets/background_with_image.dart';
 import 'package:ubisoft_club_app/features/general/general_screen_presenter.dart';
 import 'package:ubisoft_club_app/features/general/widgets/widgets.dart';
 import 'package:ubisoft_club_app/features/profile/profile_screen.dart';
+import 'package:ubisoft_club_app/features/more/more_screen.dart';
 import 'package:ubisoft_club_app/widgets/club_scrollbard.dart';
 
 class GeneralScreen extends StatefulWidget {
@@ -72,38 +73,13 @@ class _GeneralScreenState extends State<GeneralScreen>
             fit: BoxFit.fitHeight,
           ),
         ),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(
-              Icons.account_circle,
-              size: 30.0,
-            ),
-            onPressed: () => _navigateToProfileScreen(),
-          )
-        ],
+        actions: _buildActions(),
       ),
       body: !_presenter.isLoading
           ? ClubScrollbar(
               child: ListView.builder(
                 itemCount: _presenter.news.length,
-                itemBuilder: (context, index) {
-                  final user = _presenter.user;
-                  final news = _presenter.news[index];
-                  final isFirst = _presenter.news.first == news;
-
-                  return Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      if (isFirst) ...{
-                        BackgroundWithImage(
-                          image: user.favoriteGame.image,
-                          child: GeneralProfileCard(user: user),
-                        ),
-                      },
-                      _buildNewsCard(news),
-                    ],
-                  );
-                },
+                itemBuilder: _buildNewsContent,
               ),
             )
           : Center(
@@ -112,8 +88,62 @@ class _GeneralScreenState extends State<GeneralScreen>
     );
   }
 
+  List<Widget> _buildActions() {
+    return [
+      Material(
+        borderRadius: BorderRadius.circular(30.0),
+        color: Colors.transparent,
+        clipBehavior: Clip.antiAlias,
+        child: IconButton(
+          padding: EdgeInsets.zero,
+          icon: Icon(
+            Icons.account_circle,
+            size: 30.0,
+          ),
+          onPressed: () => _navigateToProfileScreen(),
+        ),
+      ),
+      Material(
+        borderRadius: BorderRadius.circular(30.0),
+        color: Colors.transparent,
+        clipBehavior: Clip.antiAlias,
+        child: IconButton(
+          padding: EdgeInsets.zero,
+          icon: Icon(
+            Icons.more_vert,
+            size: 30.0,
+          ),
+          onPressed: () => _navigateToMoreScreen(),
+        ),
+      ),
+    ];
+  }
+
   void _navigateToProfileScreen() {
     Navigator.push(context, ProfileScreen.getPageRoute(_presenter.user));
+  }
+
+  void _navigateToMoreScreen() {
+    Navigator.push(context, MoreScreen.getPageRoute());
+  }
+
+  Widget _buildNewsContent(context, index) {
+    final user = _presenter.user;
+    final news = _presenter.news[index];
+    final isFirst = _presenter.news.first == news;
+
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        if (isFirst) ...{
+          BackgroundWithImage(
+            image: user.favoriteGame.image,
+            child: GeneralProfileCard(user: user),
+          ),
+        },
+        _buildNewsCard(news),
+      ],
+    );
   }
 
   Widget _buildNewsCard(News news) {

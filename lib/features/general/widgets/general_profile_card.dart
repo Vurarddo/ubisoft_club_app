@@ -16,7 +16,7 @@ class GeneralProfileCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.symmetric(horizontal: 8.0),
+      margin: EdgeInsets.fromLTRB(8.0, 7.0, 8.0, 4.0),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),
       ),
@@ -85,7 +85,7 @@ class GeneralProfileCard extends StatelessWidget {
             ),
           ),
           Text(
-            '${localization.clubLevel}: ${user.lvl}',
+            '${localization.clubLevel}: ${user.clubLevel.level}',
             style: theme.textTheme.subtitle1,
           ),
         ],

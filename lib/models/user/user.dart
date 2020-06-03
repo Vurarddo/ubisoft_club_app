@@ -30,10 +30,10 @@ class User extends Equatable {
   final String clubName;
   final String platformName;
   final String image;
-  final int lvl;
+  final ClubLevel clubLevel;
   final int clubUnits;
   final DateTime registerDate;
-  final List<UserStatistic> statistic;
+  final List<UserStatistic> statistics;
   final List<Game> games;
   final Game favoriteGame;
   final UserType accountType;
@@ -43,10 +43,10 @@ class User extends Equatable {
     this.clubName,
     this.platformName,
     this.image,
-    this.lvl,
+    this.clubLevel,
     this.clubUnits,
     this.registerDate,
-    this.statistic,
+    this.statistics,
     this.games,
     this.favoriteGame,
     this.accountType,
@@ -58,10 +58,10 @@ class User extends Equatable {
       clubName: source.clubName ?? user.clubName,
       platformName: source.platformName ?? user.platformName,
       image: source.image ?? user.image,
-      lvl: source.lvl ?? user.lvl,
+      clubLevel: source.clubLevel ?? user.clubLevel,
       clubUnits: source.clubUnits ?? user.clubUnits,
       registerDate: source.registerDate ?? user.registerDate,
-      statistic: source.statistic ?? user.statistic,
+      statistics: source.statistics ?? user.statistics,
       games: source.games ?? user.games,
       favoriteGame: source.favoriteGame ?? user.favoriteGame,
       accountType: user.accountType,
@@ -73,24 +73,24 @@ class User extends Equatable {
     @required String clubName,
     @required String platformName,
     @required String image,
-    @required int lvl,
-    @required int clubUnits,
+    @required ClubLevel clubLevel,
     @required DateTime registerDate,
-    @required List<UserStatistic> statistic,
+    @required List<UserStatistic> statistics,
     @required List<Game> games,
     @required Game favoriteGame,
+    int clubUnits,
   }) {
     return User._(
       id: id,
       clubName: clubName,
       platformName: platformName,
       image: image,
-      lvl: lvl,
-      clubUnits: clubUnits,
+      clubLevel: clubLevel,
       registerDate: registerDate,
-      statistic: statistic,
+      statistics: statistics,
       games: games,
       favoriteGame: favoriteGame,
+      clubUnits: clubUnits,
       accountType: UserType.profile,
     );
   }
@@ -108,18 +108,42 @@ class User extends Equatable {
     );
   }
 
+  double getParsedLevelProgress(levelProgress, maxLevelProgress) {
+    final levelProgressPercent = (levelProgress * 100) / maxLevelProgress;
+    return levelProgressPercent / 100;
+  }
+
   @override
   List<Object> get props => [
         id,
         clubName,
         platformName,
         image,
-        lvl,
+        clubLevel,
         clubUnits,
         registerDate,
-        statistic,
+        statistics,
         games,
         favoriteGame,
+      ];
+}
+
+class ClubLevel extends Equatable {
+  final int level;
+  final double levelProgress;
+  final double maxLevelProgress;
+
+  ClubLevel({
+    @required this.level,
+    this.levelProgress,
+    this.maxLevelProgress,
+  });
+
+  @override
+  List<Object> get props => [
+        level,
+        levelProgress,
+        maxLevelProgress,
       ];
 }
 

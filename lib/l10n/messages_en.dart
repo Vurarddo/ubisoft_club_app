@@ -19,6 +19,12 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String yearsInClub(years) => Intl.plural(
+    years,
+    one: 'Year in Club',
+    other: 'Years in Club',
+  );
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "general" : MessageLookupByLibrary.simpleMessage("General"),
@@ -46,5 +52,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "clubLevel" : MessageLookupByLibrary.simpleMessage("Club level"),
     "profile" : MessageLookupByLibrary.simpleMessage("Profile"),
     "level" : MessageLookupByLibrary.simpleMessage("Level"),
+    "yearsInClub" : yearsInClub,
+    "more" : MessageLookupByLibrary.simpleMessage("More"),
+    "clubStatistic" : MessageLookupByLibrary.simpleMessage("Club statistic"),
   };
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
 
+import 'package:ubisoft_club_app/features/profile/widgets/hexagon_clipper.dart';
+
 class AddAchievement extends StatelessWidget {
   final double size;
   final Color color;
@@ -31,25 +33,6 @@ class AddAchievement extends StatelessWidget {
   }
 
   Path _customPath(Size size) {
-    return _HexagonClipper().getClip(size);
+    return HexagonClipper().getClip(size);
   }
-}
-
-class _HexagonClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    final path = Path()
-      ..moveTo(size.width * 0.5, size.height * 0.02)
-      ..lineTo(size.width * 0.9, size.height * 0.25)
-      ..lineTo(size.width * 0.9, size.height * 0.75)
-      ..lineTo(size.width * 0.5, size.height * 0.97)
-      ..lineTo(size.width * 0.1, size.height * 0.75)
-      ..lineTo(size.width * 0.1, size.height * 0.25)
-      ..close();
-
-    return path;
-  }
-
-  @override
-  bool shouldReclip(_HexagonClipper oldClipper) => false;
 }
