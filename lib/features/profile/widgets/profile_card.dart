@@ -245,7 +245,7 @@ class ProfileCard extends StatelessWidget {
       ),
       child: Row(
         children: <Widget>[
-          Icon(Icons.cake),
+          Icon(Icons.cake, color: orangeAccent),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Text(

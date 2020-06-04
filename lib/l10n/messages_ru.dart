@@ -26,6 +26,13 @@ class MessageLookup extends MessageLookupByLibrary {
     other: 'Лет в Club',
   );
 
+  static String platform(platforms) => Intl.plural(
+    platforms,
+    one: 'платформа',
+    few: 'платформы',
+    other: 'платформ',
+  );
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "general" : MessageLookupByLibrary.simpleMessage("Главная"),
@@ -56,5 +63,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "yearsInClub" : yearsInClub,
     "more" : MessageLookupByLibrary.simpleMessage("Больше"),
     "clubStatistic" : MessageLookupByLibrary.simpleMessage("Статистика Club"),
+    "purchasedGames" : MessageLookupByLibrary.simpleMessage("Приобретено игр"),
+    "platform" : platform,
   };
 }

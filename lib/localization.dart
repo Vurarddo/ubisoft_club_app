@@ -218,6 +218,21 @@ class UbisoftClubLocalizations {
       name: 'clubStatistic',
     );
   }
+
+  String get purchasedGames {
+    return Intl.message(
+      'Purchased games',
+      name: 'purchasedGames',
+    );
+  }
+
+  String platform(int platforms) {
+    return Intl.message(
+        'platform',
+        name: 'platform',
+        args: [platforms]
+    );
+  }
 }
 
 class UbisoftClubLocalizationsDelegate

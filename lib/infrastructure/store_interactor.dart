@@ -1,4 +1,4 @@
-import 'package:ubisoft_club_app/models/user/user.dart';
+import 'package:ubisoft_club_app/models/models.dart';
 
 class StoreInteractor {
   // TODO: refactor this after adding login

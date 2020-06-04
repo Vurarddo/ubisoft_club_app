@@ -4,6 +4,7 @@ import 'package:ubisoft_club_app/localization.dart';
 import 'package:ubisoft_club_app/models/news.dart';
 import 'package:ubisoft_club_app/helpers/get_time_ago.dart';
 import 'package:ubisoft_club_app/features/profile/profile_screen.dart';
+import 'package:ubisoft_club_app/widgets/platform_title.dart';
 
 class RewardNewsCard extends StatelessWidget {
   final RewardNews news;
@@ -101,19 +102,7 @@ class RewardNewsCard extends StatelessWidget {
             color: theme.textTheme.subtitle1.color,
           ),
         ),
-        Container(
-          margin: EdgeInsets.only(left: 8.0),
-          padding: EdgeInsets.symmetric(horizontal: 3),
-          decoration: BoxDecoration(
-              border: Border.all(color: theme.textTheme.subtitle1.color),
-              borderRadius: BorderRadius.circular(4.0)),
-          child: Text(
-            news.platform,
-            style: theme.textTheme.caption.copyWith(
-              color: theme.textTheme.subtitle1.color,
-            ),
-          ),
-        ),
+        PlatformTitle(platform: news.platform),
       ],
     );
   }

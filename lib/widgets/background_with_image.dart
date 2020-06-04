@@ -35,7 +35,7 @@ class BackgroundWithImage extends StatelessWidget {
               colors: [theme.dividerColor, Colors.transparent],
               begin: Alignment.bottomCenter,
               end: Alignment.topCenter,
-              stops: [0.17, .7],
+              stops: [0.18, .6],
             ),
           ),
         ),

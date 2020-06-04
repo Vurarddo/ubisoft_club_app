@@ -21,7 +21,6 @@ import 'package:timeago/timeago.dart' as timeAgo;
 Future<void> runUbisoftClubApp() async {
   // Injector
   injector
-    // TODO: uncomment!!!!!!!!
     ..register<NewsRepo>(HttpNewsRepoImpl())
     ..register<UserRepo>(HttpUserRepoImpl())
     ..register<StoreInteractor>(StoreInteractor())

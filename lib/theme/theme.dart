@@ -10,18 +10,18 @@ final appThemeData = {
 };
 
 final lightTheme = ThemeData(
-  primarySwatch: orangeAccent,
+  primarySwatch: grey850,
   appBarTheme: lightAppBarTheme,
   pageTransitionsTheme: _pageTransitionTheme,
   iconTheme: lightIconTheme,
   textTheme: lightTextTheme,
-  scaffoldBackgroundColor: Colors.grey[300],
+  scaffoldBackgroundColor: Colors.grey[200],
   secondaryHeaderColor: orangeAccent,
   bottomAppBarColor: Colors.white,
   accentColor: orangeAccent,
   disabledColor: Colors.grey,
   cardColor: Colors.white,
-  dividerColor: Colors.grey[300],
+  dividerColor: Colors.grey[200],
   primaryColorLight: Colors.grey,
   primaryColor: Colors.teal[800],
   unselectedWidgetColor: lightGreyColor,
@@ -48,14 +48,14 @@ final darkTheme = ThemeData(
   unselectedWidgetColor: backgroundGreyColor,
 );
 
-final lightIconTheme = IconThemeData(color: Colors.white);
+final lightIconTheme = IconThemeData(color: Colors.grey);
 
 final darkIconTheme = IconThemeData(color: orangeAccent);
 
 final lightAppBarTheme = AppBarTheme(
   elevation: 0,
   color: orangeAccent,
-  iconTheme: lightIconTheme,
+  iconTheme: IconThemeData(color: Colors.white),
 );
 
 final darkAppBarTheme = AppBarTheme(

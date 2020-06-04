@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:ubisoft_club_app/features/general/general_screen_presenter.dart';
 
 import 'package:ubisoft_club_app/localization.dart';
 import 'package:ubisoft_club_app/models/user/user.dart';
