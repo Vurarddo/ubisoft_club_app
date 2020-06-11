@@ -52,7 +52,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       BackgroundWithImage(
-                        image: _presenter.fullUser.favoriteGame.image,
+                        image: _presenter.favoriteGameImg,
                         child: ProfileCard(
                           user: _presenter.fullUser,
                           isLoggedInUser: _presenter.isLoggedIn,

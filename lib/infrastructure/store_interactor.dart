@@ -27,17 +27,10 @@ class StoreInteractor {
           id: 2,
           title: 'Tom Clancy\'s Rainbow Six® Siege',
           image:
-              'https://3dnews.ru/assets/external/illustrations/2020/03/05/1005203/sm.1.750.jpeg',
+              'https://www.overclockers.ua/news/games/126146-Rainbow-Six-Siege-1.jpg',
           platform: 'XONE',
         ),
       ],
-      favoriteGame: Game(
-        id: 2,
-        title: 'Tom Clancy\'s Rainbow Six® Siege',
-        image:
-            'https://www.overclockers.ua/news/games/126146-Rainbow-Six-Siege-1.jpg',
-        platform: 'XONE',
-      ),
     );
 
     return _user;

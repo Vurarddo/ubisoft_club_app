@@ -10,11 +10,12 @@ class GeneralScreenPresenter with ChangeNotifier {
   bool _isLoading = false;
   User _user;
   List<News> _news;
-
-  User get user => _user;
-  List<News> get news => _news;
+  String _gameImage;
 
   bool get isLoading => _isLoading;
+  User get user => _user;
+  List<News> get news => _news;
+  String get gameImage => _gameImage;
 
   GeneralScreenPresenter() {
     _init();
@@ -30,8 +31,9 @@ class GeneralScreenPresenter with ChangeNotifier {
     notifyListeners();
     try {
       _user = await injector.get<UserService>().getCurrentUser();
+      _gameImage = await _user.getFavoriteGameImg();
     } catch (e) {
-      print('CelebrityScreenPresenter: _init error $e');
+      print('GeneralScreenPresenter: _init error $e');
     } finally {
       _isLoading = false;
       notifyListeners();
@@ -44,7 +46,7 @@ class GeneralScreenPresenter with ChangeNotifier {
     try {
       _news = await _newsFactory.getNews();
     } catch (e) {
-      print('CelebrityScreenPresenter: _init error $e');
+      print('GeneralScreenPresenter: _getNewsList error $e');
     } finally {
       _isLoading = false;
       notifyListeners();

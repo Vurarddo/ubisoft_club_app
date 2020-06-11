@@ -8,6 +8,10 @@ abstract class UserRepo {
   Future<User> getUserById(int id);
 
   Future<User> getFullUser(User user);
+
+  Future<List<Game>> getGames(int id);
+
+  Future<String> getFavoriteGameImg(int id);
 }
 
 enum UserType { profile, clubAndNews }
@@ -27,6 +31,7 @@ class UserFactory {
 }
 
 class User extends Equatable {
+  final UserRepo _userRepo = injector.get<UserRepo>();
   final int id;
   final String clubName;
   final String platformName;
@@ -36,7 +41,6 @@ class User extends Equatable {
   final DateTime registerDate;
   final List<UserStatistic> statistics;
   final List<Game> games;
-  final Game favoriteGame;
   final UserType accountType;
 
   User._({
@@ -49,9 +53,16 @@ class User extends Equatable {
     this.registerDate,
     this.statistics,
     this.games,
-    this.favoriteGame,
     this.accountType,
   });
+
+  Future<List<Game>> getGames() async {
+    return _userRepo.getGames(id);
+  }
+
+  Future<String> getFavoriteGameImg() {
+    return injector.get<UserRepo>().getFavoriteGameImg(id);
+  }
 
   factory User.mergeInfFull(User source, User user) {
     return User._(
@@ -64,7 +75,6 @@ class User extends Equatable {
       registerDate: source.registerDate ?? user.registerDate,
       statistics: source.statistics ?? user.statistics,
       games: source.games ?? user.games,
-      favoriteGame: source.favoriteGame ?? user.favoriteGame,
       accountType: user.accountType,
     );
   }
@@ -78,7 +88,6 @@ class User extends Equatable {
     @required DateTime registerDate,
     @required List<UserStatistic> statistics,
     @required List<Game> games,
-    @required Game favoriteGame,
     int clubUnits,
   }) {
     return User._(
@@ -90,7 +99,6 @@ class User extends Equatable {
       registerDate: registerDate,
       statistics: statistics,
       games: games,
-      favoriteGame: favoriteGame,
       clubUnits: clubUnits,
       accountType: UserType.profile,
     );
@@ -130,7 +138,6 @@ class User extends Equatable {
         registerDate,
         statistics,
         games,
-        favoriteGame,
       ];
 }
 

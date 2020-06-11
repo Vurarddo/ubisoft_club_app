@@ -47,13 +47,6 @@ class HttpUserRepoImpl implements UserRepo {
           platform: 'XONE',
         ),
       ],
-      favoriteGame: Game(
-        id: 2,
-        title: 'Tom Clancy\'s Rainbow Six® Siege',
-        image:
-            'https://www.overclockers.ua/news/games/126146-Rainbow-Six-Siege-1.jpg',
-        platform: 'XONE',
-      ),
     ),
     User.user(
       id: 3,
@@ -84,13 +77,6 @@ class HttpUserRepoImpl implements UserRepo {
           platform: 'XONE',
         ),
       ],
-      favoriteGame: Game(
-        id: 2,
-        title: 'Tom Clancy\'s Rainbow Six® Siege',
-        image:
-            'https://www.overclockers.ua/news/games/126146-Rainbow-Six-Siege-1.jpg',
-        platform: 'XONE',
-      ),
     ),
   ];
 
@@ -106,5 +92,51 @@ class HttpUserRepoImpl implements UserRepo {
     final userWithDetails = await getUserById(user.id);
 
     return User.mergeInfFull(userWithDetails, user);
+  }
+
+  @override
+  Future<List<Game>> getGames(int id) async {
+    List<Game> _games = [
+      Game(
+        id: 2,
+        title: 'Tom Clancy\'s Rainbow Six® Siege',
+        image:
+            'https://3dnews.ru/assets/external/illustrations/2020/03/05/1005203/sm.1.750.jpeg',
+        platform: 'XONE',
+      ),
+    ];
+
+    if (id == 1) {
+      _games = [
+        Game(
+          id: 1,
+          title: 'Tom Clancy\'s Rainbow Six® Siege',
+          image:
+              'https://3dnews.ru/assets/external/illustrations/2020/03/05/1005203/sm.1.750.jpeg',
+          platform: 'XONE',
+        ),
+        Game(
+          id: 2,
+          title: 'Tom Clancy\'s Rainbow Six® Siege',
+          image:
+              'https://3dnews.ru/assets/external/illustrations/2020/03/05/1005203/sm.1.750.jpeg',
+          platform: 'XONE',
+        ),
+      ];
+    }
+
+    return _games;
+  }
+
+  @override
+  Future<String> getFavoriteGameImg(int id) async {
+    String _image =
+        'https://img5.goodfon.ru/wallpaper/nbig/9/a2/tom-clancy-s-rainbow-six-siege-rainbow-six-siege-ubisoft-ope.jpg';
+    if (id == 1) {
+      _image =
+          'https://www.overclockers.ua/news/games/126146-Rainbow-Six-Siege-1.jpg';
+    }
+
+    return _image;
   }
 }

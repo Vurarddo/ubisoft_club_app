@@ -137,7 +137,7 @@ class _GeneralScreenState extends State<GeneralScreen>
       children: <Widget>[
         if (isFirst) ...{
           BackgroundWithImage(
-            image: user.favoriteGame.image,
+            image: _presenter.gameImage,
             child: GeneralProfileCard(user: user),
           ),
         },
