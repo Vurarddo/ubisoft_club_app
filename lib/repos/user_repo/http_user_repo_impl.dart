@@ -38,15 +38,6 @@ class HttpUserRepoImpl implements UserRepo {
           achievementTitle: 'Some Achievement 5',
         ),
       ],
-      games: [
-        Game(
-          id: 2,
-          title: 'Tom Clancy\'s Rainbow Six® Siege',
-          image:
-              'https://3dnews.ru/assets/external/illustrations/2020/03/05/1005203/sm.1.750.jpeg',
-          platform: 'XONE',
-        ),
-      ],
     ),
     User.user(
       id: 3,
@@ -66,15 +57,6 @@ class HttpUserRepoImpl implements UserRepo {
         UserStatistic(
           achievementAmount: 44,
           achievementTitle: 'Получено наград',
-        ),
-      ],
-      games: [
-        Game(
-          id: 2,
-          title: 'Tom Clancy\'s Rainbow Six® Siege',
-          image:
-              'https://3dnews.ru/assets/external/illustrations/2020/03/05/1005203/sm.1.750.jpeg',
-          platform: 'XONE',
         ),
       ],
     ),
@@ -120,7 +102,7 @@ class HttpUserRepoImpl implements UserRepo {
           title: 'Tom Clancy\'s Rainbow Six® Siege',
           image:
               'https://3dnews.ru/assets/external/illustrations/2020/03/05/1005203/sm.1.750.jpeg',
-          platform: 'XONE',
+          platform: 'PC',
         ),
       ];
     }

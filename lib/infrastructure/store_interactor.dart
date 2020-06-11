@@ -22,15 +22,6 @@ class StoreInteractor {
           achievementTitle: 'Some Achievement',
         ),
       ],
-      games: [
-        Game(
-          id: 2,
-          title: 'Tom Clancy\'s Rainbow Six® Siege',
-          image:
-              'https://www.overclockers.ua/news/games/126146-Rainbow-Six-Siege-1.jpg',
-          platform: 'XONE',
-        ),
-      ],
     );
 
     return _user;

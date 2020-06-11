@@ -40,7 +40,6 @@ class User extends Equatable {
   final int clubUnits;
   final DateTime registerDate;
   final List<UserStatistic> statistics;
-  final List<Game> games;
   final UserType accountType;
 
   User._({
@@ -52,7 +51,6 @@ class User extends Equatable {
     this.clubUnits,
     this.registerDate,
     this.statistics,
-    this.games,
     this.accountType,
   });
 
@@ -74,7 +72,6 @@ class User extends Equatable {
       clubUnits: source.clubUnits ?? user.clubUnits,
       registerDate: source.registerDate ?? user.registerDate,
       statistics: source.statistics ?? user.statistics,
-      games: source.games ?? user.games,
       accountType: user.accountType,
     );
   }
@@ -87,7 +84,6 @@ class User extends Equatable {
     @required ClubLevel clubLevel,
     @required DateTime registerDate,
     @required List<UserStatistic> statistics,
-    @required List<Game> games,
     int clubUnits,
   }) {
     return User._(
@@ -98,7 +94,6 @@ class User extends Equatable {
       clubLevel: clubLevel,
       registerDate: registerDate,
       statistics: statistics,
-      games: games,
       clubUnits: clubUnits,
       accountType: UserType.profile,
     );
@@ -137,7 +132,6 @@ class User extends Equatable {
         clubUnits,
         registerDate,
         statistics,
-        games,
       ];
 }
 
