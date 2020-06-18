@@ -8,7 +8,7 @@ import 'l10n/messages_all.dart';
 class UbisoftClubLocalizations {
   static Future<UbisoftClubLocalizations> load(Locale locale) {
     final String name =
-    locale.countryCode == null ? locale.languageCode : locale.toString();
+        locale.countryCode == null ? locale.languageCode : locale.toString();
     final String localeName = Intl.canonicalizedLocale(name);
 
     return initializeMessages(localeName).then((bool _) {
@@ -198,11 +198,7 @@ class UbisoftClubLocalizations {
   }
 
   String yearsInClub(int years) {
-    return Intl.message(
-      'Years in Club',
-      name: 'yearsInClub',
-      args: [years]
-    );
+    return Intl.message('Years in Club', name: 'yearsInClub', args: [years]);
   }
 
   String get more {
@@ -228,9 +224,16 @@ class UbisoftClubLocalizations {
 
   String platform(int platforms) {
     return Intl.message(
-        'platform',
-        name: 'platform',
-        args: [platforms]
+      'platform',
+      name: 'platform',
+      args: [platforms],
+    );
+  }
+
+  String get played {
+    return Intl.message(
+      'Played',
+      name: 'played',
     );
   }
 }
@@ -241,7 +244,7 @@ class UbisoftClubLocalizationsDelegate
 
   @override
   bool isSupported(Locale locale) {
-    return ['en', 'ru',].contains(locale.languageCode);
+    return ['en', 'ru'].contains(locale.languageCode);
   }
 
   @override

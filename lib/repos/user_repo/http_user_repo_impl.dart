@@ -77,34 +77,51 @@ class HttpUserRepoImpl implements UserRepo {
   }
 
   @override
-  Future<List<Game>> getGames(int id) async {
-    List<Game> _games = [
+  Future<Map<Game, UserGameActivity>> getGames(int id) async {
+    Map<Game, UserGameActivity> _games = {
       Game(
         id: 2,
         title: 'Tom Clancy\'s Rainbow Six® Siege',
         image:
             'https://3dnews.ru/assets/external/illustrations/2020/03/05/1005203/sm.1.750.jpeg',
         platform: 'XONE',
+      ): UserGameActivity(
+        achievements: ['1', '2'],
+        lastTimeInGame: DateTime(2020, 6, 17, 16, 20),
       ),
-    ];
-
+    };
     if (id == 1) {
-      _games = [
+      _games = {
         Game(
           id: 1,
           title: 'Tom Clancy\'s Rainbow Six® Siege',
           image:
-              'https://3dnews.ru/assets/external/illustrations/2020/03/05/1005203/sm.1.750.jpeg',
+              'https://store-images.s-microsoft.com/image/apps.54674.14633508178697795.8e68c608-a2d6-4e24-862f-b89b731a3056.6c666fff-9ad2-4708-b060-60d04f504072?w=400&h=600',
           platform: 'XONE',
+        ): UserGameActivity(
+          achievements: ['1', '2'],
+          lastTimeInGame: DateTime(2020, 6, 17, 16, 20),
         ),
         Game(
           id: 2,
           title: 'Tom Clancy\'s Rainbow Six® Siege',
           image:
-              'https://3dnews.ru/assets/external/illustrations/2020/03/05/1005203/sm.1.750.jpeg',
+              'https://store-images.s-microsoft.com/image/apps.54674.14633508178697795.8e68c608-a2d6-4e24-862f-b89b731a3056.6c666fff-9ad2-4708-b060-60d04f504072?w=400&h=600',
           platform: 'PC',
+        ): UserGameActivity(
+          achievements: ['1', '2'],
+          lastTimeInGame: DateTime(2020, 2, 17, 16, 20),
         ),
-      ];
+        Game(
+          id: 3,
+          title: 'Far Cry® 5',
+          image: 'https://cdn.shazoo.ru/203852_bSpb0BDJ4V_fc.jpg',
+          platform: 'XONE',
+        ): UserGameActivity(
+          achievements: ['1', '2'],
+          lastTimeInGame: DateTime(2020, 3, 17, 16, 20),
+        ),
+      };
     }
 
     return _games;

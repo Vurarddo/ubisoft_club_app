@@ -19,9 +19,9 @@ class Game extends Equatable {
 
   @override
   List<Object> get props => [
-    id,
-    title,
-    image,
-    platform,
-  ];
+        id,
+        title,
+        image,
+        platform,
+      ];
 }

@@ -58,6 +58,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   StatisticCard(user: _presenter.fullUser),
                   _buildGameInfo(),
+                  _buildGamesList(),
                 ],
               ),
             )
@@ -116,23 +117,43 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 text: TextSpan(
                   children: <TextSpan>[
                     TextSpan(
-                      text: '  1 ',
+                      text: '  ${_presenter.platforms.length} ',
                       style: theme.textTheme.bodyText2.copyWith(
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                     TextSpan(
-                      text: localization.platform(1),
+                      text: localization.platform(_presenter.platforms.length),
                       style: theme.textTheme.bodyText2,
                     ),
                   ],
                 ),
               ),
-              PlatformTitle(platform: _presenter.games.first.platform),
+              Wrap(
+                children: _presenter.platforms.map((platform) {
+                  return PlatformTitle(platform: platform);
+                }).toList(),
+              ),
             ],
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildGamesList() {
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      itemCount: _presenter.games.length,
+      itemBuilder: (context, index) {
+        final game = _presenter.games[index];
+        final userGamesActivity = _presenter.userGamesActivity[index];
+        return UserGameCard(
+          game: game,
+          userGamesActivity: userGamesActivity,
+        );
+      },
     );
   }
 }

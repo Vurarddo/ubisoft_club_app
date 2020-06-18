@@ -63,5 +63,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "clubStatistic" : MessageLookupByLibrary.simpleMessage("Club statistic"),
     "purchasedGames" : MessageLookupByLibrary.simpleMessage("Purchased games"),
     "platform" : platform,
+    "played" : MessageLookupByLibrary.simpleMessage("Played"),
   };
 }

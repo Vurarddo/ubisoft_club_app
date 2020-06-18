@@ -9,7 +9,7 @@ abstract class UserRepo {
 
   Future<User> getFullUser(User user);
 
-  Future<List<Game>> getGames(int id);
+  Future<Map<Game, UserGameActivity>> getGames(int id);
 
   Future<String> getFavoriteGameImg(int id);
 }
@@ -25,6 +25,10 @@ class UserFactory {
 
   Future<User> getFullUser(User user) async {
     return _userRepo.getFullUser(user);
+  }
+
+  List<String> getPlatforms(List<Game> games) {
+    return games.map((game) => game.platform).toSet().toList();
   }
 
   UserFactory() : _userRepo = injector.get<UserRepo>();
@@ -54,7 +58,7 @@ class User extends Equatable {
     this.accountType,
   });
 
-  Future<List<Game>> getGames() async {
+  Future<Map<Game, UserGameActivity>> getGames() async {
     return _userRepo.getGames(id);
   }
 
@@ -166,4 +170,18 @@ class UserStatistic extends Equatable {
 
   @override
   List<Object> get props => [achievementAmount, achievementTitle];
+}
+
+class UserGameActivity extends Equatable {
+  final DateTime lastTimeInGame;
+  final List<String> achievements;
+
+  UserGameActivity({
+    @required this.lastTimeInGame,
+    @required this.achievements,
+  })  : assert(lastTimeInGame != null),
+        assert(achievements != null);
+
+  @override
+  List<Object> get props => [lastTimeInGame, achievements];
 }
