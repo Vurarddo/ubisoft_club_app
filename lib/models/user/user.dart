@@ -174,7 +174,7 @@ class UserStatistic extends Equatable {
 
 class UserGameActivity extends Equatable {
   final DateTime lastTimeInGame;
-  final List<String> achievements;
+  final List<Achievement> achievements;
 
   UserGameActivity({
     @required this.lastTimeInGame,
@@ -184,4 +184,18 @@ class UserGameActivity extends Equatable {
 
   @override
   List<Object> get props => [lastTimeInGame, achievements];
+}
+
+class Achievement extends Equatable {
+  final int currentProgress;
+  final int maxProgress;
+
+  Achievement({
+    @required this.maxProgress,
+    @required this.currentProgress,
+  })  : assert(currentProgress != null),
+        assert(maxProgress != null);
+
+  @override
+  List<Object> get props => [currentProgress, maxProgress];
 }

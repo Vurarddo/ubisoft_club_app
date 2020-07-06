@@ -86,7 +86,20 @@ class HttpUserRepoImpl implements UserRepo {
             'https://3dnews.ru/assets/external/illustrations/2020/03/05/1005203/sm.1.750.jpeg',
         platform: 'XONE',
       ): UserGameActivity(
-        achievements: ['1', '2'],
+        achievements: [
+          Achievement(
+            currentProgress: 50,
+            maxProgress: 140,
+          ),
+          Achievement(
+            currentProgress: 2,
+            maxProgress: 3,
+          ),
+          Achievement(
+            currentProgress: 24,
+            maxProgress: 42,
+          ),
+        ],
         lastTimeInGame: DateTime(2020, 6, 17, 16, 20),
       ),
     };
@@ -99,7 +112,20 @@ class HttpUserRepoImpl implements UserRepo {
               'https://store-images.s-microsoft.com/image/apps.54674.14633508178697795.8e68c608-a2d6-4e24-862f-b89b731a3056.6c666fff-9ad2-4708-b060-60d04f504072?w=400&h=600',
           platform: 'XONE',
         ): UserGameActivity(
-          achievements: ['1', '2'],
+          achievements: [
+            Achievement(
+              currentProgress: 50,
+              maxProgress: 140,
+            ),
+            Achievement(
+              currentProgress: 2,
+              maxProgress: 3,
+            ),
+            Achievement(
+              currentProgress: 24,
+              maxProgress: 42,
+            ),
+          ],
           lastTimeInGame: DateTime(2020, 6, 17, 16, 20),
         ),
         Game(
@@ -109,7 +135,20 @@ class HttpUserRepoImpl implements UserRepo {
               'https://store-images.s-microsoft.com/image/apps.54674.14633508178697795.8e68c608-a2d6-4e24-862f-b89b731a3056.6c666fff-9ad2-4708-b060-60d04f504072?w=400&h=600',
           platform: 'PC',
         ): UserGameActivity(
-          achievements: ['1', '2'],
+          achievements: [
+            Achievement(
+              currentProgress: 50,
+              maxProgress: 140,
+            ),
+            Achievement(
+              currentProgress: 2,
+              maxProgress: 3,
+            ),
+            Achievement(
+              currentProgress: 24,
+              maxProgress: 42,
+            ),
+          ],
           lastTimeInGame: DateTime(2020, 2, 17, 16, 20),
         ),
         Game(
@@ -118,7 +157,20 @@ class HttpUserRepoImpl implements UserRepo {
           image: 'https://cdn.shazoo.ru/203852_bSpb0BDJ4V_fc.jpg',
           platform: 'XONE',
         ): UserGameActivity(
-          achievements: ['1', '2'],
+          achievements: [
+            Achievement(
+              currentProgress: 10,
+              maxProgress: 320,
+            ),
+            Achievement(
+              currentProgress: 1,
+              maxProgress: 13,
+            ),
+            Achievement(
+              currentProgress: 0,
+              maxProgress: 23,
+            ),
+          ],
           lastTimeInGame: DateTime(2020, 3, 17, 16, 20),
         ),
       };

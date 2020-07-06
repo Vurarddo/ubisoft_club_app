@@ -27,6 +27,7 @@ class UserGameCard extends StatelessWidget {
         child: Column(
           children: <Widget>[
             _buildGameTile(context),
+            _buildAchievementTile(context),
           ],
         ),
       ),
@@ -79,6 +80,66 @@ class UserGameCard extends StatelessWidget {
               ],
             ),
           ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildAchievementTile(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(8.0),
+      margin: EdgeInsets.only(top: 15),
+      decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.grey[300],
+          ),
+          borderRadius: BorderRadius.circular(5)),
+      child: Column(
+        children: <Widget>[
+          _buildIconsTile(),
+          Divider(
+            color: Colors.grey[300],
+            thickness: 1,
+          ),
+          _buildInfoTile(),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildIconsTile() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.only(left: 5.0),
+          child: Icon(
+            Icons.monetization_on,
+            color: Colors.orangeAccent,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 4.0),
+          child: Icon(Icons.crop_square),
+        ),
+        Icon(Icons.cake),
+      ],
+    );
+  }
+
+  Widget _buildInfoTile() {
+    final achievements = userGamesActivity.achievements;
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: <Widget>[
+        Text(
+          '${achievements.first.currentProgress}/${achievements.first.maxProgress}',
+        ),
+        Text(
+          '${achievements[1].currentProgress}/${achievements[1].maxProgress}',
+        ),
+        Text(
+          '${achievements.last.currentProgress}/${achievements.last.maxProgress}',
         ),
       ],
     );
