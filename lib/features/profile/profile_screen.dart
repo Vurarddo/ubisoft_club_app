@@ -10,7 +10,7 @@ import 'package:ubisoft_club_app/widgets/club_scrollbard.dart';
 import 'package:ubisoft_club_app/widgets/platform_title.dart';
 
 class ProfileScreen extends StatefulWidget {
-  static const _routeName = '/games';
+  static const _routeName = '/profile';
 
   static PageRoute<ProfileScreen> getPageRoute(User user) {
     final routeSettings = RouteSettings(name: _routeName);
