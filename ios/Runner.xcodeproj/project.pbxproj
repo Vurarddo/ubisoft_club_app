@@ -80,7 +80,6 @@
 				8923824D3271AB9AF92ABCDD /* Pods-Runner.profile-dev.xcconfig */,
 				D009C9B616B36062B64BF064 /* Pods-Runner.profile-stage.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -464,7 +463,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				ENABLE_BITCODE = NO;
-				FLUTTER_TARGET = /Users/vladOS/Doc/projects/ubisoft_club_app/lib/main_stage.dart;
+				FLUTTER_TARGET = /Users/vladislavkononenko/Doc/projects/ubisoft_club_app/lib/main_stage.dart;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
@@ -550,7 +549,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				ENABLE_BITCODE = NO;
-				FLUTTER_TARGET = /Users/vladOS/Doc/projects/ubisoft_club_app/lib/main_dev.dart;
+				FLUTTER_TARGET = /Users/vladislavkononenko/Doc/projects/ubisoft_club_app/lib/main_dev.dart;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
@@ -633,7 +632,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				ENABLE_BITCODE = NO;
-				FLUTTER_TARGET = /Users/vladOS/Doc/projects/ubisoft_club_app/lib/main_stage.dart;
+				FLUTTER_TARGET = /Users/vladislavkononenko/Doc/projects/ubisoft_club_app/lib/main_stage.dart;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
@@ -714,7 +713,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				ENABLE_BITCODE = NO;
-				FLUTTER_TARGET = /Users/vladOS/Doc/projects/ubisoft_club_app/lib/main_dev.dart;
+				FLUTTER_TARGET = /Users/vladislavkononenko/Doc/projects/ubisoft_club_app/lib/main_dev.dart;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
@@ -795,7 +794,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				ENABLE_BITCODE = NO;
-				FLUTTER_TARGET = /Users/vladOS/Doc/projects/ubisoft_club_app/lib/main_stage.dart;
+				FLUTTER_TARGET = /Users/vladislavkononenko/Doc/projects/ubisoft_club_app/lib/main_stage.dart;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
@@ -875,7 +874,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				ENABLE_BITCODE = NO;
-				FLUTTER_TARGET = /Users/vladOS/Doc/projects/ubisoft_club_app/lib/main_dev.dart;
+				FLUTTER_TARGET = /Users/vladislavkononenko/Doc/projects/ubisoft_club_app/lib/main_dev.dart;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
