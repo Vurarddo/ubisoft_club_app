@@ -1,12 +1,12 @@
 import 'package:flutter/foundation.dart';
 
-import 'package:ubisoft_club_app/infrastructure/injector.dart';
+import 'package:ubisoft_club_app/infrastructure/injector/injector.dart';
 import 'package:ubisoft_club_app/models/models.dart';
 
 class ProfileScreenPresenter with ChangeNotifier {
   final User user;
 
-  final _userFactory = injector.get<UserFactory>();
+  final _userFactory = getIt<UserFactory>();
   bool _isLoading = false;
   bool _isLoggedIn;
   User _fullUser;
@@ -43,7 +43,7 @@ class ProfileScreenPresenter with ChangeNotifier {
   }
 
   Future<void> _getUser() async {
-    final currentUser = await injector.get<UserService>().getCurrentUser();
+    final currentUser = await getIt<UserService>().getCurrentUser();
 
     _isLoggedIn = currentUser.id == user.id;
     _fullUser = await _userFactory.getFullUser(user);

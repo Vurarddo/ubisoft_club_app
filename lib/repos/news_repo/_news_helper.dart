@@ -1,4 +1,4 @@
-part of 'http_news_repo_impl.dart';
+part of 'http_news_repo.dart';
 
 class NewsType extends Equatable {
   final String value;

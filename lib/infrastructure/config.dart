@@ -1,13 +1,7 @@
-import 'package:flutter/cupertino.dart';
-
-enum Environment {
-  dev,
-  stage,
-  prod,
-}
+import 'package:flutter/foundation.dart';
 
 class Config {
-  final Environment environment;
+  final String environment;
 
   Config({
     @required this.environment,

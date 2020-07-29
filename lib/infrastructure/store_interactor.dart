@@ -1,5 +1,7 @@
+import 'package:injectable/injectable.dart';
 import 'package:ubisoft_club_app/models/models.dart';
 
+@singleton
 class StoreInteractor {
   // TODO: refactor this after adding login
   Future<User> getUser() async {

@@ -12,12 +12,14 @@ dependencies:
   json_annotation: ^3.0.1
   json_serializable: ^3.3.0
   shared_preferences: ^0.5.4
-  provider: ^3.2.0
+  provider: ^4.2.0
   pigment: ^1.0.3
   equatable: ^1.1.1
   build_runner: ^1.7.2
   timeago: ^2.0.26
   dotted_border: ^1.0.4
+  injectable: ^1.0.2
+  get_it: ^4.0.2
 
   flutter:
     sdk: flutter
@@ -32,6 +34,9 @@ dev_dependencies:
 
   flutter_test:
     sdk: flutter
+
+  build_runner:
+  injectable_generator: ^1.0.2
 
 flutter:
 

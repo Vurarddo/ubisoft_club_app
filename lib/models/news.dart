@@ -1,10 +1,11 @@
+import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 import 'package:equatable/equatable.dart';
 
-import 'package:ubisoft_club_app/infrastructure/injector.dart';
+import 'package:ubisoft_club_app/infrastructure/injector/injector.dart';
 import 'package:ubisoft_club_app/models/user/user.dart';
 
-abstract class NewsRepo {
+abstract class INewsRepo {
   Future<List<News>> getNews();
 }
 
@@ -14,18 +15,19 @@ enum ChallengeType { weekly, classic }
 
 enum RewardQuality { legendary, epic, rare, common, exotic }
 
+@singleton
 class NewsFactory {
-  final NewsRepo _newsRepo;
+  final INewsRepo _newsRepo;
 
   Future<List<News>> getNews() async {
     return _newsRepo.getNews();
   }
 
-  NewsFactory() : _newsRepo = injector.get<NewsRepo>();
+  NewsFactory() : _newsRepo = getIt<INewsRepo>();
 }
 
 abstract class News extends Equatable {
-  final _newsRepo = injector.get<NewsRepo>();
+  final _newsRepo = getIt<INewsRepo>();
   final int id;
   final User user;
   final int liked;

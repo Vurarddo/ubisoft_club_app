@@ -4,21 +4,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import 'package:ubisoft_club_app/infrastructure/config.dart';
-import 'package:ubisoft_club_app/infrastructure/injector.dart';
+import 'package:ubisoft_club_app/infrastructure/injector/injector.dart';
 
 class EnvironmentBanner extends StatelessWidget {
-  final Environment environmentType;
+  final String environmentType;
   final Widget child;
 
   EnvironmentBanner({@required this.child})
       : assert(child != null),
-        environmentType = injector.get<Config>().environment;
+        environmentType = getIt<Config>().environment;
 
   _BannerProps get _bannerProps {
     switch (environmentType) {
-      case Environment.dev:
+      case Env.dev:
         return _BannerProps ('DEV', Colors.green);
-      case Environment.stage:
+      case Env.stage:
         return _BannerProps ('STAGE', Colors.purple);
       default:
         return _BannerProps ('UNKNOWN', Colors.red);
@@ -27,7 +27,7 @@ class EnvironmentBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (environmentType == Environment.prod) {
+    if (environmentType == Env.prod) {
       return child;
     }
 

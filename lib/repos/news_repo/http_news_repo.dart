@@ -1,12 +1,13 @@
 import 'package:equatable/equatable.dart';
+import 'package:injectable/injectable.dart';
 
 import 'package:ubisoft_club_app/models/news.dart';
 import 'package:ubisoft_club_app/models/user/user.dart';
-//import 'package:ubisoft_club_app/repos/news_repo/news_dto/news_dto.dart';
 
 part '_news_helper.dart';
 
-class HttpNewsRepoImpl implements NewsRepo {
+@Singleton(as: INewsRepo)
+class HttpNewsRepo implements INewsRepo {
 // TODO: drop it
   static String tGameName = 'Tom Clancy\'s Rainbow Six® Siege';
   static String tPlatform = 'XONE';
@@ -98,6 +99,9 @@ class HttpNewsRepoImpl implements NewsRepo {
       challengeType: ChallengeType.weekly,
     ),
   ];
+
+  // @factoryMethod
+  // static Future<HttpNewsRepo> init() async => HttpNewsRepo();
 
   @override
   Future<List<News>> getNews() async {

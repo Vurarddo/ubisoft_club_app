@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'package:ubisoft_club_app/infrastructure/injector.dart';
+import 'package:ubisoft_club_app/infrastructure/injector/injector.dart';
 import 'package:ubisoft_club_app/models/models.dart';
 
 class GamesScreenPresenter with ChangeNotifier {
-  final _userFactory = injector.get<UserFactory>();
+  final _userFactory = getIt<UserFactory>();
   bool _isLoading = false;
   List<Game> _games;
 
@@ -19,7 +19,7 @@ class GamesScreenPresenter with ChangeNotifier {
     _isLoading = true;
     notifyListeners();
     try {
-      final currentUser = await injector.get<UserService>().getCurrentUser();
+      final currentUser = await getIt<UserService>().getCurrentUser();
       final user = await _userFactory.getFullUser(currentUser);
       final userGames = await user.getGames();
       _games = userGames.keys.map((game) => game).toList();

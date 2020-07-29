@@ -1,10 +1,13 @@
+import 'package:injectable/injectable.dart';
+
 import 'package:ubisoft_club_app/models/user/user.dart';
-import 'package:ubisoft_club_app/infrastructure/injector.dart';
+import 'package:ubisoft_club_app/infrastructure/injector/injector.dart';
 import 'package:ubisoft_club_app/infrastructure/store_interactor.dart';
 
+@singleton
 class UserService {
-  final _storeInteractor = injector.get<StoreInteractor>();
-  final _userFactory = injector.get<UserFactory>();
+  final _storeInteractor = getIt<StoreInteractor>();
+  final _userFactory = getIt<UserFactory>();
 
   User _currentUser;
 

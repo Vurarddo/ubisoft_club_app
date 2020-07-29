@@ -1,12 +1,12 @@
 import 'package:flutter/foundation.dart';
 
-import 'package:ubisoft_club_app/infrastructure/injector.dart';
+import 'package:ubisoft_club_app/infrastructure/injector/injector.dart';
 import 'package:ubisoft_club_app/models/news.dart';
 import 'package:ubisoft_club_app/models/user/user.dart';
 import 'package:ubisoft_club_app/models/user/user_service.dart';
 
 class GeneralScreenPresenter with ChangeNotifier {
-  final _newsFactory = injector.get<NewsFactory>();
+  final _newsFactory = getIt<NewsFactory>();
   bool _isLoading = false;
   User _user;
   List<News> _news;
@@ -30,7 +30,7 @@ class GeneralScreenPresenter with ChangeNotifier {
     _isLoading = true;
     notifyListeners();
     try {
-      _user = await injector.get<UserService>().getCurrentUser();
+      _user = await getIt<UserService>().getCurrentUser();
       _gameImage = await _user.getFavoriteGameImg();
     } catch (e) {
       print('GeneralScreenPresenter: _init error $e');
