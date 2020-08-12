@@ -5,7 +5,7 @@ import 'package:equatable/equatable.dart';
 import 'package:ubisoft_club_app/infrastructure/injector/injector.dart';
 import 'package:ubisoft_club_app/models/models.dart';
 
-abstract class IUserRepo {
+abstract class UserRepo {
   Future<User> getUserById(int id);
 
   Future<User> getFullUser(User user);
@@ -19,7 +19,9 @@ enum UserType { profile, clubAndNews }
 
 @singleton
 class UserFactory {
-  final IUserRepo _userRepo;
+  final UserRepo _userRepo;
+
+  UserFactory(this._userRepo);
 
   Future<User> getUserById(int id) {
     return _userRepo.getUserById(id);
@@ -32,12 +34,10 @@ class UserFactory {
   List<String> getPlatforms(List<Game> games) {
     return games.map((game) => game.platform).toSet().toList();
   }
-
-  UserFactory() : _userRepo = getIt<IUserRepo>();
 }
 
 class User extends Equatable {
-  final IUserRepo _userRepo = getIt<IUserRepo>();
+  final UserRepo _userRepo = getIt<UserRepo>();
   final int id;
   final String clubName;
   final String platformName;
@@ -64,10 +64,10 @@ class User extends Equatable {
     return _userRepo.getGames(id);
   }
 
-  Future<String> getFavoriteGameImg() {
-    // TODO: !WARNING! ===========================>>>>>>>>>>>>>>>>>>>>>>>
-    return getIt<IUserRepo>().getFavoriteGameImg(id);
-  }
+  // Future<String> getFavoriteGameImg() {
+  //   // TODO: !WARNING! ===========================>>>>>>>>>>>>>>>>>>>>>>>
+  //   return getIt<UserRepo>().getFavoriteGameImg(id);
+  // }
 
   factory User.mergeInfFull(User source, User user) {
     return User._(

@@ -22,10 +22,10 @@ void $initGetIt(GetIt g, {String environment}) {
   final gh = GetItHelper(g, environment);
 
   // Eager singletons must be registered in the right order
-  gh.singleton<INewsRepo>(HttpNewsRepo());
-  gh.singletonAsync<IUserRepo>(() => HttpUserRepo.init());
-  gh.singleton<NewsFactory>(NewsFactory());
+  gh.singleton<NewsRepo>(HttpNewsRepo());
   gh.singleton<StoreInteractor>(StoreInteractor());
-  gh.singleton<UserFactory>(UserFactory());
+  gh.singleton<UserRepo>(HttpUserRepo());
   gh.singleton<UserService>(UserService());
+  gh.singleton<NewsFactory>(NewsFactory(g<NewsRepo>()));
+  gh.singleton<UserFactory>(UserFactory(g<UserRepo>()));
 }

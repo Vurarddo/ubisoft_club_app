@@ -1,7 +1,7 @@
 import 'package:ubisoft_club_app/models/user/user.dart';
 import 'package:ubisoft_club_app/models/news.dart';
 
-class NewsRepoMock implements INewsRepo {
+class NewsRepoMock implements NewsRepo {
   List<News> _news;
   final String tGameName = 'Tom Clancy\'s Rainbow Six® Siege';
   final String tPlatform = 'XONE';

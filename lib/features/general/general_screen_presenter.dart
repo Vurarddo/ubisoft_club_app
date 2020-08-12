@@ -31,7 +31,8 @@ class GeneralScreenPresenter with ChangeNotifier {
     notifyListeners();
     try {
       _user = await getIt<UserService>().getCurrentUser();
-      _gameImage = await _user.getFavoriteGameImg();
+      _gameImage =
+          'https://cdn.pixabay.com/photo/2015/05/01/10/32/seagull-748201_960_720.jpg'; // await _user.getFavoriteGameImg();
     } catch (e) {
       print('GeneralScreenPresenter: _init error $e');
     } finally {

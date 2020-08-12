@@ -47,7 +47,8 @@ class ProfileScreenPresenter with ChangeNotifier {
 
     _isLoggedIn = currentUser.id == user.id;
     _fullUser = await _userFactory.getFullUser(user);
-    _favoriteGameImg = await _fullUser.getFavoriteGameImg();
+    _favoriteGameImg =
+        'https://cdn.pixabay.com/photo/2015/05/01/10/32/seagull-748201_960_720.jpg'; // await _fullUser.getFavoriteGameImg();
   }
 
   Future<void> _getGames() async {

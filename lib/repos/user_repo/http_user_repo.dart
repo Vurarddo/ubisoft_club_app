@@ -1,8 +1,8 @@
 import 'package:injectable/injectable.dart';
 import 'package:ubisoft_club_app/models/models.dart';
 
-@Singleton(as: IUserRepo)
-class HttpUserRepo implements IUserRepo {
+@Singleton(as: UserRepo)
+class HttpUserRepo implements UserRepo {
 // TODO: drop it!!!
   List<User> _users = [
     User.user(
@@ -64,8 +64,8 @@ class HttpUserRepo implements IUserRepo {
     ),
   ];
 
-  @factoryMethod
-  static Future<HttpUserRepo> init() async => HttpUserRepo();
+  // @factoryMethod
+  // static Future<HttpUserRepo> init() async => HttpUserRepo();
 
   @override
   Future<User> getUserById(int id) async {

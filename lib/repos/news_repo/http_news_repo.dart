@@ -6,8 +6,8 @@ import 'package:ubisoft_club_app/models/user/user.dart';
 
 part '_news_helper.dart';
 
-@Singleton(as: INewsRepo)
-class HttpNewsRepo implements INewsRepo {
+@Singleton(as: NewsRepo)
+class HttpNewsRepo implements NewsRepo {
 // TODO: drop it
   static String tGameName = 'Tom Clancy\'s Rainbow Six® Siege';
   static String tPlatform = 'XONE';

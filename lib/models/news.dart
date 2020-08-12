@@ -5,7 +5,7 @@ import 'package:equatable/equatable.dart';
 import 'package:ubisoft_club_app/infrastructure/injector/injector.dart';
 import 'package:ubisoft_club_app/models/user/user.dart';
 
-abstract class INewsRepo {
+abstract class NewsRepo {
   Future<List<News>> getNews();
 }
 
@@ -17,17 +17,17 @@ enum RewardQuality { legendary, epic, rare, common, exotic }
 
 @singleton
 class NewsFactory {
-  final INewsRepo _newsRepo;
+  final NewsRepo _newsRepo;
+
+  NewsFactory(this._newsRepo);
 
   Future<List<News>> getNews() async {
     return _newsRepo.getNews();
   }
-
-  NewsFactory() : _newsRepo = getIt<INewsRepo>();
 }
 
 abstract class News extends Equatable {
-  final _newsRepo = getIt<INewsRepo>();
+  final _newsRepo = getIt<NewsRepo>();
   final int id;
   final User user;
   final int liked;
